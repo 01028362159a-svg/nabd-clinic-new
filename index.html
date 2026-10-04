@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>نبض | حجز العيادة</title>
 
 <style>
@@ -10,30 +10,33 @@
 
 :root{
   --primary:#087ea4;
-  --primary2:#0aa6c8;
+  --primary2:#0bb3d4;
   --dark:#073b4c;
-  --light:#f2fbfd;
+  --bg:#f3fbfd;
   --white:#fff;
-  --text:#16323d;
-  --muted:#6c858e;
+  --text:#17323c;
+  --muted:#71858d;
   --border:#dceef2;
-  --success:#19a974;
-  --danger:#e55353;
+  --success:#16a36f;
+  --danger:#d94b4b;
+  --warning:#c18400;
   --shadow:0 12px 35px rgba(5,70,90,.10);
 }
 
 body{
   font-family:Tahoma,Arial,sans-serif;
-  background:linear-gradient(180deg,#f5fcfd,#eef8fa);
+  background:linear-gradient(180deg,#f7fdfe,#eef8fa);
   color:var(--text);
   min-height:100vh;
 }
 
-button,input,textarea{font-family:inherit}
+button,input,textarea{
+  font-family:inherit;
+}
 
 button{
-  cursor:pointer;
   border:0;
+  cursor:pointer;
 }
 
 .container{
@@ -41,14 +44,74 @@ button{
   margin:auto;
 }
 
-/* ===== HEADER ===== */
+/* LOGO */
+
+.logo{
+  width:50px;
+  height:50px;
+  border-radius:16px;
+  background:linear-gradient(135deg,#06789c,#12b9d6);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  box-shadow:0 8px 22px rgba(8,126,164,.28);
+  flex-shrink:0;
+}
+
+.logo-heart{
+  width:27px;
+  height:24px;
+  background:white;
+  position:relative;
+  transform:rotate(-45deg);
+  border-radius:5px 14px 5px 14px;
+}
+
+.logo-heart:before,
+.logo-heart:after{
+  content:"";
+  position:absolute;
+  width:27px;
+  height:27px;
+  background:white;
+  border-radius:50%;
+}
+
+.logo-heart:before{
+  top:-13px;
+  left:0;
+}
+
+.logo-heart:after{
+  top:0;
+  left:13px;
+}
+
+.logo-cross{
+  position:absolute;
+  z-index:4;
+  color:var(--primary);
+  background:white;
+  width:16px;
+  height:16px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:14px;
+  font-weight:900;
+}
+
+/* HEADER */
+
 header{
-  background:rgba(255,255,255,.95);
+  background:rgba(255,255,255,.96);
   border-bottom:1px solid var(--border);
   position:sticky;
   top:0;
   z-index:50;
-  backdrop-filter:blur(12px);
+  backdrop-filter:blur(15px);
 }
 
 .nav{
@@ -62,48 +125,19 @@ header{
 .brand{
   display:flex;
   align-items:center;
-  gap:10px;
-  font-size:25px;
+  gap:11px;
+}
+
+.brand-name{
+  font-size:27px;
   font-weight:900;
   color:var(--dark);
 }
 
-.logo{
-  width:48px;
-  height:48px;
-  border-radius:15px;
-  background:linear-gradient(135deg,var(--primary),var(--primary2));
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  position:relative;
-  box-shadow:0 7px 18px rgba(8,126,164,.25);
-}
-
-.logo:before{
-  content:"";
-  width:25px;
-  height:21px;
-  background:#fff;
-  transform:rotate(-45deg);
-  border-radius:5px 14px 5px 14px;
-  position:absolute;
-}
-
-.logo:after{
-  content:"+";
-  position:absolute;
-  color:var(--primary);
-  background:#fff;
-  width:15px;
-  height:15px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:15px;
-  font-weight:900;
-  z-index:2;
+.brand-sub{
+  color:var(--muted);
+  font-size:11px;
+  margin-top:2px;
 }
 
 .nav-actions{
@@ -112,21 +146,22 @@ header{
 }
 
 .small-btn{
-  padding:11px 16px;
+  padding:11px 15px;
   border-radius:12px;
   background:#eaf8fb;
   color:var(--primary);
   font-weight:800;
 }
 
-/* ===== HERO ===== */
+/* HERO */
+
 .hero{
-  padding:55px 0 35px;
+  padding:45px 0 30px;
 }
 
 .hero-box{
   background:
-    radial-gradient(circle at 90% 20%,rgba(10,166,200,.20),transparent 35%),
+    radial-gradient(circle at 90% 20%,rgba(11,179,212,.25),transparent 35%),
     linear-gradient(135deg,#063d50,#087ea4);
   border-radius:30px;
   padding:45px;
@@ -136,27 +171,16 @@ header{
   overflow:hidden;
 }
 
-.hero-box:after{
-  content:"";
-  position:absolute;
-  width:220px;
-  height:220px;
-  border-radius:50%;
-  border:35px solid rgba(255,255,255,.05);
-  left:-70px;
-  bottom:-100px;
-}
-
 .hero h1{
   font-size:clamp(30px,6vw,52px);
   margin-bottom:15px;
 }
 
 .hero p{
-  color:#d9f4f8;
+  color:#dff7fa;
   font-size:17px;
   line-height:1.9;
-  max-width:650px;
+  max-width:680px;
 }
 
 .hero-buttons{
@@ -167,10 +191,10 @@ header{
 }
 
 .btn{
-  padding:14px 20px;
+  padding:14px 19px;
   border-radius:14px;
   font-weight:900;
-  font-size:15px;
+  font-size:14px;
 }
 
 .btn-primary{
@@ -181,10 +205,11 @@ header{
 .btn-outline{
   background:rgba(255,255,255,.12);
   color:white;
-  border:1px solid rgba(255,255,255,.25);
+  border:1px solid rgba(255,255,255,.3);
 }
 
-/* ===== SECTIONS ===== */
+/* SECTIONS */
+
 section{
   padding:25px 0;
 }
@@ -195,12 +220,6 @@ section{
   margin-bottom:18px;
 }
 
-.grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:18px;
-}
-
 .card{
   background:white;
   border:1px solid var(--border);
@@ -208,6 +227,8 @@ section{
   padding:23px;
   box-shadow:var(--shadow);
 }
+
+/* DOCTOR */
 
 .doctor{
   display:flex;
@@ -218,10 +239,10 @@ section{
 .doctor-img{
   width:115px;
   height:115px;
-  border-radius:25px;
+  border-radius:27px;
   object-fit:cover;
-  background:#e9f6f9;
-  flex-shrink:0;
+  background:#e8f7fa;
+  border:4px solid #effbfc;
 }
 
 .doctor-name{
@@ -237,11 +258,19 @@ section{
 }
 
 .bio{
-  margin-top:18px;
-  padding-top:16px;
+  margin-top:20px;
+  padding-top:17px;
   border-top:1px solid var(--border);
   line-height:1.9;
 }
+
+.bio-title{
+  color:var(--dark);
+  font-weight:900;
+  margin-bottom:7px;
+}
+
+/* FEATURES */
 
 .features{
   display:grid;
@@ -259,7 +288,7 @@ section{
 
 .feature-icon{
   font-size:30px;
-  margin-bottom:10px;
+  margin-bottom:9px;
 }
 
 .feature h3{
@@ -273,37 +302,44 @@ section{
   line-height:1.7;
 }
 
-/* ===== APPOINTMENTS ===== */
+/* SLOTS */
+
 .appointments{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:12px;
+  gap:13px;
 }
 
 .slot{
   border:1px solid var(--border);
-  border-radius:16px;
-  padding:16px;
-  background:#fbfeff;
+  border-radius:17px;
+  padding:17px;
+  background:white;
 }
 
 .slot strong{
   display:block;
   color:var(--dark);
-  margin-bottom:6px;
+  margin-bottom:7px;
+}
+
+.slot span{
+  color:var(--muted);
+  font-size:14px;
 }
 
 .slot button{
   width:100%;
-  margin-top:10px;
+  margin-top:12px;
   padding:11px;
   border-radius:11px;
   background:var(--primary);
   color:white;
-  font-weight:800;
+  font-weight:900;
 }
 
-/* ===== TRACK ===== */
+/* TRACK */
+
 .track{
   display:flex;
   gap:10px;
@@ -328,18 +364,15 @@ input:focus,textarea:focus{
 }
 
 .track button{
-  padding:0 22px;
+  padding:0 23px;
   border-radius:13px;
   background:var(--primary);
   color:white;
   font-weight:900;
 }
 
-.result{
-  margin-top:15px;
-}
+/* DASHBOARD */
 
-/* ===== DASHBOARD ===== */
 #dashboard{
   display:none;
 }
@@ -364,6 +397,13 @@ input:focus,textarea:focus{
   color:white;
 }
 
+.dashboard-panel{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:22px;
+}
+
 .stats{
   display:grid;
   grid-template-columns:repeat(4,1fr);
@@ -372,7 +412,7 @@ input:focus,textarea:focus{
 }
 
 .stat{
-  background:white;
+  background:#fbfeff;
   border:1px solid var(--border);
   border-radius:18px;
   padding:18px;
@@ -388,13 +428,6 @@ input:focus,textarea:focus{
   font-size:30px;
   color:var(--primary);
   margin-top:6px;
-}
-
-.dashboard-panel{
-  background:white;
-  border:1px solid var(--border);
-  border-radius:22px;
-  padding:22px;
 }
 
 .form-grid{
@@ -438,6 +471,7 @@ input:focus,textarea:focus{
   display:flex;
   justify-content:space-between;
   gap:10px;
+  align-items:center;
   margin-bottom:10px;
 }
 
@@ -450,15 +484,28 @@ input:focus,textarea:focus{
 }
 
 .status{
+  display:inline-block;
+  margin-top:10px;
   padding:6px 10px;
   border-radius:9px;
   font-size:12px;
   font-weight:900;
 }
 
-.pending{background:#fff3d9;color:#b77700}
-.confirmed{background:#def8ed;color:#128259}
-.rejected{background:#ffe6e6;color:#c33}
+.pending{
+  background:#fff3d9;
+  color:var(--warning);
+}
+
+.confirmed{
+  background:#def8ed;
+  color:#128259;
+}
+
+.rejected{
+  background:#ffe6e6;
+  color:#c33;
+}
 
 .booking-actions{
   display:flex;
@@ -476,16 +523,41 @@ input:focus,textarea:focus{
   font-size:13px;
 }
 
-.whatsapp{background:#dcf8e9;color:#14804f}
-.call{background:#e4f3ff;color:#1670a3}
-.approve{background:#daf7eb;color:#087c52}
-.reject,.delete{background:#ffe5e5;color:#bd3838}
+.whatsapp{
+  background:#dcf8e9;
+  color:#14804f;
+}
 
-/* ===== MODAL ===== */
+.call{
+  background:#e4f3ff;
+  color:#1670a3;
+}
+
+.approve{
+  background:#daf7eb;
+  color:#087c52;
+}
+
+.reject,
+.delete{
+  background:#ffe5e5;
+  color:#bd3838;
+}
+
+.empty{
+  padding:20px;
+  text-align:center;
+  color:var(--muted);
+  background:#f7fcfd;
+  border-radius:15px;
+}
+
+/* MODAL */
+
 .modal{
   position:fixed;
   inset:0;
-  background:rgba(0,35,45,.58);
+  background:rgba(0,35,45,.6);
   display:none;
   align-items:center;
   justify-content:center;
@@ -494,7 +566,7 @@ input:focus,textarea:focus{
 }
 
 .modal-box{
-  width:min(520px,100%);
+  width:min(540px,100%);
   background:white;
   border-radius:25px;
   padding:25px;
@@ -515,7 +587,7 @@ input:focus,textarea:focus{
   border-radius:50%;
   background:#edf7f9;
   color:var(--dark);
-  font-size:20px;
+  font-size:21px;
 }
 
 .modal-form{
@@ -539,18 +611,41 @@ input:focus,textarea:focus{
   line-height:1.7;
 }
 
-/* ===== FOOTER ===== */
+/* TOAST */
+
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:25px;
+  transform:translateX(-50%) translateY(120px);
+  background:#073b4c;
+  color:white;
+  padding:14px 20px;
+  border-radius:14px;
+  z-index:300;
+  transition:.3s;
+  max-width:90%;
+  text-align:center;
+}
+
+.toast.show{
+  transform:translateX(-50%) translateY(0);
+}
+
+/* FOOTER */
+
 footer{
   margin-top:30px;
-  padding:28px 0;
+  padding:30px 0;
   text-align:center;
   color:var(--muted);
   border-top:1px solid var(--border);
 }
 
-/* ===== MOBILE ===== */
+/* MOBILE */
+
 @media(max-width:800px){
-  .grid,
+
   .features{
     grid-template-columns:1fr 1fr;
   }
@@ -569,6 +664,7 @@ footer{
 }
 
 @media(max-width:560px){
+
   .nav-actions .small-btn:first-child{
     display:none;
   }
@@ -578,7 +674,6 @@ footer{
     border-radius:23px;
   }
 
-  .grid,
   .features,
   .appointments,
   .form-grid{
@@ -609,6 +704,10 @@ footer{
   .full{
     grid-column:auto;
   }
+
+  .dashboard-tabs{
+    grid-template-columns:1fr 1fr;
+  }
 }
 </style>
 </head>
@@ -616,156 +715,230 @@ footer{
 <body>
 
 <header>
-  <div class="container nav">
-    <div class="brand">
-      <div class="logo"></div>
-      <span>نبض</span>
+<div class="container nav">
+
+  <div class="brand">
+
+    <div class="logo">
+      <div class="logo-heart"></div>
+      <div class="logo-cross">+</div>
     </div>
 
-    <div class="nav-actions">
-      <button class="small-btn" onclick="openLogin()">لوحة الدكتور</button>
-      <button class="small-btn" onclick="scrollToBooking()">حجز موعد</button>
+    <div>
+      <div class="brand-name">نبض</div>
+      <div class="brand-sub">حجز العيادة بسهولة</div>
     </div>
+
   </div>
+
+  <div class="nav-actions">
+    <button class="small-btn" onclick="openLogin()">
+      لوحة الدكتور
+    </button>
+
+    <button class="small-btn" onclick="scrollToBooking()">
+      حجز موعد
+    </button>
+  </div>
+
+</div>
 </header>
+
 
 <main>
 
+<!-- HERO -->
+
 <section class="hero">
+
 <div class="container">
+
 <div class="hero-box">
 
 <h1>احجز موعدك بسهولة</h1>
 
 <p>
-مع <b>نبض</b> يمكنك حجز موعدك ومتابعة حالة الحجز والتواصل مع الدكتور
-بسهولة من مكان واحد.
+مع <b>نبض</b> يمكنك حجز موعدك، متابعة حالة الحجز،
+والتواصل مع الدكتور بسهولة من مكان واحد.
 </p>
 
 <div class="hero-buttons">
-<button class="btn btn-primary" onclick="scrollToBooking()">
+
+<button class="btn btn-primary"
+onclick="scrollToBooking()">
 احجز موعدك الآن
 </button>
 
-<button class="btn btn-outline" onclick="scrollToTrack()">
+<button class="btn btn-outline"
+onclick="scrollToTrack()">
 متابعة حجز
 </button>
 
-<button class="btn btn-outline" onclick="callDoctor()">
+<button class="btn btn-outline"
+onclick="callDoctor()">
 📞 اتصل بالدكتور
 </button>
 
-<button class="btn btn-outline" onclick="openWhatsApp()">
+<button class="btn btn-outline"
+onclick="openWhatsApp()">
 💬 تواصل واتساب
 </button>
+
 </div>
 
 </div>
+
 </div>
+
 </section>
 
+
+<!-- DOCTOR -->
+
 <section>
+
 <div class="container">
 
-<h2 class="title">بيانات الدكتور</h2>
+<h2 class="title">
+بيانات الدكتور
+</h2>
 
 <div class="card">
 
 <div class="doctor">
 
-<img id="doctorImage"
+<img
+id="doctorImage"
 class="doctor-img"
-src="logo.svg"
-alt="الدكتور">
+src=""
+alt="صورة الدكتور">
 
 <div>
-<h2 class="doctor-name" id="doctorName">د. إبراهيم شتا</h2>
+
+<h2
+id="doctorName"
+class="doctor-name">
+د. إبراهيم شتا
+</h2>
+
 <div class="info">
-<div id="doctorSpecialty">طبيب</div>
-<div id="doctorAddress">العنوان غير محدد</div>
-<div id="doctorHours">مواعيد العمل غير محددة</div>
+
+<div id="doctorSpecialty">
+طبيب
 </div>
+
+<div id="doctorAddress">
+العنوان غير محدد
+</div>
+
+<div id="doctorHours">
+مواعيد العمل غير محددة
 </div>
 
 </div>
 
-<div id="bioBox" class="bio" style="display:none">
-<strong>السيرة الذاتية للدكتور</strong>
+</div>
+
+</div>
+
+
+<div
+id="bioBox"
+class="bio"
+style="display:none">
+
+<div class="bio-title">
+السيرة الذاتية للدكتور
+</div>
+
 <p id="doctorBio"></p>
+
 </div>
 
 </div>
+
 </div>
+
 </section>
 
+
+<!-- FEATURES -->
+
 <section>
+
 <div class="container">
 
-<h2 class="title">لماذا نبض؟</h2>
+<h2 class="title">
+لماذا نبض؟
+</h2>
 
 <div class="features">
 
 <div class="feature">
 <div class="feature-icon">🔒</div>
 <h3>خصوصية</h3>
-<p>بيانات الحجز محفوظة بطريقة منظمة.</p>
+<p>بيانات الحجز منظمة ومحفوظة.</p>
 </div>
 
 <div class="feature">
 <div class="feature-icon">📅</div>
 <h3>مواعيد مرنة</h3>
-<p>اختر الموعد المناسب من المواعيد المتاحة.</p>
+<p>اختر الموعد المناسب لك.</p>
 </div>
 
 <div class="feature">
 <div class="feature-icon">⚡</div>
 <h3>حجز سريع</h3>
-<p>خطوات بسيطة للحصول على موعدك.</p>
+<p>خطوات بسيطة وسهلة.</p>
 </div>
 
 <div class="feature">
 <div class="feature-icon">💬</div>
 <h3>تواصل مباشر</h3>
-<p>تواصل مع الدكتور بسهولة.</p>
+<p>تواصل سريع مع الدكتور.</p>
 </div>
 
 </div>
+
 </div>
+
 </section>
+
+
+<!-- AVAILABLE -->
 
 <section id="bookingSection">
+
 <div class="container">
 
-<h2 class="title">المواعيد المتاحة</h2>
+<h2 class="title">
+المواعيد المتاحة
+</h2>
 
-<div id="appointments" class="appointments">
+<div
+id="appointments"
+class="appointments">
 
-<div class="slot">
-<strong>الأحد</strong>
-<span>10:00 صباحًا</span>
-<button onclick="openBooking('الأحد - 10:00 صباحًا')">احجز</button>
-</div>
-
-<div class="slot">
-<strong>الاثنين</strong>
-<span>12:00 ظهرًا</span>
-<button onclick="openBooking('الاثنين - 12:00 ظهرًا')">احجز</button>
-</div>
-
-<div class="slot">
-<strong>الثلاثاء</strong>
-<span>5:00 مساءً</span>
-<button onclick="openBooking('الثلاثاء - 5:00 مساءً')">احجز</button>
+<div class="empty">
+جاري تحميل المواعيد...
 </div>
 
 </div>
+
 </div>
+
 </section>
 
+
+<!-- TRACK -->
+
 <section id="trackSection">
+
 <div class="container">
 
-<h2 class="title">متابعة الحجز</h2>
+<h2 class="title">
+متابعة الحجز
+</h2>
 
 <div class="card">
 
@@ -775,7 +948,8 @@ alt="الدكتور">
 
 <div class="track">
 
-<input id="trackNumber"
+<input
+id="trackNumber"
 type="number"
 min="1"
 placeholder="مثال: 3">
@@ -786,65 +960,127 @@ placeholder="مثال: 3">
 
 </div>
 
-<div id="trackResult" class="result"></div>
+<div
+id="trackResult"
+style="margin-top:15px">
+</div>
 
 </div>
+
 </div>
+
 </section>
+
 
 <!-- DASHBOARD -->
 
 <section id="dashboard">
+
 <div class="container">
 
-<h2 class="title">لوحة تحكم الدكتور</h2>
+<h2 class="title">
+لوحة تحكم الدكتور
+</h2>
+
 
 <div class="dashboard-tabs">
 
-<button class="tab active" onclick="showPanel('overview',this)">
+<button
+class="tab active"
+onclick="showPanel('overview',this)">
 نظرة عامة
 </button>
 
-<button class="tab" onclick="showPanel('pending',this)">
+<button
+class="tab"
+onclick="showPanel('pending',this)">
 طلبات الانتظار
 </button>
 
-<button class="tab" onclick="showPanel('confirmed',this)">
+<button
+class="tab"
+onclick="showPanel('confirmed',this)">
 المواعيد المؤكدة
 </button>
 
-<button class="tab" onclick="showPanel('available',this)">
+<button
+class="tab"
+onclick="showPanel('available',this)">
 المواعيد المتاحة
 </button>
 
-<button class="tab" onclick="showPanel('settings',this)">
+<button
+class="tab"
+onclick="showPanel('settings',this)">
 إعدادات العيادة
 </button>
 
 </div>
 
-<div id="overview" class="dashboard-panel">
+
+<!-- OVERVIEW -->
+
+<div
+id="overview"
+class="dashboard-panel">
 
 <div class="stats">
 
-<div class="stat" onclick="showPanel('pending')">
-<small>طلبات الانتظار</small>
-<strong id="pendingCount">0</strong>
+<div
+class="stat"
+onclick="showPanel('pending')">
+
+<small>
+طلبات الانتظار
+</small>
+
+<strong id="pendingCount">
+0
+</strong>
+
 </div>
 
-<div class="stat" onclick="showPanel('confirmed')">
-<small>المواعيد المؤكدة</small>
-<strong id="confirmedCount">0</strong>
+
+<div
+class="stat"
+onclick="showPanel('confirmed')">
+
+<small>
+المواعيد المؤكدة
+</small>
+
+<strong id="confirmedCount">
+0
+</strong>
+
 </div>
 
-<div class="stat" onclick="showPanel('available')">
-<small>المواعيد المتاحة</small>
-<strong id="availableCount">0</strong>
+
+<div
+class="stat"
+onclick="showPanel('available')">
+
+<small>
+المواعيد المتاحة
+</small>
+
+<strong id="availableCount">
+0
+</strong>
+
 </div>
+
 
 <div class="stat">
-<small>إجمالي الحجوزات</small>
-<strong id="totalCount">0</strong>
+
+<small>
+إجمالي الحجوزات
+</small>
+
+<strong id="totalCount">
+0
+</strong>
+
 </div>
 
 </div>
@@ -853,96 +1089,230 @@ placeholder="مثال: 3">
 
 </div>
 
-<div id="pending" class="dashboard-panel" style="display:none">
-<h3 style="margin-bottom:15px">طلبات الانتظار</h3>
+
+<!-- PENDING -->
+
+<div
+id="pending"
+class="dashboard-panel"
+style="display:none">
+
+<h3 style="margin-bottom:15px">
+طلبات الانتظار
+</h3>
+
 <div id="pendingList"></div>
+
 </div>
 
-<div id="confirmed" class="dashboard-panel" style="display:none">
-<h3 style="margin-bottom:15px">المواعيد المؤكدة</h3>
+
+<!-- CONFIRMED -->
+
+<div
+id="confirmed"
+class="dashboard-panel"
+style="display:none">
+
+<h3 style="margin-bottom:15px">
+المواعيد المؤكدة
+</h3>
+
 <div id="confirmedList"></div>
+
 </div>
 
-<div id="available" class="dashboard-panel" style="display:none">
-<h3 style="margin-bottom:15px">المواعيد المتاحة</h3>
+
+<!-- AVAILABLE -->
+
+<div
+id="available"
+class="dashboard-panel"
+style="display:none">
+
+<h3 style="margin-bottom:15px">
+المواعيد المتاحة
+</h3>
+
 
 <div class="form-grid">
+
 <div>
-<label>اليوم والموعد</label>
-<input id="newSlot" placeholder="مثال: الأحد - 10 صباحًا">
+
+<label>
+اليوم والموعد
+</label>
+
+<input
+id="newSlot"
+placeholder="مثال: الأحد - 10 صباحًا">
+
 </div>
+
 
 <div style="display:flex;align-items:end">
-<button class="save" onclick="addSlot()">إضافة موعد</button>
+
+<button
+class="save"
+onclick="addSlot()">
+إضافة موعد
+</button>
+
 </div>
-</div>
-
-<div id="slotList" style="margin-top:20px"></div>
 
 </div>
 
-<div id="settings" class="dashboard-panel" style="display:none">
 
-<h3 style="margin-bottom:18px">إعدادات العيادة</h3>
+<div
+id="slotList"
+style="margin-top:20px">
+</div>
+
+</div>
+
+
+<!-- SETTINGS -->
+
+<div
+id="settings"
+class="dashboard-panel"
+style="display:none">
+
+<h3 style="margin-bottom:18px">
+إعدادات العيادة
+</h3>
+
 
 <div class="form-grid">
 
-<div class="form-group">
-<label>اسم الدكتور</label>
-<input id="setName" value="د. إبراهيم شتا">
-</div>
 
 <div class="form-group">
-<label>التخصص</label>
-<input id="setSpecialty" value="طبيب">
+
+<label>
+اسم الدكتور
+</label>
+
+<input
+id="setName"
+placeholder="اسم الدكتور">
+
 </div>
 
-<div class="form-group">
-<label>رقم الهاتف</label>
-<input id="setPhone" placeholder="01xxxxxxxxx">
-</div>
 
 <div class="form-group">
-<label>رقم واتساب</label>
-<input id="setWhatsapp" placeholder="201xxxxxxxxx">
+
+<label>
+التخصص
+</label>
+
+<input
+id="setSpecialty"
+placeholder="التخصص">
+
 </div>
 
-<div class="form-group">
-<label>العنوان</label>
-<input id="setAddress">
-</div>
 
 <div class="form-group">
-<label>مواعيد العمل</label>
-<input id="setHours">
+
+<label>
+رقم الهاتف
+</label>
+
+<input
+id="setPhone"
+placeholder="01xxxxxxxxx">
+
 </div>
+
+
+<div class="form-group">
+
+<label>
+رقم واتساب
+</label>
+
+<input
+id="setWhatsapp"
+placeholder="201xxxxxxxxx">
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+العنوان
+</label>
+
+<input
+id="setAddress"
+placeholder="عنوان العيادة">
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+مواعيد العمل
+</label>
+
+<input
+id="setHours"
+placeholder="مثال: السبت - الخميس 9 ص إلى 2 م">
+
+</div>
+
 
 <div class="form-group full">
-<label>السيرة الذاتية للدكتور</label>
-<textarea id="setBio" rows="5"
-placeholder="اكتب السيرة الذاتية هنا... ويمكن تركها فارغة"></textarea>
+
+<label>
+السيرة الذاتية للدكتور
+</label>
+
+<textarea
+id="setBio"
+rows="5"
+placeholder="اكتب السيرة الذاتية للدكتور هنا... ويمكن تركها فارغة">
+</textarea>
+
 </div>
 
+
 <div class="form-group full">
-<label>رابط صورة الدكتور</label>
-<input id="setImage" placeholder="https://...">
+
+<label>
+رابط صورة الدكتور
+</label>
+
+<input
+id="setImage"
+placeholder="https://...">
+
 </div>
+
 
 <div class="full">
-<button class="save" onclick="saveSettings()">
+
+<button
+class="save"
+onclick="saveSettings()">
 حفظ بيانات العيادة
 </button>
-</div>
 
 </div>
 
 </div>
 
 </div>
+
 </div>
+
+</div>
+
 </section>
 
 </main>
+
 
 <footer>
 <strong>نبض</strong>
@@ -950,728 +1320,1944 @@ placeholder="اكتب السيرة الذاتية هنا... ويمكن تركه�
 صحتك تهمنا
 </footer>
 
+
 <!-- BOOKING MODAL -->
 
-<div id="bookingModal" class="modal">
+<div
+id="bookingModal"
+class="modal">
 
 <div class="modal-box">
 
 <div class="modal-head">
-<h2>حجز موعد</h2>
-<button class="close" onclick="closeBooking()">×</button>
+
+<h2>
+حجز موعد
+</h2>
+
+<button
+class="close"
+onclick="closeBooking()">
+×
+</button>
+
 </div>
+
 
 <div class="modal-form">
 
 <div class="notice">
+
 الموعد المختار:
 <strong id="selectedSlot"></strong>
+
 </div>
 
-<input id="patientName" placeholder="اسم المريض">
 
-<input id="patientPhone" placeholder="رقم الهاتف">
+<input
+id="patientName"
+placeholder="اسم المريض">
 
-<input id="patientAge" type="number" placeholder="العمر">
 
-<textarea id="patientNote"
+<input
+id="patientPhone"
+placeholder="رقم الهاتف">
+
+
+<input
+id="patientAge"
+type="number"
+placeholder="العمر">
+
+
+<textarea
+id="patientNote"
 rows="4"
-placeholder="ملاحظات إضافية (اختياري)"></textarea>
+placeholder="ملاحظات إضافية (اختياري)">
+</textarea>
+
 
 <button onclick="submitBooking()">
 تأكيد طلب الحجز
 </button>
 
 </div>
-</div>
+
 </div>
 
-<!-- LOGIN MODAL -->
+</div>
 
-<div id="loginModal" class="modal">
+
+<!-- LOGIN -->
+
+<div
+id="loginModal"
+class="modal">
 
 <div class="modal-box">
 
 <div class="modal-head">
-<h2>دخول الدكتور</h2>
-<button class="close" onclick="closeLogin()">×</button>
+
+<h2>
+دخول الدكتور
+</h2>
+
+<button
+class="close"
+onclick="closeLogin()">
+×
+</button>
+
 </div>
+
 
 <div class="modal-form">
 
-<input id="loginEmail"
+<input
+id="loginEmail"
 type="email"
 placeholder="البريد الإلكتروني">
 
-<input id="loginPassword"
+
+<input
+id="loginPassword"
 type="password"
 placeholder="كلمة المرور">
+
 
 <button onclick="loginDoctor()">
 دخول
 </button>
 
+
 <div id="loginMessage"></div>
 
 </div>
+
 </div>
+
 </div>
+
+
+<div id="toast" class="toast"></div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
 
-/* ===================================
-   بيانات افتراضية مؤقتة
-   =================================== */
+/* ==========================================
+   SUPABASE
+========================================== */
+
+const SUPABASE_URL =
+'https://rgoamjtvynjhmpjnbhdz.supabase.co';
+
+const SUPABASE_ANON_KEY =
+'sb_publishable_JX98F7bl5kCc93s53EzGJA_mTPaWJT7';
+
+const CLINIC_ID =
+'clinic-001';
+
+const supabaseClient =
+window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_ANON_KEY
+);
+
+
+/* ==========================================
+   STATE
+========================================== */
 
 let doctor = {
-  name:"د. إبراهيم شتا",
-  specialty:"طبيب",
-  phone:"",
-  whatsapp:"",
-  address:"العنوان غير محدد",
-  hours:"مواعيد العمل غير محددة",
-  bio:"",
-  image:"logo.svg"
+  name:'د. إبراهيم شتا',
+  specialty:'طبيب',
+  phone:'',
+  whatsapp:'',
+  address:'',
+  hours:'',
+  bio:'',
+  image:''
 };
 
-let bookings = [
-  {
-    id:1,
-    dailyNumber:1,
-    name:"مثال",
-    phone:"01000000000",
-    slot:"الأحد - 10:00 صباحًا",
-    status:"pending"
-  }
-];
+let bookings = [];
+let slots = [];
+let selectedSlot = '';
 
-let slots = [
-  "الأحد - 10:00 صباحًا",
-  "الاثنين - 12:00 ظهرًا",
-  "الثلاثاء - 5:00 مساءً"
-];
 
-let selectedSlot="";
+/* ==========================================
+   HELPERS
+========================================== */
 
-/* ===================================
-   اتصال الدكتور
-   =================================== */
+function escapeHTML(value){
 
-function callDoctor(){
+  if(value === null || value === undefined)
+    return '';
 
-  if(!doctor.phone){
-    alert("رقم الدكتور غير مضاف حاليًا.");
-    return;
-  }
-
-  /*
-   * tel: يفتح تطبيق الهاتف والرقم جاهز
-   * ولا يبدأ المكالمة تلقائيًا.
-   */
-
-  window.location.href =
-    "tel:" + doctor.phone;
+  return String(value)
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;')
+    .replace(/'/g,'&#039;');
 }
 
-/* ===================================
-   واتساب
-   =================================== */
 
-function openWhatsApp(){
+function showToast(message){
 
-  if(!doctor.whatsapp){
-    alert("رقم واتساب الدكتور غير مضاف حاليًا.");
-    return;
-  }
+  const toast =
+    document.getElementById('toast');
 
-  let number =
-    doctor.whatsapp.replace(/\D/g,"");
+  toast.textContent = message;
 
-  window.open(
-    "https://wa.me/" + number,
-    "_blank"
-  );
+  toast.classList.add('show');
+
+  setTimeout(()=>{
+    toast.classList.remove('show');
+  },3000);
 }
 
-/* ===================================
-   التنقل
-   =================================== */
+
+/* ==========================================
+   NAVIGATION
+========================================== */
 
 function scrollToBooking(){
 
   document
-  .getElementById("bookingSection")
-  .scrollIntoView({behavior:"smooth"});
-
+    .getElementById('bookingSection')
+    .scrollIntoView({
+      behavior:'smooth'
+    });
 }
+
 
 function scrollToTrack(){
 
   document
-  .getElementById("trackSection")
-  .scrollIntoView({behavior:"smooth"});
-
+    .getElementById('trackSection')
+    .scrollIntoView({
+      behavior:'smooth'
+    });
 }
 
-/* ===================================
-   الحجز
-   =================================== */
 
-function openBooking(slot){
+/* ==========================================
+   DOCTOR CONTACT
+========================================== */
 
-  selectedSlot=slot;
+function callDoctor(){
 
-  document.getElementById("selectedSlot")
-  .textContent=slot;
+  if(!doctor.phone){
 
-  document.getElementById("bookingModal")
-  .style.display="flex";
-}
+    showToast(
+      'رقم الدكتور غير مضاف حاليًا'
+    );
 
-function closeBooking(){
-
-  document.getElementById("bookingModal")
-  .style.display="none";
-}
-
-function submitBooking(){
-
-  let name =
-    document.getElementById("patientName").value.trim();
-
-  let phone =
-    document.getElementById("patientPhone").value.trim();
-
-  let age =
-    document.getElementById("patientAge").value.trim();
-
-  let note =
-    document.getElementById("patientNote").value.trim();
-
-  if(!name || !phone){
-
-    alert("من فضلك اكتب الاسم ورقم الهاتف.");
     return;
+  }
+
+  /*
+    tel: يفتح تطبيق الهاتف
+    والرقم يكون جاهزًا دون بدء المكالمة تلقائيًا.
+  */
+
+  window.location.href =
+    'tel:' + doctor.phone;
+}
+
+
+function openWhatsApp(){
+
+  if(!doctor.whatsapp){
+
+    showToast(
+      'رقم واتساب الدكتور غير مضاف حاليًا'
+    );
+
+    return;
+  }
+
+  let number =
+    doctor.whatsapp
+      .replace(/\D/g,'');
+
+  if(number.startsWith('0')){
+    number =
+      '20' + number.substring(1);
+  }
+
+  window.open(
+    'https://wa.me/' + number,
+    '_blank'
+  );
+}
+
+
+/* ==========================================
+   LOAD SETTINGS
+========================================== */
+
+async function loadSettings(){
+
+  const {
+    data,
+    error
+  } = await supabaseClient
+    .from('clinic_settings')
+    .select('*')
+    .eq('clinic_id',CLINIC_ID)
+    .maybeSingle();
+
+  if(error){
+
+    console.error(error);
+
+    return;
+  }
+
+  if(!data)
+    return;
+
+  doctor.name =
+    data.doctor_name ||
+    'د. إبراهيم شتا';
+
+  doctor.specialty =
+    data.specialty ||
+    'طبيب';
+
+  doctor.phone =
+    data.phone || '';
+
+  doctor.whatsapp =
+    data.whatsapp || '';
+
+  doctor.address =
+    data.address || '';
+
+  doctor.hours =
+    data.working_hours || '';
+
+  doctor.bio =
+    data.biography ||
+    data.description ||
+    '';
+
+  doctor.image =
+    data.doctor_image || '';
+
+  updateDoctorUI();
+  fillSettings();
+}
+
+
+/* ==========================================
+   UPDATE PUBLIC DOCTOR UI
+========================================== */
+
+function updateDoctorUI(){
+
+  document.getElementById(
+    'doctorName'
+  ).textContent =
+    doctor.name;
+
+  document.getElementById(
+    'doctorSpecialty'
+  ).textContent =
+    doctor.specialty;
+
+  document.getElementById(
+    'doctorAddress'
+  ).textContent =
+    doctor.address ||
+    'العنوان غير محدد';
+
+  document.getElementById(
+    'doctorHours'
+  ).textContent =
+    doctor.hours ||
+    'مواعيد العمل غير محددة';
+
+
+  const image =
+    document.getElementById(
+      'doctorImage'
+    );
+
+  if(doctor.image){
+
+    image.src =
+      doctor.image;
+
+  }else{
+
+    image.src =
+      createLogoImage();
 
   }
 
-  let dailyNumber =
-    bookings.length + 1;
 
-  bookings.push({
-    id:Date.now(),
-    dailyNumber,
-    name,
-    phone,
-    age,
-    note,
-    slot:selectedSlot,
-    status:"pending"
-  });
-
-  alert(
-    "تم إرسال طلب الحجز بنجاح.\n" +
-    "رقمك اليومي: " +
-    dailyNumber
-  );
-
-  document.getElementById("patientName").value="";
-  document.getElementById("patientPhone").value="";
-  document.getElementById("patientAge").value="";
-  document.getElementById("patientNote").value="";
-
-  closeBooking();
-}
-
-/* ===================================
-   متابعة الحجز
-   =================================== */
-
-function trackBooking(){
-
-  let number =
-    Number(
-      document.getElementById("trackNumber").value
+  const bioBox =
+    document.getElementById(
+      'bioBox'
     );
 
-  let result =
-    document.getElementById("trackResult");
+  const bio =
+    document.getElementById(
+      'doctorBio'
+    );
+
+  if(doctor.bio){
+
+    bioBox.style.display =
+      'block';
+
+    bio.textContent =
+      doctor.bio;
+
+  }else{
+
+    bioBox.style.display =
+      'none';
+
+  }
+}
+
+
+/*
+  صورة SVG بسيطة داخل الصفحة
+  حتى لا تظهر صورة مكسورة إذا لم
+  يضع الدكتور صورة.
+*/
+
+function createLogoImage(){
+
+  const svg = `
+  <svg xmlns="http://www.w3.org/2000/svg"
+       width="300"
+       height="300"
+       viewBox="0 0 300 300">
+
+    <rect width="300"
+          height="300"
+          rx="55"
+          fill="#087ea4"/>
+
+    <text
+      x="150"
+      y="180"
+      text-anchor="middle"
+      font-size="80"
+      font-family="Arial"
+      font-weight="bold"
+      fill="white">
+      نبض
+    </text>
+
+  </svg>
+  `;
+
+  return 'data:image/svg+xml;charset=UTF-8,' +
+    encodeURIComponent(svg);
+}
+
+
+/* ==========================================
+   SETTINGS FORM
+========================================== */
+
+function fillSettings(){
+
+  document.getElementById(
+    'setName'
+  ).value =
+    doctor.name || '';
+
+  document.getElementById(
+    'setSpecialty'
+  ).value =
+    doctor.specialty || '';
+
+  document.getElementById(
+    'setPhone'
+  ).value =
+    doctor.phone || '';
+
+  document.getElementById(
+    'setWhatsapp'
+  ).value =
+    doctor.whatsapp || '';
+
+  document.getElementById(
+    'setAddress'
+  ).value =
+    doctor.address || '';
+
+  document.getElementById(
+    'setHours'
+  ).value =
+    doctor.hours || '';
+
+  document.getElementById(
+    'setBio'
+  ).value =
+    doctor.bio || '';
+
+  document.getElementById(
+    'setImage'
+  ).value =
+    doctor.image || '';
+}
+
+
+/* ==========================================
+   SAVE SETTINGS
+========================================== */
+
+async function saveSettings(){
+
+  const payload = {
+
+    clinic_id:CLINIC_ID,
+
+    doctor_name:
+      document.getElementById(
+        'setName'
+      ).value.trim(),
+
+    specialty:
+      document.getElementById(
+        'setSpecialty'
+      ).value.trim(),
+
+    phone:
+      document.getElementById(
+        'setPhone'
+      ).value.trim(),
+
+    whatsapp:
+      document.getElementById(
+        'setWhatsapp'
+      ).value.trim(),
+
+    address:
+      document.getElementById(
+        'setAddress'
+      ).value.trim(),
+
+    working_hours:
+      document.getElementById(
+        'setHours'
+      ).value.trim(),
+
+    biography:
+      document.getElementById(
+        'setBio'
+      ).value.trim(),
+
+    description:
+      document.getElementById(
+        'setBio'
+      ).value.trim(),
+
+    doctor_image:
+      document.getElementById(
+        'setImage'
+      ).value.trim(),
+
+    updated_at:
+      new Date().toISOString()
+  };
+
+
+  const {
+    error
+  } = await supabaseClient
+    .from('clinic_settings')
+    .upsert(
+      payload,
+      {
+        onConflict:'clinic_id'
+      }
+    );
+
+
+  if(error){
+
+    console.error(error);
+
+    showToast(
+      'حدث خطأ أثناء حفظ البيانات'
+    );
+
+    return;
+  }
+
+
+  doctor.name =
+    payload.doctor_name ||
+    'د. إبراهيم شتا';
+
+  doctor.specialty =
+    payload.specialty ||
+    'طبيب';
+
+  doctor.phone =
+    payload.phone;
+
+  doctor.whatsapp =
+    payload.whatsapp;
+
+  doctor.address =
+    payload.address;
+
+  doctor.hours =
+    payload.working_hours;
+
+  doctor.bio =
+    payload.biography;
+
+  doctor.image =
+    payload.doctor_image;
+
+
+  updateDoctorUI();
+
+  showToast(
+    'تم حفظ بيانات العيادة بنجاح'
+  );
+}
+
+
+/* ==========================================
+   LOAD SLOTS
+========================================== */
+
+async function loadSlots(){
+
+  const {
+    data,
+    error
+  } = await supabaseClient
+    .from('appointments')
+    .select('*')
+    .eq('clinic_id',CLINIC_ID)
+    .eq('status','available')
+    .order('created_at',{
+      ascending:true
+    });
+
+
+  if(error){
+
+    console.error(error);
+
+    renderSlots();
+
+    return;
+  }
+
+
+  slots =
+    data || [];
+
+  renderPublicSlots();
+  renderDashboardSlots();
+}
+
+
+/* ==========================================
+   PUBLIC SLOTS
+========================================== */
+
+function renderPublicSlots(){
+
+  const box =
+    document.getElementById(
+      'appointments'
+    );
+
+
+  if(!slots.length){
+
+    box.innerHTML =
+      `<div class="empty">
+        لا توجد مواعيد متاحة حاليًا.
+      </div>`;
+
+    return;
+  }
+
+
+  box.innerHTML =
+    slots.map(slot=>`
+
+      <div class="slot">
+
+        <strong>
+          📅 موعد متاح
+        </strong>
+
+        <span>
+          ${escapeHTML(
+            slot.appointment_text
+          )}
+        </span>
+
+        <button
+          onclick="openBooking(
+            '${String(
+              slot.appointment_text
+            ).replace(/'/g,"\\'")}',
+            ${slot.id}
+          )">
+
+          احجز هذا الموعد
+
+        </button>
+
+      </div>
+
+    `).join('');
+}
+
+
+/* ==========================================
+   BOOKING
+========================================== */
+
+let selectedSlotId = null;
+
+
+function openBooking(
+  slotText,
+  slotId
+){
+
+  selectedSlot =
+    slotText;
+
+  selectedSlotId =
+    slotId;
+
+  document.getElementById(
+    'selectedSlot'
+  ).textContent =
+    slotText;
+
+  document.getElementById(
+    'bookingModal'
+  ).style.display =
+    'flex';
+}
+
+
+function closeBooking(){
+
+  document.getElementById(
+    'bookingModal'
+  ).style.display =
+    'none';
+}
+
+
+async function submitBooking(){
+
+  const name =
+    document.getElementById(
+      'patientName'
+    ).value.trim();
+
+  const phone =
+    document.getElementById(
+      'patientPhone'
+    ).value.trim();
+
+  const ageValue =
+    document.getElementById(
+      'patientAge'
+    ).value.trim();
+
+  const note =
+    document.getElementById(
+      'patientNote'
+    ).value.trim();
+
+
+  if(!name || !phone){
+
+    showToast(
+      'اكتب اسم المريض ورقم الهاتف'
+    );
+
+    return;
+  }
+
+
+  let age =
+    ageValue
+      ? Number(ageValue)
+      : null;
+
+
+  /*
+    حساب الرقم اليومي.
+    الرقم التالي يتم حسابه من حجوزات اليوم
+    الموجودة في قاعدة البيانات.
+  */
+
+  const todayStart =
+    new Date();
+
+  todayStart.setHours(
+    0,0,0,0
+  );
+
+  const todayEnd =
+    new Date();
+
+  todayEnd.setHours(
+    23,59,59,999
+  );
+
+
+  const {
+    data:todayBookings,
+    error:countError
+  } = await supabaseClient
+    .from('bookings')
+    .select('daily_number')
+    .eq('clinic_id',CLINIC_ID)
+    .gte(
+      'created_at',
+      todayStart.toISOString()
+    )
+    .lte(
+      'created_at',
+      todayEnd.toISOString()
+    )
+    .order(
+      'daily_number',
+      {ascending:false}
+    )
+    .limit(1);
+
+
+  if(countError){
+
+    console.error(countError);
+
+    showToast(
+      'تعذر إنشاء رقم الحجز حاليًا'
+    );
+
+    return;
+  }
+
+
+  let dailyNumber =
+    todayBookings &&
+    todayBookings.length
+      ? Number(
+          todayBookings[0]
+            .daily_number
+        ) + 1
+      : 1;
+
+
+  const {
+    data,
+    error
+  } = await supabaseClient
+    .from('bookings')
+    .insert({
+
+      clinic_id:
+        CLINIC_ID,
+
+      daily_number:
+        dailyNumber,
+
+      patient_name:
+        name,
+
+      patient_phone:
+        phone,
+
+      patient_age:
+        age,
+
+      patient_note:
+        note,
+
+      appointment_text:
+        selectedSlot,
+
+      status:
+        'pending'
+
+    })
+    .select()
+    .single();
+
+
+  if(error){
+
+    console.error(error);
+
+    showToast(
+      'حدث خطأ أثناء إرسال الحجز'
+    );
+
+    return;
+  }
+
+
+  showToast(
+    'تم إرسال طلب الحجز بنجاح'
+  );
+
+
+  closeBooking();
+
+
+  document.getElementById(
+    'patientName'
+  ).value = '';
+
+  document.getElementById(
+    'patientPhone'
+  ).value = '';
+
+  document.getElementById(
+    'patientAge'
+  ).value = '';
+
+  document.getElementById(
+    'patientNote'
+  ).value = '';
+
+
+  alert(
+    'تم إرسال طلب الحجز بنجاح.\n\n' +
+    'رقمك اليومي هو: ' +
+    data.daily_number +
+    '\n\nاحتفظ بهذا الرقم لمتابعة الحجز.'
+  );
+
+
+  await loadBookings();
+}
+
+
+/* ==========================================
+   TRACK BOOKING
+========================================== */
+
+async function trackBooking(){
+
+  const number =
+    Number(
+      document.getElementById(
+        'trackNumber'
+      ).value
+    );
+
+  const result =
+    document.getElementById(
+      'trackResult'
+    );
+
 
   if(!number){
 
     result.innerHTML =
-      '<div class="notice">اكتب رقم الحجز أولًا.</div>';
+      `<div class="notice">
+        اكتب رقم الحجز أولًا.
+      </div>`;
 
     return;
   }
 
-  let booking =
-    bookings.find(
-      b => b.dailyNumber === number
-    );
 
-  if(!booking){
+  const {
+    data,
+    error
+  } = await supabaseClient
+    .from('bookings')
+    .select('*')
+    .eq(
+      'clinic_id',
+      CLINIC_ID
+    )
+    .eq(
+      'daily_number',
+      number
+    )
+    .order(
+      'created_at',
+      {ascending:false}
+    )
+    .limit(1)
+    .maybeSingle();
+
+
+  if(error){
+
+    console.error(error);
 
     result.innerHTML =
-      '<div class="notice">لم يتم العثور على حجز بهذا الرقم.</div>';
+      `<div class="notice">
+        حدث خطأ أثناء البحث.
+      </div>`;
 
     return;
   }
 
+
+  if(!data){
+
+    result.innerHTML =
+      `<div class="notice">
+        لم يتم العثور على حجز بهذا الرقم.
+      </div>`;
+
+    return;
+  }
+
+
   let statusText =
-    booking.status === "pending"
-    ? "طلبك قيد الانتظار"
-    : booking.status === "confirmed"
-    ? "تم تأكيد موعدك"
-    : "تم رفض الحجز";
+    data.status === 'pending'
+      ? 'طلبك قيد الانتظار'
+      : data.status === 'confirmed'
+      ? 'تم تأكيد موعدك'
+      : data.status === 'rejected'
+      ? 'تم رفض الحجز'
+      : data.status;
+
+
+  let statusClass =
+    data.status === 'pending'
+      ? 'pending'
+      : data.status === 'confirmed'
+      ? 'confirmed'
+      : 'rejected';
+
 
   result.innerHTML = `
+
     <div class="booking">
+
       <div class="booking-top">
-        <strong>${booking.name}</strong>
-        <span class="number">ID ${booking.dailyNumber}</span>
+
+        <strong>
+          ${escapeHTML(
+            data.patient_name
+          )}
+        </strong>
+
+        <span class="number">
+          ID ${data.daily_number}
+        </span>
+
       </div>
 
+
       <div class="info">
-        الموعد: ${booking.slot}<br>
-        الحالة: ${statusText}
+
+        📅
+        ${escapeHTML(
+          data.appointment_text ||
+          'غير محدد'
+        )}
+
       </div>
+
+
+      <span
+        class="status ${statusClass}">
+        ${statusText}
+      </span>
+
     </div>
+
   `;
 }
 
-/* ===================================
-   تسجيل دخول الدكتور
-   =================================== */
+
+/* ==========================================
+   LOGIN
+========================================== */
 
 function openLogin(){
 
-  document.getElementById("loginModal")
-  .style.display="flex";
-
+  document.getElementById(
+    'loginModal'
+  ).style.display =
+    'flex';
 }
+
 
 function closeLogin(){
 
-  document.getElementById("loginModal")
-  .style.display="none";
-
+  document.getElementById(
+    'loginModal'
+  ).style.display =
+    'none';
 }
 
-function loginDoctor(){
 
-  /*
-   * مؤقتًا للنسخة الأولى.
-   * عند ربط قاعدة البيانات سيتم استبداله
-   * بتسجيل دخول حقيقي.
-   */
+async function loginDoctor(){
 
-  let email =
-    document.getElementById("loginEmail").value.trim();
+  const email =
+    document.getElementById(
+      'loginEmail'
+    ).value.trim();
 
-  let password =
-    document.getElementById("loginPassword").value;
+  const password =
+    document.getElementById(
+      'loginPassword'
+    ).value;
+
 
   if(!email || !password){
 
-    document.getElementById("loginMessage")
-    .innerHTML =
-    '<div class="notice">اكتب البريد الإلكتروني وكلمة المرور.</div>';
+    document.getElementById(
+      'loginMessage'
+    ).innerHTML =
+      `<div class="notice">
+        اكتب البريد الإلكتروني وكلمة المرور.
+      </div>`;
 
     return;
   }
+
+
+  const {
+    data,
+    error
+  } =
+    await supabaseClient.auth
+      .signInWithPassword({
+        email,
+        password
+      });
+
+
+  if(error){
+
+    console.error(error);
+
+    document.getElementById(
+      'loginMessage'
+    ).innerHTML =
+      `<div class="notice">
+        بيانات الدخول غير صحيحة أو الحساب غير مفعل.
+      </div>`;
+
+    return;
+  }
+
 
   closeLogin();
 
-  document.getElementById("dashboard")
-  .style.display="block";
+  document.getElementById(
+    'dashboard'
+  ).style.display =
+    'block';
 
-  document.getElementById("dashboard")
-  .scrollIntoView({behavior:"smooth"});
-
-  renderDashboard();
-
-}
-
-/* ===================================
-   لوحة التحكم
-   =================================== */
-
-function showPanel(id,button){
-
-  let panels=[
-    "overview",
-    "pending",
-    "confirmed",
-    "available",
-    "settings"
-  ];
-
-  panels.forEach(p=>{
-    document.getElementById(p)
-    .style.display =
-      p===id ? "block" : "none";
+  document.getElementById(
+    'dashboard'
+  ).scrollIntoView({
+    behavior:'smooth'
   });
 
-  document.querySelectorAll(".tab")
-  .forEach(t=>t.classList.remove("active"));
 
-  if(button)
-    button.classList.add("active");
+  await loadBookings();
+  await loadSettings();
+  await loadSlots();
+
+  showToast(
+    'تم تسجيل الدخول بنجاح'
+  );
+}
+
+
+/* ==========================================
+   BOOKINGS FOR DASHBOARD
+========================================== */
+
+async function loadBookings(){
+
+  const {
+    data,
+    error
+  } = await supabaseClient
+    .from('bookings')
+    .select('*')
+    .eq(
+      'clinic_id',
+      CLINIC_ID
+    )
+    .order(
+      'created_at',
+      {ascending:false}
+    );
+
+
+  if(error){
+
+    console.error(error);
+
+    return;
+  }
+
+
+  bookings =
+    data || [];
 
   renderDashboard();
-
 }
+
+
+/* ==========================================
+   DASHBOARD
+========================================== */
+
+function showPanel(
+  id,
+  button
+){
+
+  const panels = [
+    'overview',
+    'pending',
+    'confirmed',
+    'available',
+    'settings'
+  ];
+
+
+  panels.forEach(
+    panel=>{
+      const el =
+        document.getElementById(
+          panel
+        );
+
+      if(el){
+
+        el.style.display =
+          panel === id
+            ? 'block'
+            : 'none';
+      }
+    }
+  );
+
+
+  document
+    .querySelectorAll('.tab')
+    .forEach(
+      tab=>{
+        tab.classList.remove(
+          'active'
+        );
+      }
+    );
+
+
+  if(button){
+
+    button.classList.add(
+      'active'
+    );
+  }
+
+
+  if(id === 'pending'){
+
+    loadBookings();
+
+  }
+
+  if(id === 'confirmed'){
+
+    loadBookings();
+
+  }
+
+  if(id === 'available'){
+
+    loadSlots();
+
+  }
+
+  if(id === 'settings'){
+
+    loadSettings();
+
+  }
+}
+
+
+/* ==========================================
+   RENDER DASHBOARD
+========================================== */
 
 function renderDashboard(){
 
-  let pending =
-    bookings.filter(b=>b.status==="pending");
+  const pending =
+    bookings.filter(
+      b=>b.status === 'pending'
+    );
 
-  let confirmed =
-    bookings.filter(b=>b.status==="confirmed");
+  const confirmed =
+    bookings.filter(
+      b=>b.status === 'confirmed'
+    );
 
-  document.getElementById("pendingCount")
-  .textContent=pending.length;
 
-  document.getElementById("confirmedCount")
-  .textContent=confirmed.length;
+  document.getElementById(
+    'pendingCount'
+  ).textContent =
+    pending.length;
 
-  document.getElementById("availableCount")
-  .textContent=slots.length;
 
-  document.getElementById("totalCount")
-  .textContent=bookings.length;
+  document.getElementById(
+    'confirmedCount'
+  ).textContent =
+    confirmed.length;
 
-  renderBookings("pendingList",pending,true);
 
-  renderBookings("confirmedList",confirmed,false);
+  document.getElementById(
+    'availableCount'
+  ).textContent =
+    slots.length;
+
+
+  document.getElementById(
+    'totalCount'
+  ).textContent =
+    bookings.length;
+
 
   renderBookings(
-    "overviewList",
-    bookings.slice().reverse().slice(0,5),
+    'pendingList',
+    pending,
     true
   );
 
-  renderSlots();
 
+  renderBookings(
+    'confirmedList',
+    confirmed,
+    false
+  );
+
+
+  renderBookings(
+    'overviewList',
+    bookings.slice(0,5),
+    true
+  );
+
+
+  renderDashboardSlots();
 }
 
-/* ===================================
-   عرض الحجوزات
-   =================================== */
 
-function renderBookings(elementId,list,actions){
+/* ==========================================
+   RENDER BOOKINGS
+========================================== */
 
-  let el=document.getElementById(elementId);
+function renderBookings(
+  elementId,
+  list,
+  showApprove
+){
 
-  if(!el) return;
+  const el =
+    document.getElementById(
+      elementId
+    );
+
+
+  if(!el)
+    return;
+
 
   if(!list.length){
 
-    el.innerHTML=
-      '<div class="notice">لا توجد بيانات حاليًا.</div>';
+    el.innerHTML =
+      `<div class="empty">
+        لا توجد حجوزات حاليًا.
+      </div>`;
 
     return;
   }
 
-  el.innerHTML=list.map(b=>{
 
-    let statusClass=
-      b.status==="pending"
-      ? "pending"
-      : b.status==="confirmed"
-      ? "confirmed"
-      : "rejected";
+  el.innerHTML =
+    list.map(
+      booking=>{
 
-    let statusText=
-      b.status==="pending"
-      ? "انتظار"
-      : b.status==="confirmed"
-      ? "مؤكد"
-      : "مرفوض";
+        const phone =
+          String(
+            booking.patient_phone ||
+            ''
+          ).replace(/\s/g,'');
 
-    let phone=
-      b.phone.replace(/\s/g,"");
 
-    let wa=
-      phone.startsWith("0")
-      ? "20"+phone.substring(1)
-      : phone;
+        let wa =
+          phone;
 
-    return `
-      <div class="booking">
 
-        <div class="booking-top">
+        if(wa.startsWith('0')){
 
-          <strong>${b.name}</strong>
+          wa =
+            '20' +
+            wa.substring(1);
+        }
 
-          <span class="number">
-            ID ${b.dailyNumber}
+
+        const statusClass =
+          booking.status === 'pending'
+            ? 'pending'
+            : booking.status === 'confirmed'
+            ? 'confirmed'
+            : 'rejected';
+
+
+        const statusText =
+          booking.status === 'pending'
+            ? 'انتظار'
+            : booking.status === 'confirmed'
+            ? 'مؤكد'
+            : 'مرفوض';
+
+
+        return `
+
+        <div class="booking">
+
+          <div class="booking-top">
+
+            <strong>
+              ${escapeHTML(
+                booking.patient_name
+              )}
+            </strong>
+
+            <span class="number">
+              ID ${booking.daily_number}
+            </span>
+
+          </div>
+
+
+          <div class="info">
+
+            📅
+            ${escapeHTML(
+              booking.appointment_text ||
+              'غير محدد'
+            )}
+
+            <br>
+
+            📞
+            ${escapeHTML(
+              booking.patient_phone ||
+              ''
+            )}
+
+            ${
+              booking.patient_age
+              ? `<br>العمر:
+                 ${escapeHTML(
+                   booking.patient_age
+                 )}`
+              : ''
+            }
+
+            ${
+              booking.patient_note
+              ? `<br>ملاحظات:
+                 ${escapeHTML(
+                   booking.patient_note
+                 )}`
+              : ''
+            }
+
+          </div>
+
+
+          <span
+            class="status ${statusClass}">
+            ${statusText}
           </span>
 
+
+          <div class="booking-actions">
+
+            <a
+              class="whatsapp"
+              href="https://wa.me/${wa}"
+              target="_blank">
+              💬 واتساب
+            </a>
+
+
+            <a
+              class="call"
+              href="tel:${phone}">
+              📞 اتصال
+            </a>
+
+
+            ${
+              showApprove &&
+              booking.status === 'pending'
+              ? `
+                <button
+                  class="approve"
+                  onclick="approveBooking(
+                    ${booking.id}
+                  )">
+                  ✓ تأكيد
+                </button>
+
+                <button
+                  class="reject"
+                  onclick="rejectBooking(
+                    ${booking.id}
+                  )">
+                  رفض
+                </button>
+              `
+              : ''
+            }
+
+
+            <button
+              class="delete"
+              onclick="deleteBooking(
+                ${booking.id}
+              )">
+              🗑 حذف
+            </button>
+
+          </div>
+
         </div>
 
-        <div class="info">
-          📅 ${b.slot}<br>
-          📞 ${b.phone}
-          ${b.age ? "<br>العمر: "+b.age : ""}
-          ${b.note ? "<br>ملاحظات: "+b.note : ""}
-        </div>
-
-        <span class="status ${statusClass}">
-          ${statusText}
-        </span>
-
-        <div class="booking-actions">
-
-          <a
-            class="whatsapp"
-            href="https://wa.me/${wa}"
-            target="_blank">
-            💬 واتساب
-          </a>
-
-          <a
-            class="call"
-            href="tel:${phone}">
-            📞 اتصال
-          </a>
-
-          ${
-            actions && b.status==="pending"
-            ? `
-              <button
-                class="approve"
-                onclick="approveBooking(${b.id})">
-                ✓ تأكيد
-              </button>
-
-              <button
-                class="reject"
-                onclick="rejectBooking(${b.id})">
-                رفض
-              </button>
-            `
-            : ""
-          }
-
-          <button
-            class="delete"
-            onclick="deleteBooking(${b.id})">
-            🗑 حذف
-          </button>
-
-        </div>
-
-      </div>
-    `;
-
-  }).join("");
-
+        `;
+      }
+    ).join('');
 }
 
-/* ===================================
-   تأكيد / رفض
-   =================================== */
 
-function approveBooking(id){
+/* ==========================================
+   APPROVE
+========================================== */
 
-  let booking=
-    bookings.find(b=>b.id===id);
+async function approveBooking(id){
 
-  if(!booking) return;
+  const {
+    error
+  } =
+    await supabaseClient
+      .from('bookings')
+      .update({
+        status:'confirmed'
+      })
+      .eq(
+        'id',
+        id
+      );
 
-  booking.status="confirmed";
 
-  renderDashboard();
+  if(error){
 
-}
+    console.error(error);
 
-function rejectBooking(id){
-
-  let booking=
-    bookings.find(b=>b.id===id);
-
-  if(!booking) return;
-
-  booking.status="rejected";
-
-  renderDashboard();
-
-}
-
-/* ===================================
-   حذف حجز
-   =================================== */
-
-function deleteBooking(id){
-
-  if(!confirm("هل تريد حذف هذا الحجز؟"))
-    return;
-
-  bookings=
-    bookings.filter(b=>b.id!==id);
-
-  renderDashboard();
-
-}
-
-/* ===================================
-   المواعيد
-   =================================== */
-
-function renderSlots(){
-
-  let el=
-    document.getElementById("slotList");
-
-  if(!el) return;
-
-  if(!slots.length){
-
-    el.innerHTML=
-      '<div class="notice">لا توجد مواعيد متاحة.</div>';
+    showToast(
+      'تعذر تأكيد الحجز'
+    );
 
     return;
   }
 
-  el.innerHTML=
-    slots.map((slot,index)=>`
 
-      <div class="booking">
+  showToast(
+    'تم تأكيد الحجز'
+  );
 
-        <div class="booking-top">
-          <strong>📅 ${slot}</strong>
 
-          <button
-            class="delete"
-            onclick="deleteSlot(${index})">
-            🗑 حذف
-          </button>
-        </div>
-
-      </div>
-
-    `).join("");
-
+  await loadBookings();
 }
 
-function addSlot(){
 
-  let input=
-    document.getElementById("newSlot");
+/* ==========================================
+   REJECT
+========================================== */
 
-  let value=input.value.trim();
+async function rejectBooking(id){
+
+  const {
+    error
+  } =
+    await supabaseClient
+      .from('bookings')
+      .update({
+        status:'rejected'
+      })
+      .eq(
+        'id',
+        id
+      );
+
+
+  if(error){
+
+    console.error(error);
+
+    showToast(
+      'تعذر رفض الحجز'
+    );
+
+    return;
+  }
+
+
+  showToast(
+    'تم رفض الحجز'
+  );
+
+
+  await loadBookings();
+}
+
+
+/* ==========================================
+   DELETE BOOKING
+========================================== */
+
+async function deleteBooking(id){
+
+  if(
+    !confirm(
+      'هل تريد حذف هذا الحجز؟'
+    )
+  ){
+
+    return;
+  }
+
+
+  const {
+    error
+  } =
+    await supabaseClient
+      .from('bookings')
+      .delete()
+      .eq(
+        'id',
+        id
+      );
+
+
+  if(error){
+
+    console.error(error);
+
+    showToast(
+      'تعذر حذف الحجز'
+    );
+
+    return;
+  }
+
+
+  showToast(
+    'تم حذف الحجز'
+  );
+
+
+  await loadBookings();
+}
+
+
+/* ==========================================
+   ADD SLOT
+========================================== */
+
+async function addSlot(){
+
+  const input =
+    document.getElementById(
+      'newSlot'
+    );
+
+  const value =
+    input.value.trim();
+
 
   if(!value){
 
-    alert("اكتب الموعد أولًا.");
-    return;
+    showToast(
+      'اكتب الموعد أولًا'
+    );
 
+    return;
   }
 
-  slots.push(value);
 
-  input.value="";
+  const {
+    error
+  } =
+    await supabaseClient
+      .from('appointments')
+      .insert({
 
-  renderSlots();
+        clinic_id:
+          CLINIC_ID,
 
-}
+        appointment_text:
+          value,
 
-function deleteSlot(index){
+        status:
+          'available'
 
-  if(!confirm("هل تريد حذف هذا الموعد؟"))
+      });
+
+
+  if(error){
+
+    console.error(error);
+
+    showToast(
+      'تعذر إضافة الموعد'
+    );
+
     return;
-
-  slots.splice(index,1);
-
-  renderSlots();
-
-}
-
-/* ===================================
-   إعدادات الدكتور
-   =================================== */
-
-function saveSettings(){
-
-  doctor.name=
-    document.getElementById("setName").value.trim();
-
-  doctor.specialty=
-    document.getElementById("setSpecialty").value.trim();
-
-  doctor.phone=
-    document.getElementById("setPhone").value.trim();
-
-  doctor.whatsapp=
-    document.getElementById("setWhatsapp").value.trim();
-
-  doctor.address=
-    document.getElementById("setAddress").value.trim();
-
-  doctor.hours=
-    document.getElementById("setHours").value.trim();
-
-  doctor.bio=
-    document.getElementById("setBio").value.trim();
-
-  doctor.image=
-    document.getElementById("setImage").value.trim()
-    || "logo.svg";
-
-  updateDoctorUI();
-
-  alert("تم حفظ بيانات العيادة.");
-
-}
-
-/* ===================================
-   تحديث بيانات الواجهة
-   =================================== */
-
-function updateDoctorUI(){
-
-  document.getElementById("doctorName")
-  .textContent=doctor.name;
-
-  document.getElementById("doctorSpecialty")
-  .textContent=doctor.specialty;
-
-  document.getElementById("doctorAddress")
-  .textContent=doctor.address;
-
-  document.getElementById("doctorHours")
-  .textContent=doctor.hours;
-
-  document.getElementById("doctorImage")
-  .src=doctor.image;
-
-  let bioBox=
-    document.getElementById("bioBox");
-
-  if(doctor.bio){
-
-    bioBox.style.display="block";
-
-    document.getElementById("doctorBio")
-    .textContent=doctor.bio;
-
-  }else{
-
-    bioBox.style.display="none";
-
   }
 
+
+  input.value = '';
+
+  showToast(
+    'تمت إضافة الموعد'
+  );
+
+
+  await loadSlots();
 }
 
-/* ===================================
-   بدء الموقع
-   =================================== */
 
-updateDoctorUI();
-renderDashboard();
+/* ==========================================
+   DASHBOARD SLOTS
+========================================== */
+
+function renderDashboardSlots(){
+
+  const el =
+    document.getElementById(
+      'slotList'
+    );
+
+
+  if(!el)
+    return;
+
+
+  if(!slots.length){
+
+    el.innerHTML =
+      `<div class="empty">
+        لا توجد مواعيد متاحة.
+      </div>`;
+
+    return;
+  }
+
+
+  el.innerHTML =
+    slots.map(
+      slot=>`
+
+      <div class="booking">
+
+        <div class="booking-top">
+
+          <strong>
+            📅
+            ${escapeHTML(
+              slot.appointment_text
+            )}
+          </strong>
+
+          <button
+            class="delete"
+            onclick="deleteSlot(
+              ${slot.id}
+            )">
+            🗑 حذف
+          </button>
+
+        </div>
+
+      </div>
+
+      `
+    ).join('');
+}
+
+
+/* ==========================================
+   DELETE SLOT
+========================================== */
+
+async function deleteSlot(id){
+
+  if(
+    !confirm(
+      'هل تريد حذف هذا الموعد؟'
+    )
+  ){
+
+    return;
+  }
+
+
+  const {
+    error
+  } =
+    await supabaseClient
+      .from('appointments')
+      .delete()
+      .eq(
+        'id',
+        id
+      );
+
+
+  if(error){
+
+    console.error(error);
+
+    showToast(
+      'تعذر حذف الموعد'
+    );
+
+    return;
+  }
+
+
+  showToast(
+    'تم حذف الموعد'
+  );
+
+
+  await loadSlots();
+}
+
+
+/* ==========================================
+   INIT
+========================================== */
+
+async function init(){
+
+  /*
+    الصورة الافتراضية
+  */
+
+  document.getElementById(
+    'doctorImage'
+  ).src =
+    createLogoImage();
+
+
+  /*
+    تحميل بيانات العيادة
+  */
+
+  await loadSettings();
+
+
+  /*
+    تحميل المواعيد
+  */
+
+  await loadSlots();
+
+
+  /*
+    الحجوزات للوحة الدكتور
+    سيتم تحميلها بعد تسجيل الدخول.
+  */
+
+}
+
+
+init();
+
+
+/* ==========================================
+   REALTIME
+========================================== */
+
+try{
+
+  supabaseClient
+    .channel(
+      'nabd-live'
+    )
+    .on(
+      'postgres_changes',
+      {
+        event:'*',
+        schema:'public',
+        table:'bookings'
+      },
+      async ()=>{
+        await loadBookings();
+      }
+    )
+    .on(
+      'postgres_changes',
+      {
+        event:'*',
+        schema:'public',
+        table:'appointments'
+      },
+      async ()=>{
+        await loadSlots();
+      }
+    )
+    .on(
+      'postgres_changes',
+      {
+        event:'*',
+        schema:'public',
+        table:'clinic_settings'
+      },
+      async ()=>{
+        await loadSettings();
+      }
+    )
+    .subscribe();
+
+}catch(e){
+
+  console.error(e);
+
+}
 
 </script>
 
