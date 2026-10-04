@@ -2,204 +2,204 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>نبض | حجز العيادة</title>
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 
 :root{
-  --primary:#087ea4;
-  --primary2:#0bb3d4;
-  --dark:#073b4c;
-  --bg:#f3fbfd;
-  --white:#fff;
-  --text:#17323c;
-  --muted:#71858d;
-  --border:#dceef2;
-  --success:#16a36f;
-  --danger:#d94b4b;
-  --warning:#c18400;
-  --shadow:0 12px 35px rgba(5,70,90,.10);
+--primary:#087ea4;
+--primary2:#0bb3d4;
+--dark:#073b4c;
+--bg:#f3fbfd;
+--white:#fff;
+--text:#17323c;
+--muted:#71858d;
+--border:#dceef2;
+--success:#16a36f;
+--danger:#d94b4b;
+--warning:#c18400;
+--shadow:0 12px 35px rgba(5,70,90,.10)
 }
 
 body{
-  font-family:Tahoma,Arial,sans-serif;
-  background:linear-gradient(180deg,#f7fdfe,#eef8fa);
-  color:var(--text);
-  min-height:100vh;
+font-family:Tahoma,Arial,sans-serif;
+background:linear-gradient(180deg,#f7fdfe,#eef8fa);
+color:var(--text);
+min-height:100vh
 }
 
 button,input,textarea{font-family:inherit}
 button{border:0;cursor:pointer}
 
 .container{
-  width:min(1100px,92%);
-  margin:auto;
+width:min(1100px,92%);
+margin:auto
 }
 
 /* LOGO */
 
 .logo{
-  width:50px;
-  height:50px;
-  border-radius:16px;
-  background:linear-gradient(135deg,#06789c,#12b9d6);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  position:relative;
-  box-shadow:0 8px 22px rgba(8,126,164,.28);
-  flex-shrink:0;
+width:50px;
+height:50px;
+border-radius:16px;
+background:linear-gradient(135deg,#06789c,#12b9d6);
+display:flex;
+align-items:center;
+justify-content:center;
+position:relative;
+box-shadow:0 8px 22px rgba(8,126,164,.28);
+flex-shrink:0
 }
 
 .logo-heart{
-  width:27px;
-  height:24px;
-  background:white;
-  position:relative;
-  transform:rotate(-45deg);
-  border-radius:5px 14px 5px 14px;
+width:27px;
+height:24px;
+background:white;
+position:relative;
+transform:rotate(-45deg);
+border-radius:5px 14px 5px 14px
 }
 
 .logo-heart:before,
 .logo-heart:after{
-  content:"";
-  position:absolute;
-  width:27px;
-  height:27px;
-  background:white;
-  border-radius:50%;
+content:"";
+position:absolute;
+width:27px;
+height:27px;
+background:white;
+border-radius:50%
 }
 
 .logo-heart:before{
-  top:-13px;
-  left:0;
+top:-13px;
+left:0
 }
 
 .logo-heart:after{
-  top:0;
-  left:13px;
+top:0;
+left:13px
 }
 
 .logo-cross{
-  position:absolute;
-  z-index:4;
-  color:var(--primary);
-  background:white;
-  width:16px;
-  height:16px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:14px;
-  font-weight:900;
+position:absolute;
+z-index:4;
+color:var(--primary);
+background:white;
+width:16px;
+height:16px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:14px;
+font-weight:900
 }
 
 /* HEADER */
 
 header{
-  background:rgba(255,255,255,.96);
-  border-bottom:1px solid var(--border);
-  position:sticky;
-  top:0;
-  z-index:50;
-  backdrop-filter:blur(15px);
+background:rgba(255,255,255,.96);
+border-bottom:1px solid var(--border);
+position:sticky;
+top:0;
+z-index:50;
+backdrop-filter:blur(15px)
 }
 
 .nav{
-  min-height:76px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:15px;
+min-height:76px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:15px
 }
 
 .brand{
-  display:flex;
-  align-items:center;
-  gap:11px;
+display:flex;
+align-items:center;
+gap:11px
 }
 
 .brand-name{
-  font-size:27px;
-  font-weight:900;
-  color:var(--dark);
+font-size:27px;
+font-weight:900;
+color:var(--dark)
 }
 
 .brand-sub{
-  color:var(--muted);
-  font-size:11px;
-  margin-top:2px;
+color:var(--muted);
+font-size:11px;
+margin-top:2px
 }
 
 .nav-actions{
-  display:flex;
-  gap:8px;
+display:flex;
+gap:8px
 }
 
 .small-btn{
-  padding:11px 15px;
-  border-radius:12px;
-  background:#eaf8fb;
-  color:var(--primary);
-  font-weight:800;
+padding:11px 15px;
+border-radius:12px;
+background:#eaf8fb;
+color:var(--primary);
+font-weight:800
 }
 
 /* HERO */
 
 .hero{
-  padding:45px 0 30px;
+padding:45px 0 30px
 }
 
 .hero-box{
-  background:
-    radial-gradient(circle at 90% 20%,rgba(11,179,212,.25),transparent 35%),
-    linear-gradient(135deg,#063d50,#087ea4);
-  border-radius:30px;
-  padding:45px;
-  color:white;
-  box-shadow:var(--shadow);
-  position:relative;
-  overflow:hidden;
+background:
+radial-gradient(circle at 90% 20%,rgba(11,179,212,.25),transparent 35%),
+linear-gradient(135deg,#063d50,#087ea4);
+border-radius:30px;
+padding:45px;
+color:white;
+box-shadow:var(--shadow);
+position:relative;
+overflow:hidden
 }
 
 .hero h1{
-  font-size:clamp(30px,6vw,52px);
-  margin-bottom:15px;
+font-size:clamp(30px,6vw,52px);
+margin-bottom:15px
 }
 
 .hero p{
-  color:#dff7fa;
-  font-size:17px;
-  line-height:1.9;
-  max-width:680px;
+color:#dff7fa;
+font-size:17px;
+line-height:1.9;
+max-width:680px
 }
 
 .hero-buttons{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-top:25px;
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+margin-top:25px
 }
 
 .btn{
-  padding:14px 19px;
-  border-radius:14px;
-  font-weight:900;
-  font-size:14px;
+padding:14px 19px;
+border-radius:14px;
+font-weight:900;
+font-size:14px
 }
 
 .btn-primary{
-  background:white;
-  color:var(--primary);
+background:white;
+color:var(--primary)
 }
 
 .btn-outline{
-  background:rgba(255,255,255,.12);
-  color:white;
-  border:1px solid rgba(255,255,255,.3);
+background:rgba(255,255,255,.12);
+color:white;
+border:1px solid rgba(255,255,255,.3)
 }
 
 /* SECTIONS */
@@ -207,158 +207,158 @@ header{
 section{padding:25px 0}
 
 .title{
-  font-size:25px;
-  color:var(--dark);
-  margin-bottom:18px;
+font-size:25px;
+color:var(--dark);
+margin-bottom:18px
 }
 
 .card{
-  background:white;
-  border:1px solid var(--border);
-  border-radius:22px;
-  padding:23px;
-  box-shadow:var(--shadow);
+background:white;
+border:1px solid var(--border);
+border-radius:22px;
+padding:23px;
+box-shadow:var(--shadow)
 }
 
 /* DOCTOR */
 
 .doctor{
-  display:flex;
-  gap:20px;
-  align-items:center;
+display:flex;
+gap:20px;
+align-items:center
 }
 
 .doctor-img{
-  width:115px;
-  height:115px;
-  border-radius:27px;
-  object-fit:cover;
-  background:#e8f7fa;
-  border:4px solid #effbfc;
+width:115px;
+height:115px;
+border-radius:27px;
+object-fit:cover;
+background:#e8f7fa;
+border:4px solid #effbfc
 }
 
 .doctor-name{
-  font-size:25px;
-  color:var(--dark);
-  margin-bottom:7px;
+font-size:25px;
+color:var(--dark);
+margin-bottom:7px
 }
 
 .info{
-  color:var(--muted);
-  line-height:2;
-  font-size:14px;
+color:var(--muted);
+line-height:2;
+font-size:14px
 }
 
 .bio{
-  margin-top:20px;
-  padding-top:17px;
-  border-top:1px solid var(--border);
-  line-height:1.9;
+margin-top:20px;
+padding-top:17px;
+border-top:1px solid var(--border);
+line-height:1.9
 }
 
 .bio-title{
-  color:var(--dark);
-  font-weight:900;
-  margin-bottom:7px;
+color:var(--dark);
+font-weight:900;
+margin-bottom:7px
 }
 
 /* FEATURES */
 
 .features{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:13px;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:13px
 }
 
 .feature{
-  background:white;
-  border:1px solid var(--border);
-  border-radius:20px;
-  padding:20px;
-  text-align:center;
+background:white;
+border:1px solid var(--border);
+border-radius:20px;
+padding:20px;
+text-align:center
 }
 
 .feature-icon{
-  font-size:30px;
-  margin-bottom:9px;
+font-size:30px;
+margin-bottom:9px
 }
 
 .feature h3{
-  color:var(--dark);
-  margin-bottom:7px;
+color:var(--dark);
+margin-bottom:7px
 }
 
 .feature p{
-  color:var(--muted);
-  font-size:13px;
-  line-height:1.7;
+color:var(--muted);
+font-size:13px;
+line-height:1.7
 }
 
 /* SLOTS */
 
 .appointments{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:13px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:13px
 }
 
 .slot{
-  border:1px solid var(--border);
-  border-radius:17px;
-  padding:17px;
-  background:white;
+border:1px solid var(--border);
+border-radius:17px;
+padding:17px;
+background:white
 }
 
 .slot strong{
-  display:block;
-  color:var(--dark);
-  margin-bottom:7px;
+display:block;
+color:var(--dark);
+margin-bottom:7px
 }
 
 .slot span{
-  color:var(--muted);
-  font-size:14px;
+color:var(--muted);
+font-size:14px
 }
 
 .slot button{
-  width:100%;
-  margin-top:12px;
-  padding:11px;
-  border-radius:11px;
-  background:var(--primary);
-  color:white;
-  font-weight:900;
+width:100%;
+margin-top:12px;
+padding:11px;
+border-radius:11px;
+background:var(--primary);
+color:white;
+font-weight:900
 }
 
 /* TRACK */
 
 .track{
-  display:flex;
-  gap:10px;
+display:flex;
+gap:10px
 }
 
 input,textarea{
-  width:100%;
-  padding:14px;
-  border:1px solid var(--border);
-  border-radius:13px;
-  outline:none;
-  background:#fbfeff;
-  color:var(--text);
+width:100%;
+padding:14px;
+border:1px solid var(--border);
+border-radius:13px;
+outline:none;
+background:#fbfeff;
+color:var(--text)
 }
 
 input:focus,textarea:focus{
-  border-color:var(--primary);
+border-color:var(--primary)
 }
 
 .track input{max-width:400px}
 
 .track button{
-  padding:0 23px;
-  border-radius:13px;
-  background:var(--primary);
-  color:white;
-  font-weight:900;
+padding:0 23px;
+border-radius:13px;
+background:var(--primary);
+color:white;
+font-weight:900
 }
 
 /* DASHBOARD */
@@ -366,305 +366,356 @@ input:focus,textarea:focus{
 #dashboard{display:none}
 
 .dashboard-tabs{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:8px;
-  margin-bottom:18px;
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:8px;
+margin-bottom:18px
 }
 
 .tab{
-  padding:13px 8px;
-  border-radius:13px;
-  background:#eaf7fa;
-  color:var(--primary);
-  font-weight:800;
+padding:13px 8px;
+border-radius:13px;
+background:#eaf7fa;
+color:var(--primary);
+font-weight:800
 }
 
 .tab.active{
-  background:var(--primary);
-  color:white;
+background:var(--primary);
+color:white
 }
 
 .dashboard-panel{
-  background:white;
-  border:1px solid var(--border);
-  border-radius:22px;
-  padding:22px;
+background:white;
+border:1px solid var(--border);
+border-radius:22px;
+padding:22px
 }
 
 .stats{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:12px;
-  margin-bottom:18px;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:12px;
+margin-bottom:18px
 }
 
 .stat{
-  background:#fbfeff;
-  border:1px solid var(--border);
-  border-radius:18px;
-  padding:18px;
-  cursor:pointer;
+background:#fbfeff;
+border:1px solid var(--border);
+border-radius:18px;
+padding:18px;
+cursor:pointer
 }
 
 .stat small{color:var(--muted)}
 
 .stat strong{
-  display:block;
-  font-size:30px;
-  color:var(--primary);
-  margin-top:6px;
+display:block;
+font-size:30px;
+color:var(--primary);
+margin-top:6px
 }
 
 .form-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:12px;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:12px
 }
 
 .form-group{margin-bottom:12px}
 
 .form-group label{
-  display:block;
-  margin-bottom:7px;
-  font-weight:800;
-  font-size:14px;
+display:block;
+margin-bottom:7px;
+font-weight:800;
+font-size:14px
 }
 
 .full{grid-column:1/-1}
 
 .save{
-  background:var(--primary);
-  color:white;
-  padding:14px 25px;
-  border-radius:13px;
-  font-weight:900;
+background:var(--primary);
+color:white;
+padding:14px 25px;
+border-radius:13px;
+font-weight:900
+}
+
+.logout{
+background:#ffe5e5;
+color:#bd3838;
+padding:12px 18px;
+border-radius:12px;
+font-weight:900;
+margin-bottom:18px
 }
 
 .booking{
-  border:1px solid var(--border);
-  border-radius:17px;
-  padding:17px;
-  margin-bottom:12px;
-  background:#fbfeff;
+border:1px solid var(--border);
+border-radius:17px;
+padding:17px;
+margin-bottom:12px;
+background:#fbfeff
 }
 
 .booking-top{
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-  align-items:center;
-  margin-bottom:10px;
+display:flex;
+justify-content:space-between;
+gap:10px;
+align-items:center;
+margin-bottom:10px
 }
 
 .number{
-  background:#e5f7fa;
-  color:var(--primary);
-  padding:7px 11px;
-  border-radius:10px;
-  font-weight:900;
+background:#e5f7fa;
+color:var(--primary);
+padding:7px 11px;
+border-radius:10px;
+font-weight:900
 }
 
 .status{
-  display:inline-block;
-  margin-top:10px;
-  padding:6px 10px;
-  border-radius:9px;
-  font-size:12px;
-  font-weight:900;
+display:inline-block;
+margin-top:10px;
+padding:6px 10px;
+border-radius:9px;
+font-size:12px;
+font-weight:900
 }
 
 .pending{
-  background:#fff3d9;
-  color:var(--warning);
+background:#fff3d9;
+color:var(--warning)
 }
 
 .confirmed{
-  background:#def8ed;
-  color:#128259;
+background:#def8ed;
+color:#128259
 }
 
 .rejected{
-  background:#ffe6e6;
-  color:#c33;
+background:#ffe6e6;
+color:#c33
 }
 
 .booking-actions{
-  display:flex;
-  gap:8px;
-  margin-top:12px;
-  flex-wrap:wrap;
+display:flex;
+gap:8px;
+margin-top:12px;
+flex-wrap:wrap
 }
 
 .booking-actions a,
 .booking-actions button{
-  padding:9px 13px;
-  border-radius:10px;
-  text-decoration:none;
-  font-weight:800;
-  font-size:13px;
+padding:9px 13px;
+border-radius:10px;
+text-decoration:none;
+font-weight:800;
+font-size:13px
 }
 
 .whatsapp{
-  background:#dcf8e9;
-  color:#14804f;
+background:#dcf8e9;
+color:#14804f
 }
 
 .call{
-  background:#e4f3ff;
-  color:#1670a3;
+background:#e4f3ff;
+color:#1670a3
 }
 
 .approve{
-  background:#daf7eb;
-  color:#087c52;
+background:#daf7eb;
+color:#087c52
 }
 
-.reject,
-.delete{
-  background:#ffe5e5;
-  color:#bd3838;
+.reject,.delete{
+background:#ffe5e5;
+color:#bd3838
 }
 
 .empty{
-  padding:20px;
-  text-align:center;
-  color:var(--muted);
-  background:#f7fcfd;
-  border-radius:15px;
+padding:20px;
+text-align:center;
+color:var(--muted);
+background:#f7fcfd;
+border-radius:15px
 }
 
 /* MODAL */
 
 .modal{
-  position:fixed;
-  inset:0;
-  background:rgba(0,35,45,.6);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-  z-index:100;
+position:fixed;
+inset:0;
+background:rgba(0,35,45,.6);
+display:none;
+align-items:center;
+justify-content:center;
+padding:20px;
+z-index:100
 }
 
 .modal-box{
-  width:min(540px,100%);
-  background:white;
-  border-radius:25px;
-  padding:25px;
-  max-height:90vh;
-  overflow:auto;
+width:min(540px,100%);
+background:white;
+border-radius:25px;
+padding:25px;
+max-height:90vh;
+overflow:auto
 }
 
 .modal-head{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  margin-bottom:20px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+margin-bottom:20px
 }
 
 .close{
-  width:38px;
-  height:38px;
-  border-radius:50%;
-  background:#edf7f9;
-  color:var(--dark);
-  font-size:21px;
+width:38px;
+height:38px;
+border-radius:50%;
+background:#edf7f9;
+color:var(--dark);
+font-size:21px
 }
 
 .modal-form{
-  display:grid;
-  gap:12px;
+display:grid;
+gap:12px
 }
 
 .modal-form button{
-  padding:14px;
-  border-radius:13px;
-  background:var(--primary);
-  color:white;
-  font-weight:900;
+padding:14px;
+border-radius:13px;
+background:var(--primary);
+color:white;
+font-weight:900
 }
 
 .notice{
-  padding:13px;
-  border-radius:12px;
-  background:#eef9fb;
-  color:var(--primary);
-  line-height:1.7;
+padding:13px;
+border-radius:12px;
+background:#eef9fb;
+color:var(--primary);
+line-height:1.7
+}
+
+.error{
+padding:13px;
+border-radius:12px;
+background:#ffe9e9;
+color:#b93636;
+line-height:1.7
+}
+
+.success-box{
+padding:13px;
+border-radius:12px;
+background:#e2f8ed;
+color:#087c52;
+line-height:1.7
 }
 
 /* TOAST */
 
 .toast{
-  position:fixed;
-  left:50%;
-  bottom:25px;
-  transform:translateX(-50%) translateY(120px);
-  background:#073b4c;
-  color:white;
-  padding:14px 20px;
-  border-radius:14px;
-  z-index:300;
-  transition:.3s;
-  max-width:90%;
-  text-align:center;
+position:fixed;
+left:50%;
+bottom:25px;
+transform:translateX(-50%) translateY(120px);
+background:#073b4c;
+color:white;
+padding:14px 20px;
+border-radius:14px;
+z-index:300;
+transition:.3s;
+max-width:90%;
+text-align:center
 }
 
 .toast.show{
-  transform:translateX(-50%) translateY(0);
+transform:translateX(-50%) translateY(0)
 }
 
 /* FOOTER */
 
 footer{
-  margin-top:30px;
-  padding:30px 0;
-  text-align:center;
-  color:var(--muted);
-  border-top:1px solid var(--border);
+margin-top:30px;
+padding:30px 0;
+text-align:center;
+color:var(--muted);
+border-top:1px solid var(--border)
 }
 
 /* MOBILE */
 
 @media(max-width:800px){
-  .features{grid-template-columns:1fr 1fr}
-  .appointments{grid-template-columns:1fr 1fr}
-  .stats{grid-template-columns:1fr 1fr}
-  .dashboard-tabs{grid-template-columns:1fr 1fr}
+
+.features{
+grid-template-columns:1fr 1fr
+}
+
+.appointments{
+grid-template-columns:1fr 1fr
+}
+
+.stats{
+grid-template-columns:1fr 1fr
+}
+
+.dashboard-tabs{
+grid-template-columns:1fr 1fr
+}
+
 }
 
 @media(max-width:560px){
-  .nav-actions .small-btn:first-child{display:none}
 
-  .hero-box{
-    padding:28px 20px;
-    border-radius:23px;
-  }
+.nav-actions .small-btn:first-child{
+display:none
+}
 
-  .features,
-  .appointments,
-  .form-grid{
-    grid-template-columns:1fr;
-  }
+.hero-box{
+padding:28px 20px;
+border-radius:23px
+}
 
-  .doctor{align-items:flex-start}
+.features,
+.appointments,
+.form-grid{
+grid-template-columns:1fr
+}
 
-  .doctor-img{
-    width:90px;
-    height:90px;
-  }
+.doctor{
+align-items:flex-start
+}
 
-  .track{flex-direction:column}
+.doctor-img{
+width:90px;
+height:90px
+}
 
-  .track input{max-width:none}
+.track{
+flex-direction:column
+}
 
-  .track button{padding:13px}
+.track input{
+max-width:none
+}
 
-  .full{grid-column:auto}
+.track button{
+padding:13px
+}
 
-  .dashboard-tabs{
-    grid-template-columns:1fr 1fr;
-  }
+.full{
+grid-column:auto
+}
+
+.dashboard-tabs{
+grid-template-columns:1fr 1fr
+}
+
 }
 </style>
 </head>
@@ -674,31 +725,31 @@ footer{
 <header>
 <div class="container nav">
 
-  <div class="brand">
+<div class="brand">
 
-    <div class="logo">
-      <div class="logo-heart"></div>
-      <div class="logo-cross">+</div>
-    </div>
+<div class="logo">
+<div class="logo-heart"></div>
+<div class="logo-cross">+</div>
+</div>
 
-    <div>
-      <div class="brand-name">نبض</div>
-      <div class="brand-sub">حجز العيادة بسهولة</div>
-    </div>
+<div>
+<div class="brand-name">نبض</div>
+<div class="brand-sub">حجز العيادة بسهولة</div>
+</div>
 
-  </div>
+</div>
 
-  <div class="nav-actions">
+<div class="nav-actions">
 
-    <button class="small-btn" onclick="openLogin()">
-      لوحة الدكتور
-    </button>
+<button class="small-btn" onclick="openLogin()">
+لوحة الدكتور
+</button>
 
-    <button class="small-btn" onclick="scrollToBooking()">
-      حجز موعد
-    </button>
+<button class="small-btn" onclick="scrollToBooking()">
+حجز موعد
+</button>
 
-  </div>
+</div>
 
 </div>
 </header>
@@ -719,23 +770,19 @@ footer{
 
 <div class="hero-buttons">
 
-<button class="btn btn-primary"
-onclick="scrollToBooking()">
+<button class="btn btn-primary" onclick="scrollToBooking()">
 احجز موعدك الآن
 </button>
 
-<button class="btn btn-outline"
-onclick="scrollToTrack()">
+<button class="btn btn-outline" onclick="scrollToTrack()">
 متابعة حجز
 </button>
 
-<button class="btn btn-outline"
-onclick="callDoctor()">
+<button class="btn btn-outline" onclick="callDoctor()">
 📞 اتصل بالدكتور
 </button>
 
-<button class="btn btn-outline"
-onclick="openWhatsApp()">
+<button class="btn btn-outline" onclick="openWhatsApp()">
 💬 تواصل واتساب
 </button>
 
@@ -750,19 +797,13 @@ onclick="openWhatsApp()">
 
 <div class="container">
 
-<h2 class="title">
-بيانات الدكتور
-</h2>
+<h2 class="title">بيانات الدكتور</h2>
 
 <div class="card">
 
 <div class="doctor">
 
-<img
-id="doctorImage"
-class="doctor-img"
-src=""
-alt="صورة الدكتور">
+<img id="doctorImage" class="doctor-img" src="" alt="صورة الدكتور">
 
 <div>
 
@@ -772,9 +813,7 @@ alt="صورة الدكتور">
 
 <div class="info">
 
-<div id="doctorSpecialty">
-طبيب
-</div>
+<div id="doctorSpecialty">طبيب</div>
 
 <div id="doctorAddress">
 العنوان غير محدد
@@ -811,9 +850,7 @@ alt="صورة الدكتور">
 
 <div class="container">
 
-<h2 class="title">
-لماذا نبض؟
-</h2>
+<h2 class="title">لماذا نبض؟</h2>
 
 <div class="features">
 
@@ -852,9 +889,7 @@ alt="صورة الدكتور">
 
 <div class="container">
 
-<h2 class="title">
-المواعيد المتاحة
-</h2>
+<h2 class="title">المواعيد المتاحة</h2>
 
 <div id="appointments" class="appointments">
 
@@ -873,9 +908,7 @@ alt="صورة الدكتور">
 
 <div class="container">
 
-<h2 class="title">
-متابعة الحجز
-</h2>
+<h2 class="title">متابعة الحجز</h2>
 
 <div class="card">
 
@@ -914,30 +947,29 @@ placeholder="مثال: 3">
 لوحة تحكم الدكتور
 </h2>
 
+<button class="logout" onclick="logoutDoctor()">
+🚪 تسجيل الخروج
+</button>
+
 <div class="dashboard-tabs">
 
-<button class="tab active"
-onclick="showPanel('overview',this)">
+<button class="tab active" onclick="showPanel('overview',this)">
 نظرة عامة
 </button>
 
-<button class="tab"
-onclick="showPanel('pending',this)">
+<button class="tab" onclick="showPanel('pending',this)">
 طلبات الانتظار
 </button>
 
-<button class="tab"
-onclick="showPanel('confirmed',this)">
+<button class="tab" onclick="showPanel('confirmed',this)">
 المواعيد المؤكدة
 </button>
 
-<button class="tab"
-onclick="showPanel('available',this)">
+<button class="tab" onclick="showPanel('available',this)">
 المواعيد المتاحة
 </button>
 
-<button class="tab"
-onclick="showPanel('settings',this)">
+<button class="tab" onclick="showPanel('settings',this)">
 إعدادات العيادة
 </button>
 
@@ -1007,9 +1039,7 @@ onclick="showPanel('settings',this)">
 
 <div>
 
-<label>
-اليوم والموعد
-</label>
+<label>اليوم والموعد</label>
 
 <input
 id="newSlot"
@@ -1072,9 +1102,7 @@ placeholder="مثال: الأحد - 10 صباحًا">
 
 <div class="form-group full">
 
-<label>
-السيرة الذاتية للدكتور
-</label>
+<label>السيرة الذاتية للدكتور</label>
 
 <textarea
 id="setBio"
@@ -1086,9 +1114,7 @@ placeholder="اكتب السيرة الذاتية للدكتور هنا... وي�
 
 <div class="form-group full">
 
-<label>
-رابط صورة الدكتور
-</label>
+<label>رابط صورة الدكتور</label>
 
 <input
 id="setImage"
@@ -1133,9 +1159,7 @@ placeholder="https://...">
 
 <h2>حجز موعد</h2>
 
-<button class="close" onclick="closeBooking()">
-×
-</button>
+<button class="close" onclick="closeBooking()">×</button>
 
 </div>
 
@@ -1176,13 +1200,9 @@ placeholder="ملاحظات إضافية (اختياري)">
 
 <div class="modal-head">
 
-<h2>
-دخول الدكتور
-</h2>
+<h2>دخول الدكتور</h2>
 
-<button class="close" onclick="closeLogin()">
-×
-</button>
+<button class="close" onclick="closeLogin()">×</button>
 
 </div>
 
@@ -1225,7 +1245,7 @@ placeholder="كلمة المرور">
 <script>
 
 /* =========================================================
-   SUPABASE
+SUPABASE
 ========================================================= */
 
 const SUPABASE_URL =
@@ -1237,2225 +1257,1945 @@ const SUPABASE_ANON_KEY =
 const CLINIC_ID =
 'clinic-001';
 
-/*
-  هذا هو User ID لحساب الدكتور الذي وجدناه
-  داخل Authentication > Users.
-*/
 const DOCTOR_USER_ID =
 'a666ebff-a485-42e0-92af-e2fbde8539bf';
 
+const DOCTOR_EMAIL =
+'a99787909@gmail.com';
+
 const supabaseClient =
 window.supabase.createClient(
-  SUPABASE_URL,
-  SUPABASE_ANON_KEY
+SUPABASE_URL,
+SUPABASE_ANON_KEY
 );
 
 
 /* =========================================================
-   STATE
+STATE
 ========================================================= */
 
-let doctor = {
-  name:'د. إبراهيم شتا',
-  specialty:'طبيب',
-  phone:'',
-  whatsapp:'',
-  address:'',
-  hours:'',
-  bio:'',
-  image:''
+let doctor={
+name:'د. إبراهيم شتا',
+specialty:'طبيب',
+phone:'',
+whatsapp:'',
+address:'',
+hours:'',
+bio:'',
+image:''
 };
 
-let bookings = [];
-let slots = [];
-let selectedSlot = '';
-let selectedSlotId = null;
+let bookings=[];
+let slots=[];
+let selectedSlot='';
+let selectedSlotId=null;
 
 
 /* =========================================================
-   HELPERS
+HELPERS
 ========================================================= */
 
 function escapeHTML(value){
 
-  if(value === null || value === undefined){
-    return '';
-  }
+if(value===null||value===undefined){
+return '';
+}
 
-  return String(value)
-    .replace(/&/g,'&amp;')
-    .replace(/</g,'&lt;')
-    .replace(/>/g,'&gt;')
-    .replace(/"/g,'&quot;')
-    .replace(/'/g,'&#039;');
+return String(value)
+.replace(/&/g,'&amp;')
+.replace(/</g,'&lt;')
+.replace(/>/g,'&gt;')
+.replace(/"/g,'&quot;')
+.replace(/'/g,'&#039;');
 }
 
 
 function showToast(message){
 
-  const toast =
-    document.getElementById('toast');
+const toast=
+document.getElementById('toast');
 
-  toast.textContent =
-    message;
+toast.textContent=message;
 
-  toast.classList.add('show');
+toast.classList.add('show');
 
-  setTimeout(()=>{
-    toast.classList.remove('show');
-  },3000);
+setTimeout(()=>{
+toast.classList.remove('show');
+},3000);
 }
 
 
 /* =========================================================
-   NAVIGATION
+NAVIGATION
 ========================================================= */
 
 function scrollToBooking(){
 
-  document
-    .getElementById('bookingSection')
-    .scrollIntoView({
-      behavior:'smooth'
-    });
+document
+.getElementById('bookingSection')
+.scrollIntoView({
+behavior:'smooth'
+});
 }
 
 
 function scrollToTrack(){
 
-  document
-    .getElementById('trackSection')
-    .scrollIntoView({
-      behavior:'smooth'
-    });
+document
+.getElementById('trackSection')
+.scrollIntoView({
+behavior:'smooth'
+});
 }
 
 
 /* =========================================================
-   DOCTOR CONTACT
+CONTACT
 ========================================================= */
 
 function callDoctor(){
 
-  if(!doctor.phone){
+if(!doctor.phone){
 
-    showToast(
-      'رقم الدكتور غير مضاف حاليًا'
-    );
+showToast(
+'رقم الدكتور غير مضاف حاليًا'
+);
 
-    return;
-  }
+return;
+}
 
-  /*
-    يفتح تطبيق الهاتف والرقم جاهز
-    بدون بدء المكالمة تلقائيًا.
-  */
-
-  window.location.href =
-    'tel:' + doctor.phone;
+window.location.href=
+'tel:'+doctor.phone;
 }
 
 
 function openWhatsApp(){
 
-  if(!doctor.whatsapp){
+if(!doctor.whatsapp){
 
-    showToast(
-      'رقم واتساب الدكتور غير مضاف حاليًا'
-    );
+showToast(
+'رقم واتساب الدكتور غير مضاف حاليًا'
+);
 
-    return;
-  }
+return;
+}
 
-  let number =
-    String(doctor.whatsapp)
-      .replace(/\D/g,'');
+let number=
+String(doctor.whatsapp)
+.replace(/\D/g,'');
 
-  if(number.startsWith('0')){
-    number =
-      '20' +
-      number.substring(1);
-  }
+if(number.startsWith('0')){
 
-  window.open(
-    'https://wa.me/' + number,
-    '_blank'
-  );
+number=
+'20'+number.substring(1);
+}
+
+window.open(
+'https://wa.me/'+number,
+'_blank'
+);
 }
 
 
 /* =========================================================
-   LOAD SETTINGS
-========================================================= */
-
-async function loadSettings(){
-
-  const {
-    data,
-    error
-  } =
-    await supabaseClient
-      .from('clinic_settings')
-      .select('*')
-      .eq(
-        'clinic_id',
-        CLINIC_ID
-      )
-      .maybeSingle();
-
-  if(error){
-
-    console.error(
-      'loadSettings:',
-      error
-    );
-
-    return;
-  }
-
-  if(!data){
-    return;
-  }
-
-  doctor.name =
-    data.doctor_name ||
-    'د. إبراهيم شتا';
-
-  doctor.specialty =
-    data.specialty ||
-    'طبيب';
-
-  doctor.phone =
-    data.phone || '';
-
-  doctor.whatsapp =
-    data.whatsapp || '';
-
-  doctor.address =
-    data.address || '';
-
-  doctor.hours =
-    data.working_hours ||
-    data.hours ||
-    '';
-
-  doctor.bio =
-    data.biography ||
-    data.description ||
-    '';
-
-  doctor.image =
-    data.doctor_image ||
-    data.image_url ||
-    '';
-
-  updateDoctorUI();
-  fillSettings();
-}
-
-
-/* =========================================================
-   UPDATE DOCTOR UI
-========================================================= */
-
-function updateDoctorUI(){
-
-  document.getElementById(
-    'doctorName'
-  ).textContent =
-    doctor.name;
-
-  document.getElementById(
-    'doctorSpecialty'
-  ).textContent =
-    doctor.specialty;
-
-  document.getElementById(
-    'doctorAddress'
-  ).textContent =
-    doctor.address ||
-    'العنوان غير محدد';
-
-  document.getElementById(
-    'doctorHours'
-  ).textContent =
-    doctor.hours ||
-    'مواعيد العمل غير محددة';
-
-
-  const image =
-    document.getElementById(
-      'doctorImage'
-    );
-
-  if(doctor.image){
-
-    image.src =
-      doctor.image;
-
-  }else{
-
-    image.src =
-      createLogoImage();
-  }
-
-
-  const bioBox =
-    document.getElementById(
-      'bioBox'
-    );
-
-  const bio =
-    document.getElementById(
-      'doctorBio'
-    );
-
-  if(doctor.bio){
-
-    bioBox.style.display =
-      'block';
-
-    bio.textContent =
-      doctor.bio;
-
-  }else{
-
-    bioBox.style.display =
-      'none';
-  }
-}
-
-
-/* =========================================================
-   DEFAULT DOCTOR IMAGE
+DEFAULT IMAGE
 ========================================================= */
 
 function createLogoImage(){
 
-  const svg = `
-  <svg xmlns="http://www.w3.org/2000/svg"
-       width="300"
-       height="300"
-       viewBox="0 0 300 300">
+const svg=`
 
-    <rect
-      width="300"
-      height="300"
-      rx="55"
-      fill="#087ea4"/>
+<svg xmlns="http://www.w3.org/2000/svg"
+width="300"
+height="300"
+viewBox="0 0 300 300">
 
-    <text
-      x="150"
-      y="180"
-      text-anchor="middle"
-      font-size="80"
-      font-family="Arial"
-      font-weight="bold"
-      fill="white">
-      نبض
-    </text>
+<rect
+width="300"
+height="300"
+rx="55"
+fill="#087ea4"/>
 
-  </svg>
-  `;
+<text
+x="150"
+y="180"
+text-anchor="middle"
+font-size="80"
+font-family="Arial"
+font-weight="bold"
+fill="white">
+نبض
+</text>
 
-  return 'data:image/svg+xml;charset=UTF-8,' +
-    encodeURIComponent(svg);
+</svg>
+`;
+
+return 'data:image/svg+xml;charset=UTF-8,'+
+encodeURIComponent(svg);
 }
 
 
 /* =========================================================
-   SETTINGS FORM
+LOAD SETTINGS
+========================================================= */
+
+async function loadSettings(){
+
+const {
+data,
+error
+}=
+await supabaseClient
+.from('clinic_settings')
+.select('*')
+.eq('clinic_id',CLINIC_ID)
+.maybeSingle();
+
+if(error){
+
+console.error(
+'loadSettings:',
+error
+);
+
+return;
+}
+
+if(!data){
+return;
+}
+
+doctor.name=
+data.doctor_name||
+'د. إبراهيم شتا';
+
+doctor.specialty=
+data.specialty||
+'طبيب';
+
+doctor.phone=
+data.phone||'';
+
+doctor.whatsapp=
+data.whatsapp||'';
+
+doctor.address=
+data.address||'';
+
+doctor.hours=
+data.working_hours||
+data.hours||
+'';
+
+doctor.bio=
+data.biography||
+data.description||
+'';
+
+doctor.image=
+data.doctor_image||
+data.image_url||
+'';
+
+updateDoctorUI();
+
+fillSettings();
+}
+
+
+/* =========================================================
+UPDATE PUBLIC DOCTOR UI
+========================================================= */
+
+function updateDoctorUI(){
+
+document.getElementById(
+'doctorName'
+).textContent=doctor.name;
+
+document.getElementById(
+'doctorSpecialty'
+).textContent=doctor.specialty;
+
+document.getElementById(
+'doctorAddress'
+).textContent=
+doctor.address||
+'العنوان غير محدد';
+
+document.getElementById(
+'doctorHours'
+).textContent=
+doctor.hours||
+'مواعيد العمل غير محددة';
+
+const image=
+document.getElementById(
+'doctorImage'
+);
+
+image.src=
+doctor.image||
+createLogoImage();
+
+const bioBox=
+document.getElementById(
+'bioBox'
+);
+
+const bio=
+document.getElementById(
+'doctorBio'
+);
+
+if(doctor.bio){
+
+bioBox.style.display='block';
+
+bio.textContent=doctor.bio;
+
+}else{
+
+bioBox.style.display='none';
+}
+}
+
+
+/* =========================================================
+SETTINGS FORM
 ========================================================= */
 
 function fillSettings(){
 
-  document.getElementById(
-    'setName'
-  ).value =
-    doctor.name || '';
+document.getElementById('setName').value=
+doctor.name||'';
 
-  document.getElementById(
-    'setSpecialty'
-  ).value =
-    doctor.specialty || '';
+document.getElementById('setSpecialty').value=
+doctor.specialty||'';
 
-  document.getElementById(
-    'setPhone'
-  ).value =
-    doctor.phone || '';
+document.getElementById('setPhone').value=
+doctor.phone||'';
 
-  document.getElementById(
-    'setWhatsapp'
-  ).value =
-    doctor.whatsapp || '';
+document.getElementById('setWhatsapp').value=
+doctor.whatsapp||'';
 
-  document.getElementById(
-    'setAddress'
-  ).value =
-    doctor.address || '';
+document.getElementById('setAddress').value=
+doctor.address||'';
 
-  document.getElementById(
-    'setHours'
-  ).value =
-    doctor.hours || '';
+document.getElementById('setHours').value=
+doctor.hours||'';
 
-  document.getElementById(
-    'setBio'
-  ).value =
-    doctor.bio || '';
+document.getElementById('setBio').value=
+doctor.bio||'';
 
-  document.getElementById(
-    'setImage'
-  ).value =
-    doctor.image || '';
+document.getElementById('setImage').value=
+doctor.image||'';
 }
 
 
 /* =========================================================
-   SAVE SETTINGS
+SAVE SETTINGS
 ========================================================= */
 
 async function saveSettings(){
 
-  /*
-    التأكد أن الدكتور مسجل دخول
-  */
+const {
+data
+}=
+await supabaseClient.auth.getUser();
 
-  const {
-    data:sessionData
-  } =
-    await supabaseClient.auth.getUser();
+const user=data?.user;
 
-  const user =
-    sessionData?.user;
+if(!user){
 
-  if(!user){
+showToast(
+'يجب تسجيل الدخول أولًا'
+);
 
-    showToast(
-      'يجب تسجيل الدخول أولًا'
-    );
+return;
+}
 
-    return;
-  }
+if(user.id!==DOCTOR_USER_ID){
 
-  if(user.id !== DOCTOR_USER_ID){
+showToast(
+'هذا الحساب غير مصرح له'
+);
 
-    showToast(
-      'هذا الحساب غير مصرح له'
-    );
+await supabaseClient.auth.signOut();
 
-    await supabaseClient.auth.signOut();
+return;
+}
 
-    return;
-  }
+const image=
+document.getElementById(
+'setImage'
+).value.trim();
 
+const payload={
 
-  const payload = {
+clinic_id:CLINIC_ID,
 
-    clinic_id:
-      CLINIC_ID,
+owner_id:DOCTOR_USER_ID,
 
-    owner_id:
-      DOCTOR_USER_ID,
+doctor_name:
+document.getElementById(
+'setName'
+).value.trim(),
 
-    doctor_name:
-      document.getElementById(
-        'setName'
-      ).value.trim(),
+specialty:
+document.getElementById(
+'setSpecialty'
+).value.trim(),
 
-    specialty:
-      document.getElementById(
-        'setSpecialty'
-      ).value.trim(),
+phone:
+document.getElementById(
+'setPhone'
+).value.trim(),
 
-    phone:
-      document.getElementById(
-        'setPhone'
-      ).value.trim(),
+whatsapp:
+document.getElementById(
+'setWhatsapp'
+).value.trim(),
 
-    whatsapp:
-      document.getElementById(
-        'setWhatsapp'
-      ).value.trim(),
+address:
+document.getElementById(
+'setAddress'
+).value.trim(),
 
-    address:
-      document.getElementById(
-        'setAddress'
-      ).value.trim(),
+working_hours:
+document.getElementById(
+'setHours'
+).value.trim(),
 
-    working_hours:
-      document.getElementById(
-        'setHours'
-      ).value.trim(),
+biography:
+document.getElementById(
+'setBio'
+).value.trim(),
 
-    biography:
-      document.getElementById(
-        'setBio'
-      ).value.trim(),
+doctor_image:image,
 
-    updated_at:
-      new Date().toISOString()
-  };
+updated_at:
+new Date().toISOString()
+};
 
+const {
+error
+}=
+await supabaseClient
+.from('clinic_settings')
+.upsert(
+payload,
+{onConflict:'clinic_id'}
+);
 
-  const {
-    error
-  } =
-    await supabaseClient
-      .from('clinic_settings')
-      .upsert(
-        payload,
-        {
-          onConflict:'clinic_id'
-        }
-      );
+if(error){
 
+console.error(error);
 
-  if(error){
+showToast(
+'حدث خطأ أثناء حفظ البيانات'
+);
 
-    console.error(
-      'saveSettings:',
-      error
-    );
+return;
+}
 
-    showToast(
-      'حدث خطأ أثناء حفظ البيانات'
-    );
+doctor.name=
+payload.doctor_name||
+'د. إبراهيم شتا';
 
-    return;
-  }
+doctor.specialty=
+payload.specialty||
+'طبيب';
 
+doctor.phone=
+payload.phone;
 
-  doctor.name =
-    payload.doctor_name ||
-    'د. إبراهيم شتا';
+doctor.whatsapp=
+payload.whatsapp;
 
-  doctor.specialty =
-    payload.specialty ||
-    'طبيب';
+doctor.address=
+payload.address;
 
-  doctor.phone =
-    payload.phone;
+doctor.hours=
+payload.working_hours;
 
-  doctor.whatsapp =
-    payload.whatsapp;
+doctor.bio=
+payload.biography;
 
-  doctor.address =
-    payload.address;
+doctor.image=
+image;
 
-  doctor.hours =
-    payload.working_hours;
+updateDoctorUI();
 
-  doctor.bio =
-    payload.biography;
-
-
-  doctor.image =
-    document.getElementById(
-      'setImage'
-    ).value.trim();
-
-
-  updateDoctorUI();
-
-  showToast(
-    'تم حفظ بيانات العيادة بنجاح'
-  );
+showToast(
+'تم حفظ بيانات العيادة بنجاح'
+);
 }
 
 
 /* =========================================================
-   LOAD AVAILABLE APPOINTMENTS
+LOAD SLOTS
 ========================================================= */
 
 async function loadSlots(){
 
-  const {
-    data,
-    error
-  } =
-    await supabaseClient
-      .from('appointments')
-      .select('*')
-      .eq(
-        'clinic_id',
-        CLINIC_ID
-      )
-      .eq(
-        'is_booked',
-        false
-      )
-      .order(
-        'created_at',
-        {
-          ascending:true
-        }
-      );
+const {
+data,
+error
+}=
+await supabaseClient
+.from('appointments')
+.select('*')
+.eq('clinic_id',CLINIC_ID)
+.eq('is_booked',false)
+.order(
+'created_at',
+{ascending:true}
+);
 
+if(error){
 
-  if(error){
+console.error(
+'loadSlots:',
+error
+);
 
-    console.error(
-      'loadSlots:',
-      error
-    );
+slots=[];
 
-    slots = [];
+renderPublicSlots();
+renderDashboardSlots();
 
-    renderPublicSlots();
-    renderDashboardSlots();
+return;
+}
 
-    return;
-  }
+slots=data||[];
 
+renderPublicSlots();
+renderDashboardSlots();
 
-  slots =
-    data || [];
-
-  renderPublicSlots();
-  renderDashboardSlots();
+if(
+document.getElementById('availableCount')
+){
+document.getElementById(
+'availableCount'
+).textContent=slots.length;
+}
 }
 
 
 /* =========================================================
-   FORMAT APPOINTMENT
+FORMAT SLOT
 ========================================================= */
 
 function formatSlot(slot){
 
-  if(
-    slot.appointment_time &&
-    slot.appointment_date
-  ){
+if(
+slot.appointment_date&&
+slot.appointment_time
+){
 
-    return (
-      '📅 ' +
-      slot.appointment_date +
-      ' — ' +
-      slot.appointment_time
-    );
-  }
+return '📅 '+
+slot.appointment_date+
+' — '+
+slot.appointment_time;
+}
 
-  if(slot.appointment_time){
+if(slot.appointment_time){
 
-    return '🕐 ' +
-      slot.appointment_time;
-  }
+return '🕐 '+
+slot.appointment_time;
+}
 
-  if(slot.appointment_date){
+if(slot.appointment_date){
 
-    return '📅 ' +
-      slot.appointment_date;
-  }
+return '📅 '+
+slot.appointment_date;
+}
 
-  return 'موعد متاح';
+return 'موعد متاح';
 }
 
 
 /* =========================================================
-   PUBLIC SLOTS
+PUBLIC SLOTS
 ========================================================= */
 
 function renderPublicSlots(){
 
-  const box =
-    document.getElementById(
-      'appointments'
-    );
+const box=
+document.getElementById(
+'appointments'
+);
 
+if(!box)return;
 
-  if(!box){
-    return;
-  }
+if(!slots.length){
 
+box.innerHTML=`
+<div class="empty">
+لا توجد مواعيد متاحة حاليًا.
+</div>
+`;
 
-  if(!slots.length){
+return;
+}
 
-    box.innerHTML =
-      `<div class="empty">
-        لا توجد مواعيد متاحة حاليًا.
-      </div>`;
+box.innerHTML=
+slots.map(slot=>`
 
-    return;
-  }
+<div class="slot">
 
+<strong>موعد متاح</strong>
 
-  box.innerHTML =
-    slots.map(slot=>`
+<span>
+${escapeHTML(formatSlot(slot))}
+</span>
 
-      <div class="slot">
+<button onclick="openBooking(${slot.id})">
+احجز هذا الموعد
+</button>
 
-        <strong>
-          موعد متاح
-        </strong>
+</div>
 
-        <span>
-          ${escapeHTML(
-            formatSlot(slot)
-          )}
-        </span>
-
-        <button
-          onclick="openBooking(
-            ${slot.id}
-          )">
-
-          احجز هذا الموعد
-
-        </button>
-
-      </div>
-
-    `).join('');
+`).join('');
 }
 
 
 /* =========================================================
-   OPEN BOOKING
+BOOKING MODAL
 ========================================================= */
 
 function openBooking(slotId){
 
-  const slot =
-    slots.find(
-      item =>
-        Number(item.id) ===
-        Number(slotId)
-    );
+const slot=
+slots.find(
+item=>Number(item.id)===Number(slotId)
+);
 
+if(!slot){
 
-  if(!slot){
+showToast(
+'هذا الموعد لم يعد متاحًا'
+);
 
-    showToast(
-      'هذا الموعد لم يعد متاحًا'
-    );
+return;
+}
 
-    return;
-  }
+selectedSlotId=slot.id;
 
+selectedSlot=formatSlot(slot);
 
-  selectedSlotId =
-    slot.id;
+document.getElementById(
+'selectedSlot'
+).textContent=selectedSlot;
 
-  selectedSlot =
-    formatSlot(slot);
-
-
-  document.getElementById(
-    'selectedSlot'
-  ).textContent =
-    selectedSlot;
-
-  document.getElementById(
-    'bookingModal'
-  ).style.display =
-    'flex';
+document.getElementById(
+'bookingModal'
+).style.display='flex';
 }
 
 
 function closeBooking(){
 
-  document.getElementById(
-    'bookingModal'
-  ).style.display =
-    'none';
+document.getElementById(
+'bookingModal'
+).style.display='none';
 
-  selectedSlotId =
-    null;
-
-  selectedSlot =
-    '';
+selectedSlotId=null;
+selectedSlot='';
 }
 
 
 /* =========================================================
-   SUBMIT BOOKING
+SUBMIT BOOKING
 ========================================================= */
 
 async function submitBooking(){
 
-  const name =
-    document.getElementById(
-      'patientName'
-    ).value.trim();
+const name=
+document.getElementById(
+'patientName'
+).value.trim();
 
-  const phone =
-    document.getElementById(
-      'patientPhone'
-    ).value.trim();
+const phone=
+document.getElementById(
+'patientPhone'
+).value.trim();
+
+if(!name||!phone){
 
+showToast(
+'اكتب اسم المريض ورقم الهاتف'
+);
 
-  if(!name || !phone){
+return;
+}
 
-    showToast(
-      'اكتب اسم المريض ورقم الهاتف'
-    );
-
-    return;
-  }
-
+if(!selectedSlotId){
 
-  if(!selectedSlotId){
+showToast(
+'اختر موعدًا أولًا'
+);
 
-    showToast(
-      'اختر موعدًا أولًا'
-    );
+return;
+}
 
-    return;
-  }
+const {
+data:slotCheck,
+error:slotError
+}=
+await supabaseClient
+.from('appointments')
+.select('*')
+.eq('id',selectedSlotId)
+.eq('clinic_id',CLINIC_ID)
+.eq('is_booked',false)
+.maybeSingle();
 
+if(slotError){
 
-  /*
-    نتأكد مرة ثانية أن الموعد ما زال متاحًا
-  */
+console.error(slotError);
 
-  const {
-    data:slotCheck,
-    error:slotError
-  } =
-    await supabaseClient
-      .from('appointments')
-      .select('*')
-      .eq(
-        'id',
-        selectedSlotId
-      )
-      .eq(
-        'clinic_id',
-        CLINIC_ID
-      )
-      .eq(
-        'is_booked',
-        false
-      )
-      .maybeSingle();
+showToast(
+'تعذر التحقق من الموعد'
+);
 
+return;
+}
 
-  if(slotError){
+if(!slotCheck){
 
-    console.error(slotError);
+showToast(
+'عذرًا، هذا الموعد لم يعد متاحًا'
+);
 
-    showToast(
-      'تعذر التحقق من الموعد'
-    );
+await loadSlots();
 
-    return;
-  }
+closeBooking();
 
+return;
+}
 
-  if(!slotCheck){
+const today=
+new Date()
+.toISOString()
+.slice(0,10);
 
-    showToast(
-      'عذرًا، هذا الموعد لم يعد متاحًا'
-    );
+const {
+data:todayBookings,
+error:countError
+}=
+await supabaseClient
+.from('bookings')
+.select('daily_number')
+.eq('clinic_id',CLINIC_ID)
+.eq('appointment_date',today)
+.order(
+'daily_number',
+{ascending:false}
+)
+.limit(1);
 
-    await loadSlots();
+if(countError){
 
-    closeBooking();
+console.error(countError);
 
-    return;
-  }
+showToast(
+'تعذر إنشاء رقم الحجز حاليًا'
+);
 
+return;
+}
 
-  /*
-    الحصول على حجوزات اليوم
-    لتحديد الرقم اليومي.
-  */
+let dailyNumber=1;
 
-  const today =
-    new Date()
-      .toISOString()
-      .slice(0,10);
+if(
+todayBookings&&
+todayBookings.length
+){
+
+dailyNumber=
+Number(
+todayBookings[0].daily_number||0
+)+1;
+}
 
+const bookingPayload={
 
-  const {
-    data:todayBookings,
-    error:countError
-  } =
-    await supabaseClient
-      .from('bookings')
-      .select(
-        'daily_number'
-      )
-      .eq(
-        'clinic_id',
-        CLINIC_ID
-      )
-      .eq(
-        'appointment_date',
-        today
-      )
-      .order(
-        'daily_number',
-        {
-          ascending:false
-        }
-      )
-      .limit(1);
+clinic_id:CLINIC_ID,
 
+daily_number:dailyNumber,
 
-  if(countError){
+patient_name:name,
 
-    console.error(countError);
+patient_phone:phone,
 
-    showToast(
-      'تعذر إنشاء رقم الحجز حاليًا'
-    );
-
-    return;
-  }
-
+appointment_id:selectedSlotId,
 
-  let dailyNumber = 1;
+appointment_date:today,
 
+appointment_time:
+slotCheck.appointment_time||'',
 
-  if(
-    todayBookings &&
-    todayBookings.length
-  ){
+status:'pending'
+};
 
-    dailyNumber =
-      Number(
-        todayBookings[0]
-          .daily_number || 0
-      ) + 1;
-  }
+const {
+data,
+error
+}=
+await supabaseClient
+.from('bookings')
+.insert(bookingPayload)
+.select()
+.single();
 
+if(error){
 
-  /*
-    تجهيز بيانات الحجز.
-    العمر والملاحظات لا يتم إرسالها
-    إلى قاعدة البيانات الحالية لأنها
-    لا تحتوي على أعمدة لهما.
-  */
+console.error(
+'submitBooking:',
+error
+);
 
-  const bookingPayload = {
+showToast(
+'حدث خطأ أثناء إرسال الحجز'
+);
 
-    clinic_id:
-      CLINIC_ID,
+return;
+}
 
-    daily_number:
-      dailyNumber,
+const {
+error:slotUpdateError
+}=
+await supabaseClient
+.from('appointments')
+.update({
+is_booked:true
+})
+.eq(
+'id',
+selectedSlotId
+);
 
-    patient_name:
-      name,
+if(slotUpdateError){
 
-    patient_phone:
-      phone,
+console.error(
+'slot update:',
+slotUpdateError
+);
+}
 
-    appointment_id:
-      selectedSlotId,
+closeBooking();
 
-    appointment_date:
-      today,
+document.getElementById(
+'patientName'
+).value='';
 
-    appointment_time:
-      slotCheck.appointment_time ||
-      '',
+document.getElementById(
+'patientPhone'
+).value='';
 
-    status:
-      'pending'
-  };
+document.getElementById(
+'patientAge'
+).value='';
 
+document.getElementById(
+'patientNote'
+).value='';
 
-  const {
-    data,
-    error
-  } =
-    await supabaseClient
-      .from('bookings')
-      .insert(
-        bookingPayload
-      )
-      .select()
-      .single();
+showToast(
+'تم إرسال طلب الحجز بنجاح'
+);
 
+alert(
+'تم إرسال طلب الحجز بنجاح.\n\n'+
+'رقمك اليومي هو: '+
+data.daily_number+
+'\n\n'+
+'احتفظ بهذا الرقم لمتابعة الحجز.'
+);
 
-  if(error){
-
-    console.error(
-      'submitBooking:',
-      error
-    );
-
-    showToast(
-      'حدث خطأ أثناء إرسال الحجز'
-    );
-
-    return;
-  }
-
-
-  /*
-    حجز الموعد حتى لا يظهر للمريض
-    مرة أخرى.
-  */
-
-  const {
-    error:slotUpdateError
-  } =
-    await supabaseClient
-      .from('appointments')
-      .update({
-        is_booked:true
-      })
-      .eq(
-        'id',
-        selectedSlotId
-      );
-
-
-  if(slotUpdateError){
-
-    console.error(
-      'slot update:',
-      slotUpdateError
-    );
-  }
-
-
-  closeBooking();
-
-
-  document.getElementById(
-    'patientName'
-  ).value = '';
-
-  document.getElementById(
-    'patientPhone'
-  ).value = '';
-
-  document.getElementById(
-    'patientAge'
-  ).value = '';
-
-  document.getElementById(
-    'patientNote'
-  ).value = '';
-
-
-  showToast(
-    'تم إرسال طلب الحجز بنجاح'
-  );
-
-
-  alert(
-    'تم إرسال طلب الحجز بنجاح.\n\n' +
-    'رقمك اليومي هو: ' +
-    data.daily_number +
-    '\n\n' +
-    'احتفظ بهذا الرقم لمتابعة الحجز.'
-  );
-
-
-  await loadSlots();
+await loadSlots();
 }
 
 
 /* =========================================================
-   TRACK BOOKING
+TRACK BOOKING
 ========================================================= */
 
 async function trackBooking(){
 
-  const number =
-    Number(
-      document.getElementById(
-        'trackNumber'
-      ).value
-    );
+const number=
+Number(
+document.getElementById(
+'trackNumber'
+).value
+);
 
-  const result =
-    document.getElementById(
-      'trackResult'
-    );
+const result=
+document.getElementById(
+'trackResult'
+);
 
+if(!number){
 
-  if(!number){
+result.innerHTML=`
+<div class="notice">
+اكتب رقم الحجز أولًا.
+</div>
+`;
 
-    result.innerHTML =
-      `<div class="notice">
-        اكتب رقم الحجز أولًا.
-      </div>`;
+return;
+}
 
-    return;
-  }
+const today=
+new Date()
+.toISOString()
+.slice(0,10);
 
+const {
+data,
+error
+}=
+await supabaseClient
+.from('bookings')
+.select('*')
+.eq('clinic_id',CLINIC_ID)
+.eq('daily_number',number)
+.eq('appointment_date',today)
+.order(
+'created_at',
+{ascending:false}
+)
+.limit(1)
+.maybeSingle();
 
-  const today =
-    new Date()
-      .toISOString()
-      .slice(0,10);
+if(error){
 
+console.error(error);
 
-  const {
-    data,
-    error
-  } =
-    await supabaseClient
-      .from('bookings')
-      .select('*')
-      .eq(
-        'clinic_id',
-        CLINIC_ID
-      )
-      .eq(
-        'daily_number',
-        number
-      )
-      .eq(
-        'appointment_date',
-        today
-      )
-      .order(
-        'created_at',
-        {
-          ascending:false
-        }
-      )
-      .limit(1)
-      .maybeSingle();
+result.innerHTML=`
+<div class="error">
+حدث خطأ أثناء البحث.
+</div>
+`;
 
+return;
+}
 
-  if(error){
+if(!data){
 
-    console.error(error);
+result.innerHTML=`
+<div class="notice">
+لم يتم العثور على حجز بهذا الرقم اليوم.
+</div>
+`;
 
-    result.innerHTML =
-      `<div class="notice">
-        حدث خطأ أثناء البحث.
-      </div>`;
+return;
+}
 
-    return;
-  }
+let statusText=
+data.status==='pending'
+?'طلبك قيد الانتظار'
+:data.status==='confirmed'
+?'تم تأكيد موعدك'
+:data.status==='rejected'
+?'تم رفض الحجز'
+:data.status;
 
+let statusClass=
+data.status==='pending'
+?'pending'
+:data.status==='confirmed'
+?'confirmed'
+:'rejected';
 
-  if(!data){
+result.innerHTML=`
 
-    result.innerHTML =
-      `<div class="notice">
-        لم يتم العثور على حجز بهذا الرقم اليوم.
-      </div>`;
+<div class="booking">
 
-    return;
-  }
+<div class="booking-top">
 
+<strong>
+حجز رقم ${data.daily_number}
+</strong>
 
-  let statusText =
-    data.status === 'pending'
-      ? 'طلبك قيد الانتظار'
-      : data.status === 'confirmed'
-      ? 'تم تأكيد موعدك'
-      : data.status === 'rejected'
-      ? 'تم رفض الحجز'
-      : data.status;
+<span class="number">
+ID ${data.daily_number}
+</span>
 
+</div>
 
-  let statusClass =
-    data.status === 'pending'
-      ? 'pending'
-      : data.status === 'confirmed'
-      ? 'confirmed'
-      : 'rejected';
+<div class="info">
 
+📅 الموعد:
+${escapeHTML(data.appointment_date||'')}
 
-  result.innerHTML = `
+<br>
 
-    <div class="booking">
+🕐 الوقت:
+${escapeHTML(data.appointment_time||'غير محدد')}
 
-      <div class="booking-top">
+</div>
 
-        <strong>
-          ${escapeHTML(
-            data.patient_name
-          )}
-        </strong>
+<span class="status ${statusClass}">
+${statusText}
+</span>
 
-        <span class="number">
-          ID ${data.daily_number}
-        </span>
+</div>
 
-      </div>
-
-      <div class="info">
-
-        📅 الموعد:
-        ${escapeHTML(
-          data.appointment_date ||
-          ''
-        )}
-
-        <br>
-
-        🕐 الوقت:
-        ${escapeHTML(
-          data.appointment_time ||
-          'غير محدد'
-        )}
-
-      </div>
-
-      <span class="status ${statusClass}">
-        ${statusText}
-      </span>
-
-    </div>
-
-  `;
+`;
 }
 
 
 /* =========================================================
-   LOGIN
+LOGIN
 ========================================================= */
 
 function openLogin(){
 
-  document.getElementById(
-    'loginMessage'
-  ).innerHTML = '';
+document.getElementById(
+'loginEmail'
+).value='';
 
-  document.getElementById(
-    'loginModal'
-  ).style.display =
-    'flex';
+document.getElementById(
+'loginPassword'
+).value='';
+
+document.getElementById(
+'loginMessage'
+).innerHTML='';
+
+document.getElementById(
+'loginModal'
+).style.display='flex';
 }
 
 
 function closeLogin(){
 
-  document.getElementById(
-    'loginModal'
-  ).style.display =
-    'none';
+document.getElementById(
+'loginModal'
+).style.display='none';
 }
 
 
 /*
-  تسجيل دخول آمن:
-  1. Supabase يتحقق من الإيميل والباسورد.
-  2. بعد النجاح نتحقق أن User ID هو حساب الدكتور.
-  3. أي حساب آخر يتم تسجيل خروجه فورًا.
+===========================================================
+دخول الدكتور
+
+لا يوجد باسورد داخل الموقع.
+
+Supabase هو الذي يتحقق من كلمة المرور.
+
+ويتم السماح فقط:
+1- بالإيميل المحدد.
+2- بكلمة المرور الصحيحة في Supabase.
+3- بالـ User ID الخاص بالدكتور.
+===========================================================
 */
 
 async function loginDoctor(){
 
-  const email =
-    document.getElementById(
-      'loginEmail'
-    ).value.trim();
+const email=
+document.getElementById(
+'loginEmail'
+).value
+.trim()
+.toLowerCase();
 
-  const password =
-    document.getElementById(
-      'loginPassword'
-    ).value;
+const password=
+document.getElementById(
+'loginPassword'
+).value;
 
+const message=
+document.getElementById(
+'loginMessage'
+);
 
-  const message =
-    document.getElementById(
-      'loginMessage'
-    );
+if(!email||!password){
 
+message.innerHTML=`
+<div class="error">
+اكتب البريد الإلكتروني وكلمة المرور.
+</div>
+`;
 
-  if(!email || !password){
-
-    message.innerHTML =
-      `<div class="notice">
-        اكتب البريد الإلكتروني وكلمة المرور.
-      </div>`;
-
-    return;
-  }
-
-
-  /*
-    إزالة أي جلسة قديمة أولًا.
-    هذا يمنع الاعتماد على جلسة سابقة.
-  */
-
-  await supabaseClient.auth.signOut();
+return;
+}
 
 
-  message.innerHTML =
-    `<div class="notice">
-      جاري التحقق من بيانات الدخول...
-    </div>`;
+/* الإيميل المسموح فقط */
+
+if(email!==DOCTOR_EMAIL){
+
+message.innerHTML=`
+<div class="error">
+هذا البريد غير مصرح له بالدخول.
+</div>
+`;
+
+return;
+}
 
 
-  const {
-    data,
-    error
-  } =
-    await supabaseClient.auth
-      .signInWithPassword({
-        email:email,
-        password:password
-      });
+/* إزالة أي جلسة سابقة */
+
+await supabaseClient.auth.signOut();
 
 
-  if(error || !data?.user){
-
-    console.error(
-      'login:',
-      error
-    );
-
-    message.innerHTML =
-      `<div class="notice">
-        البريد الإلكتروني أو كلمة المرور غير صحيحة.
-      </div>`;
-
-    return;
-  }
+message.innerHTML=`
+<div class="notice">
+جاري التحقق من بيانات الدخول...
+</div>
+`;
 
 
-  /*
-    التأكد أن المستخدم هو الدكتور فعلًا.
-  */
+/* التحقق الحقيقي من Supabase */
 
-  if(
-    data.user.id !==
-    DOCTOR_USER_ID
-  ){
+const {
+data,
+error
+}=
+await supabaseClient.auth.signInWithPassword({
 
-    await supabaseClient.auth.signOut();
+email:DOCTOR_EMAIL,
 
-    message.innerHTML =
-      `<div class="notice">
-        هذا الحساب ليس حساب الدكتور المصرح له.
-      </div>`;
+password:password
 
-    return;
-  }
+});
 
 
-  closeLogin();
+/* كلمة المرور خاطئة */
+
+if(
+error||
+!data||
+!data.user
+){
+
+console.error(
+'Supabase Login Error:',
+error
+);
+
+message.innerHTML=`
+<div class="error">
+❌ البريد الإلكتروني أو كلمة المرور غير صحيحة.
+</div>
+`;
+
+return;
+}
 
 
-  document.getElementById(
-    'dashboard'
-  ).style.display =
-    'block';
+/* التأكد أن User ID هو الدكتور */
+
+if(
+data.user.id!==DOCTOR_USER_ID
+){
+
+await supabaseClient.auth.signOut();
+
+message.innerHTML=`
+<div class="error">
+❌ هذا الحساب ليس حساب الدكتور المصرح له.
+</div>
+`;
+
+return;
+}
 
 
-  document.getElementById(
-    'dashboard'
-  ).scrollIntoView({
-    behavior:'smooth'
-  });
+/* نجاح الدخول */
 
+closeLogin();
 
-  await loadBookings();
-  await loadSettings();
-  await loadSlots();
+document.getElementById(
+'dashboard'
+).style.display='block';
 
+document.getElementById(
+'dashboard'
+).scrollIntoView({
+behavior:'smooth'
+});
 
-  showToast(
-    'تم تسجيل الدخول بنجاح'
-  );
+await loadBookings();
+await loadSettings();
+await loadSlots();
+
+showToast(
+'تم تسجيل الدخول بنجاح'
+);
 }
 
 
 /* =========================================================
-   LOGOUT
+LOGOUT
 ========================================================= */
 
 async function logoutDoctor(){
 
-  await supabaseClient.auth.signOut();
+await supabaseClient.auth.signOut();
 
-  document.getElementById(
-    'dashboard'
-  ).style.display =
-    'none';
+bookings=[];
 
-  window.scrollTo({
-    top:0,
-    behavior:'smooth'
-  });
+document.getElementById(
+'dashboard'
+).style.display='none';
 
-  showToast(
-    'تم تسجيل الخروج'
-  );
+window.scrollTo({
+top:0,
+behavior:'smooth'
+});
+
+showToast(
+'تم تسجيل الخروج'
+);
 }
 
 
 /* =========================================================
-   BOOKINGS FOR DASHBOARD
+LOAD BOOKINGS
 ========================================================= */
 
 async function loadBookings(){
 
-  /*
-    نتأكد من الجلسة
-  */
+const {
+data:userData
+}=
+await supabaseClient.auth.getUser();
 
-  const {
-    data:userData
-  } =
-    await supabaseClient.auth.getUser();
+const user=
+userData?.user;
 
-  const user =
-    userData?.user;
-
-
-  if(
-    !user ||
-    user.id !== DOCTOR_USER_ID
-  ){
-
-    return;
-  }
-
-
-  const {
-    data,
-    error
-  } =
-    await supabaseClient
-      .from('bookings')
-      .select('*')
-      .eq(
-        'clinic_id',
-        CLINIC_ID
-      )
-      .order(
-        'created_at',
-        {
-          ascending:false
-        }
-      );
-
-
-  if(error){
-
-    console.error(
-      'loadBookings:',
-      error
-    );
-
-    return;
-  }
-
-
-  bookings =
-    data || [];
-
-  renderDashboard();
-}
-
-
-/* =========================================================
-   DASHBOARD PANELS
-========================================================= */
-
-function showPanel(
-  id,
-  button
+if(
+!user||
+user.id!==DOCTOR_USER_ID
 ){
 
-  const panels = [
-    'overview',
-    'pending',
-    'confirmed',
-    'available',
-    'settings'
-  ];
+return;
+}
 
+const {
+data,
+error
+}=
+await supabaseClient
+.from('bookings')
+.select('*')
+.eq('clinic_id',CLINIC_ID)
+.order(
+'created_at',
+{ascending:false}
+);
 
-  panels.forEach(
-    panel=>{
+if(error){
 
-      const el =
-        document.getElementById(
-          panel
-        );
+console.error(
+'loadBookings:',
+error
+);
 
-      if(el){
+return;
+}
 
-        el.style.display =
-          panel === id
-            ? 'block'
-            : 'none';
-      }
-    }
-  );
+bookings=data||[];
 
-
-  document
-    .querySelectorAll('.tab')
-    .forEach(
-      tab=>{
-        tab.classList.remove(
-          'active'
-        );
-      }
-    );
-
-
-  if(button){
-
-    button.classList.add(
-      'active'
-    );
-  }
-
-
-  if(id === 'pending'){
-    loadBookings();
-  }
-
-  if(id === 'confirmed'){
-    loadBookings();
-  }
-
-  if(id === 'available'){
-    loadSlots();
-  }
-
-  if(id === 'settings'){
-    loadSettings();
-  }
+renderDashboard();
 }
 
 
 /* =========================================================
-   DASHBOARD RENDER
+PANELS
+========================================================= */
+
+function showPanel(id,button){
+
+const panels=[
+'overview',
+'pending',
+'confirmed',
+'available',
+'settings'
+];
+
+panels.forEach(panel=>{
+
+const el=
+document.getElementById(panel);
+
+if(el){
+
+el.style.display=
+panel===id
+?'block'
+:'none';
+}
+
+});
+
+document
+.querySelectorAll('.tab')
+.forEach(tab=>{
+tab.classList.remove('active');
+});
+
+if(button){
+
+button.classList.add('active');
+}
+
+if(id==='pending'){
+loadBookings();
+}
+
+if(id==='confirmed'){
+loadBookings();
+}
+
+if(id==='available'){
+loadSlots();
+}
+
+if(id==='settings'){
+loadSettings();
+}
+}
+
+
+/* =========================================================
+RENDER DASHBOARD
 ========================================================= */
 
 function renderDashboard(){
 
-  const pending =
-    bookings.filter(
-      b =>
-        b.status === 'pending'
-    );
+const pending=
+bookings.filter(
+b=>b.status==='pending'
+);
 
-  const confirmed =
-    bookings.filter(
-      b =>
-        b.status === 'confirmed'
-    );
+const confirmed=
+bookings.filter(
+b=>b.status==='confirmed'
+);
 
+document.getElementById(
+'pendingCount'
+).textContent=
+pending.length;
 
-  document.getElementById(
-    'pendingCount'
-  ).textContent =
-    pending.length;
+document.getElementById(
+'confirmedCount'
+).textContent=
+confirmed.length;
 
+document.getElementById(
+'availableCount'
+).textContent=
+slots.length;
 
-  document.getElementById(
-    'confirmedCount'
-  ).textContent =
-    confirmed.length;
+document.getElementById(
+'totalCount'
+).textContent=
+bookings.length;
 
+renderBookings(
+'pendingList',
+pending,
+true
+);
 
-  document.getElementById(
-    'availableCount'
-  ).textContent =
-    slots.length;
+renderBookings(
+'confirmedList',
+confirmed,
+false
+);
 
+renderBookings(
+'overviewList',
+bookings.slice(0,5),
+true
+);
 
-  document.getElementById(
-    'totalCount'
-  ).textContent =
-    bookings.length;
-
-
-  renderBookings(
-    'pendingList',
-    pending,
-    true
-  );
-
-
-  renderBookings(
-    'confirmedList',
-    confirmed,
-    false
-  );
-
-
-  renderBookings(
-    'overviewList',
-    bookings.slice(0,5),
-    true
-  );
-
-
-  renderDashboardSlots();
+renderDashboardSlots();
 }
 
 
 /* =========================================================
-   RENDER BOOKINGS
+RENDER BOOKINGS
 ========================================================= */
 
 function renderBookings(
-  elementId,
-  list,
-  showApprove
+elementId,
+list,
+showApprove
 ){
 
-  const el =
-    document.getElementById(
-      elementId
-    );
+const el=
+document.getElementById(elementId);
 
+if(!el)return;
 
-  if(!el){
-    return;
-  }
+if(!list.length){
 
+el.innerHTML=`
+<div class="empty">
+لا توجد حجوزات حاليًا.
+</div>
+`;
 
-  if(!list.length){
+return;
+}
 
-    el.innerHTML =
-      `<div class="empty">
-        لا توجد حجوزات حاليًا.
-      </div>`;
+el.innerHTML=
+list.map(booking=>{
 
-    return;
-  }
+const phone=
+String(
+booking.patient_phone||''
+)
+.replace(/\s/g,'');
 
+let wa=phone;
 
-  el.innerHTML =
-    list.map(
-      booking=>{
+if(wa.startsWith('0')){
 
-        const phone =
-          String(
-            booking.patient_phone ||
-            ''
-          ).replace(
-            /\s/g,
-            ''
-          );
+wa=
+'20'+
+wa.substring(1);
+}
 
+const statusClass=
+booking.status==='pending'
+?'pending'
+:booking.status==='confirmed'
+?'confirmed'
+:'rejected';
 
-        let wa =
-          phone;
+const statusText=
+booking.status==='pending'
+?'انتظار'
+:booking.status==='confirmed'
+?'مؤكد'
+:'مرفوض';
 
+return `
 
-        if(
-          wa.startsWith('0')
-        ){
+<div class="booking">
 
-          wa =
-            '20' +
-            wa.substring(1);
-        }
+<div class="booking-top">
 
+<strong>
+${escapeHTML(
+booking.patient_name
+)}
+</strong>
 
-        const statusClass =
-          booking.status === 'pending'
-            ? 'pending'
-            : booking.status === 'confirmed'
-            ? 'confirmed'
-            : 'rejected';
+<span class="number">
+ID ${booking.daily_number}
+</span>
 
+</div>
 
-        const statusText =
-          booking.status === 'pending'
-            ? 'انتظار'
-            : booking.status === 'confirmed'
-            ? 'مؤكد'
-            : 'مرفوض';
+<div class="info">
 
+📅 التاريخ:
+${escapeHTML(
+booking.appointment_date||''
+)}
 
-        return `
+<br>
 
-        <div class="booking">
+🕐 الوقت:
+${escapeHTML(
+booking.appointment_time||
+'غير محدد'
+)}
 
-          <div class="booking-top">
+<br>
 
-            <strong>
-              ${escapeHTML(
-                booking.patient_name
-              )}
-            </strong>
+📞
+${escapeHTML(
+booking.patient_phone||''
+)}
 
-            <span class="number">
-              ID ${booking.daily_number}
-            </span>
+</div>
 
-          </div>
+<span class="status ${statusClass}">
+${statusText}
+</span>
 
+<div class="booking-actions">
 
-          <div class="info">
+<a
+class="whatsapp"
+href="https://wa.me/${wa}"
+target="_blank">
+💬 واتساب
+</a>
 
-            📅 التاريخ:
-            ${escapeHTML(
-              booking.appointment_date ||
-              ''
-            )}
+<a
+class="call"
+href="tel:${phone}">
+📞 اتصال
+</a>
 
-            <br>
+${
+showApprove&&
+booking.status==='pending'
+?`
 
-            🕐 الوقت:
-            ${escapeHTML(
-              booking.appointment_time ||
-              'غير محدد'
-            )}
+<button
+class="approve"
+onclick="approveBooking(${booking.id})">
+✓ تأكيد
+</button>
 
-            <br>
+<button
+class="reject"
+onclick="rejectBooking(${booking.id})">
+رفض
+</button>
 
-            📞
-            ${escapeHTML(
-              booking.patient_phone ||
-              ''
-            )}
+`
+:''
+}
 
-          </div>
+<button
+class="delete"
+onclick="deleteBooking(${booking.id})">
+🗑 حذف
+</button>
 
+</div>
 
-          <span class="status ${statusClass}">
-            ${statusText}
-          </span>
+</div>
 
+`;
 
-          <div class="booking-actions">
-
-            <a
-              class="whatsapp"
-              href="https://wa.me/${wa}"
-              target="_blank">
-              💬 واتساب
-            </a>
-
-
-            <a
-              class="call"
-              href="tel:${phone}">
-              📞 اتصال
-            </a>
-
-
-            ${
-              showApprove &&
-              booking.status === 'pending'
-              ? `
-                <button
-                  class="approve"
-                  onclick="approveBooking(${booking.id})">
-                  ✓ تأكيد
-                </button>
-
-                <button
-                  class="reject"
-                  onclick="rejectBooking(${booking.id})">
-                  رفض
-                </button>
-              `
-              : ''
-            }
-
-
-            <button
-              class="delete"
-              onclick="deleteBooking(${booking.id})">
-              🗑 حذف
-            </button>
-
-          </div>
-
-        </div>
-
-        `;
-      }
-    ).join('');
+}).join('');
 }
 
 
 /* =========================================================
-   APPROVE
+APPROVE
 ========================================================= */
 
 async function approveBooking(id){
 
-  const {
-    error
-  } =
-    await supabaseClient
-      .from('bookings')
-      .update({
-        status:'confirmed'
-      })
-      .eq(
-        'id',
-        id
-      );
+const {
+error
+}=
+await supabaseClient
+.from('bookings')
+.update({
+status:'confirmed'
+})
+.eq('id',id);
 
+if(error){
 
-  if(error){
+console.error(error);
 
-    console.error(error);
+showToast(
+'تعذر تأكيد الحجز'
+);
 
-    showToast(
-      'تعذر تأكيد الحجز'
-    );
+return;
+}
 
-    return;
-  }
+showToast(
+'تم تأكيد الحجز'
+);
 
-
-  showToast(
-    'تم تأكيد الحجز'
-  );
-
-
-  await loadBookings();
+await loadBookings();
 }
 
 
 /* =========================================================
-   REJECT
+REJECT
 ========================================================= */
 
 async function rejectBooking(id){
 
-  const {
-    error
-  } =
-    await supabaseClient
-      .from('bookings')
-      .update({
-        status:'rejected'
-      })
-      .eq(
-        'id',
-        id
-      );
+const {
+error
+}=
+await supabaseClient
+.from('bookings')
+.update({
+status:'rejected'
+})
+.eq('id',id);
 
+if(error){
 
-  if(error){
+console.error(error);
 
-    console.error(error);
+showToast(
+'تعذر رفض الحجز'
+);
 
-    showToast(
-      'تعذر رفض الحجز'
-    );
+return;
+}
 
-    return;
-  }
+showToast(
+'تم رفض الحجز'
+);
 
-
-  showToast(
-    'تم رفض الحجز'
-  );
-
-
-  await loadBookings();
+await loadBookings();
 }
 
 
 /* =========================================================
-   DELETE BOOKING
+DELETE BOOKING
 ========================================================= */
 
 async function deleteBooking(id){
 
-  if(
-    !confirm(
-      'هل تريد حذف هذا الحجز؟'
-    )
-  ){
+if(!confirm(
+'هل تريد حذف هذا الحجز؟'
+)){
 
-    return;
-  }
+return;
+}
 
+const {
+error
+}=
+await supabaseClient
+.from('bookings')
+.delete()
+.eq('id',id);
 
-  const {
-    error
-  } =
-    await supabaseClient
-      .from('bookings')
-      .delete()
-      .eq(
-        'id',
-        id
-      );
+if(error){
 
+console.error(error);
 
-  if(error){
+showToast(
+'تعذر حذف الحجز'
+);
 
-    console.error(error);
+return;
+}
 
-    showToast(
-      'تعذر حذف الحجز'
-    );
+showToast(
+'تم حذف الحجز'
+);
 
-    return;
-  }
-
-
-  showToast(
-    'تم حذف الحجز'
-  );
-
-
-  await loadBookings();
+await loadBookings();
 }
 
 
 /* =========================================================
-   ADD APPOINTMENT
+ADD SLOT
 ========================================================= */
 
 async function addSlot(){
 
-  const {
-    data:userData
-  } =
-    await supabaseClient.auth.getUser();
+const {
+data:userData
+}=
+await supabaseClient.auth.getUser();
 
-  const user =
-    userData?.user;
+const user=
+userData?.user;
 
+if(
+!user||
+user.id!==DOCTOR_USER_ID
+){
 
-  if(
-    !user ||
-    user.id !== DOCTOR_USER_ID
-  ){
+showToast(
+'يجب تسجيل الدخول كدكتور'
+);
 
-    showToast(
-      'يجب تسجيل الدخول كدكتور'
-    );
+return;
+}
 
-    return;
-  }
+const input=
+document.getElementById(
+'newSlot'
+);
 
+const value=
+input.value.trim();
 
-  const input =
-    document.getElementById(
-      'newSlot'
-    );
+if(!value){
 
-  const value =
-    input.value.trim();
+showToast(
+'اكتب الموعد أولًا'
+);
 
+return;
+}
 
-  if(!value){
+const {
+error
+}=
+await supabaseClient
+.from('appointments')
+.insert({
 
-    showToast(
-      'اكتب الموعد أولًا'
-    );
+clinic_id:
+CLINIC_ID,
 
-    return;
-  }
+appointment_time:
+value,
 
+appointment_date:
+new Date()
+.toISOString()
+.slice(0,10),
 
-  /*
-    نحفظ الموعد كنص:
-    في appointment_time.
-    ويمكن لاحقًا فصل التاريخ والوقت
-    إذا أردنا نظام تقويم كامل.
-  */
+is_booked:false
 
-  const {
-    error
-  } =
-    await supabaseClient
-      .from('appointments')
-      .insert({
+});
 
-        clinic_id:
-          CLINIC_ID,
+if(error){
 
-        appointment_time:
-          value,
+console.error(error);
 
-        appointment_date:
-          new Date()
-            .toISOString()
-            .slice(0,10),
+showToast(
+'تعذر إضافة الموعد'
+);
 
-        is_booked:
-          false
-      });
+return;
+}
 
+input.value='';
 
-  if(error){
+showToast(
+'تمت إضافة الموعد'
+);
 
-    console.error(error);
-
-    showToast(
-      'تعذر إضافة الموعد'
-    );
-
-    return;
-  }
-
-
-  input.value = '';
-
-  showToast(
-    'تمت إضافة الموعد'
-  );
-
-
-  await loadSlots();
+await loadSlots();
 }
 
 
 /* =========================================================
-   DASHBOARD SLOTS
+DASHBOARD SLOTS
 ========================================================= */
 
 function renderDashboardSlots(){
 
-  const el =
-    document.getElementById(
-      'slotList'
-    );
+const el=
+document.getElementById(
+'slotList'
+);
 
+if(!el)return;
 
-  if(!el){
-    return;
-  }
+if(!slots.length){
 
+el.innerHTML=`
+<div class="empty">
+لا توجد مواعيد متاحة.
+</div>
+`;
 
-  if(!slots.length){
+return;
+}
 
-    el.innerHTML =
-      `<div class="empty">
-        لا توجد مواعيد متاحة.
-      </div>`;
+el.innerHTML=
+slots.map(slot=>`
 
-    return;
-  }
+<div class="booking">
 
+<div class="booking-top">
 
-  el.innerHTML =
-    slots.map(
-      slot=>`
+<strong>
+${escapeHTML(
+formatSlot(slot)
+)}
+</strong>
 
-      <div class="booking">
+<button
+class="delete"
+onclick="deleteSlot(${slot.id})">
+🗑 حذف
+</button>
 
-        <div class="booking-top">
+</div>
 
-          <strong>
-            ${escapeHTML(
-              formatSlot(slot)
-            )}
-          </strong>
+</div>
 
-          <button
-            class="delete"
-            onclick="deleteSlot(${slot.id})">
-            🗑 حذف
-          </button>
-
-        </div>
-
-      </div>
-
-      `
-    ).join('');
+`).join('');
 }
 
 
 /* =========================================================
-   DELETE SLOT
+DELETE SLOT
 ========================================================= */
 
 async function deleteSlot(id){
 
-  if(
-    !confirm(
-      'هل تريد حذف هذا الموعد؟'
-    )
-  ){
+if(!confirm(
+'هل تريد حذف هذا الموعد؟'
+)){
 
-    return;
-  }
+return;
+}
 
+const {
+error
+}=
+await supabaseClient
+.from('appointments')
+.delete()
+.eq('id',id);
 
-  const {
-    error
-  } =
-    await supabaseClient
-      .from('appointments')
-      .delete()
-      .eq(
-        'id',
-        id
-      );
+if(error){
 
+console.error(error);
 
-  if(error){
+showToast(
+'تعذر حذف الموعد'
+);
 
-    console.error(error);
+return;
+}
 
-    showToast(
-      'تعذر حذف الموعد'
-    );
+showToast(
+'تم حذف الموعد'
+);
 
-    return;
-  }
-
-
-  showToast(
-    'تم حذف الموعد'
-  );
-
-
-  await loadSlots();
+await loadSlots();
 }
 
 
 /* =========================================================
-   INIT
+INIT
 ========================================================= */
 
 async function init(){
 
-  document.getElementById(
-    'doctorImage'
-  ).src =
-    createLogoImage();
+document.getElementById(
+'doctorImage'
+).src=
+createLogoImage();
 
+document.getElementById(
+'dashboard'
+).style.display='none';
 
-  /*
-    مهم:
-    لا نفتح لوحة الدكتور تلقائيًا
-    حتى لو كان هناك Session قديمة.
-  */
+/*
+لا يتم فتح لوحة الدكتور تلقائيًا.
+*/
 
-  document.getElementById(
-    'dashboard'
-  ).style.display =
-    'none';
+await loadSettings();
 
-
-  await loadSettings();
-
-  await loadSlots();
+await loadSlots();
 }
-
 
 init();
 
 
 /* =========================================================
-   REALTIME
+REALTIME
 ========================================================= */
 
 try{
 
-  supabaseClient
-    .channel('nabd-live')
+supabaseClient
+.channel('nabd-live')
 
-    .on(
-      'postgres_changes',
-      {
-        event:'*',
-        schema:'public',
-        table:'bookings'
-      },
-      async ()=>{
+.on(
+'postgres_changes',
+{
+event:'*',
+schema:'public',
+table:'bookings'
+},
+async()=>{
 
-        /*
-          التحديثات العامة للحجوزات
-          لا تعرض بيانات للزائر،
-          لكن تحدث لوحة الدكتور إذا كان
-          مسجلًا.
-        */
+const {
+data:userData
+}=
+await supabaseClient.auth.getUser();
 
-        const {
-          data:userData
-        } =
-          await supabaseClient.auth.getUser();
+const user=
+userData?.user;
 
-        const user =
-          userData?.user;
+if(
+user&&
+user.id===DOCTOR_USER_ID
+){
 
-        if(
-          user &&
-          user.id === DOCTOR_USER_ID
-        ){
+await loadBookings();
+}
 
-          await loadBookings();
-        }
-      }
-    )
+})
 
-    .on(
-      'postgres_changes',
-      {
-        event:'*',
-        schema:'public',
-        table:'appointments'
-      },
-      async ()=>{
+.on(
+'postgres_changes',
+{
+event:'*',
+schema:'public',
+table:'appointments'
+},
+async()=>{
 
-        await loadSlots();
-      }
-    )
+await loadSlots();
 
-    .on(
-      'postgres_changes',
-      {
-        event:'*',
-        schema:'public',
-        table:'clinic_settings'
-      },
-      async ()=>{
+})
 
-        await loadSettings();
-      }
-    )
+.on(
+'postgres_changes',
+{
+event:'*',
+schema:'public',
+table:'clinic_settings'
+},
+async()=>{
 
-    .subscribe();
+await loadSettings();
+
+})
+
+.subscribe();
 
 }catch(error){
 
-  console.error(
-    'Realtime:',
-    error
-  );
+console.error(
+'Realtime:',
+error
+);
 }
 
 
 /* =========================================================
-   CLOSE MODALS BY CLICKING OUTSIDE
+CLOSE MODALS OUTSIDE
 ========================================================= */
 
 document.addEventListener(
-  'click',
-  function(event){
+'click',
+function(event){
 
-    const bookingModal =
-      document.getElementById(
-        'bookingModal'
-      );
-
-    const loginModal =
-      document.getElementById(
-        'loginModal'
-      );
-
-
-    if(
-      event.target ===
-      bookingModal
-    ){
-
-      closeBooking();
-    }
-
-
-    if(
-      event.target ===
-      loginModal
-    ){
-
-      closeLogin();
-    }
-
-  }
+const bookingModal=
+document.getElementById(
+'bookingModal'
 );
 
+const loginModal=
+document.getElementById(
+'loginModal'
+);
+
+if(event.target===bookingModal){
+
+closeBooking();
+}
+
+if(event.target===loginModal){
+
+closeLogin();
+}
+
+});
 </script>
 
 </body>
