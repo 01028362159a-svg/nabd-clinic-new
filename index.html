@@ -3,833 +3,1656 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>نبض | حجز العيادة</title>
+<meta name="theme-color" content="#030b10">
+<title>نبض | احجز موعدك بسهولة</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0
+}
 
 :root{
---primary:#087ea4;
---primary2:#0bb3d4;
---dark:#073b4c;
---bg:#f3fbfd;
---white:#fff;
---text:#17323c;
---muted:#71858d;
---border:#dceef2;
---success:#16a36f;
---danger:#d94b4b;
---warning:#c18400;
---shadow:0 12px 35px rgba(5,70,90,.10)
+  --bg:#02090d;
+  --bg2:#06141b;
+  --card:#071922;
+  --card2:#0a202a;
+  --line:rgba(72,210,255,.16);
+  --cyan:#13cfff;
+  --cyan2:#54e8ff;
+  --green:#29e0b0;
+  --white:#f5fbff;
+  --muted:#91aab4;
+  --danger:#ff5f6d;
+  --warning:#ffc857;
+  --success:#2ce3a9;
+  --shadow:0 20px 70px rgba(0,0,0,.45);
+}
+
+html{
+  scroll-behavior:smooth
 }
 
 body{
-font-family:Tahoma,Arial,sans-serif;
-background:linear-gradient(180deg,#f7fdfe,#eef8fa);
-color:var(--text);
-min-height:100vh
+  font-family:Tahoma,Arial,sans-serif;
+  background:
+    radial-gradient(circle at 10% 10%,rgba(0,191,255,.08),transparent 25%),
+    radial-gradient(circle at 90% 35%,rgba(0,255,190,.06),transparent 25%),
+    var(--bg);
+  color:var(--white);
+  min-height:100vh;
+  overflow-x:hidden;
 }
 
-button,input,textarea{font-family:inherit}
-button{border:0;cursor:pointer}
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.012) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.012) 1px,transparent 1px);
+  background-size:45px 45px;
+  mask-image:linear-gradient(to bottom,black,transparent);
+  z-index:-1;
+}
+
+button,
+input,
+textarea{
+  font-family:inherit
+}
+
+button{
+  border:0;
+  cursor:pointer
+}
+
+a{
+  color:inherit
+}
 
 .container{
-width:min(1100px,92%);
-margin:auto
+  width:min(1160px,92%);
+  margin:auto
 }
 
-/* LOGO */
+/* =========================
+   LOGO
+========================= */
 
-.logo{
-width:50px;
-height:50px;
-border-radius:16px;
-background:linear-gradient(135deg,#06789c,#12b9d6);
-display:flex;
-align-items:center;
-justify-content:center;
-position:relative;
-box-shadow:0 8px 22px rgba(8,126,164,.28);
-flex-shrink:0
+.logo-wrap{
+  display:flex;
+  align-items:center;
+  gap:10px;
 }
 
-.logo-heart{
-width:27px;
-height:24px;
-background:white;
-position:relative;
-transform:rotate(-45deg);
-border-radius:5px 14px 5px 14px
+.logo-svg{
+  width:56px;
+  height:48px;
+  flex-shrink:0;
 }
 
-.logo-heart:before,
-.logo-heart:after{
-content:"";
-position:absolute;
-width:27px;
-height:27px;
-background:white;
-border-radius:50%
+.logo-text{
+  font-size:29px;
+  font-weight:900;
+  line-height:1;
+  color:#fff;
 }
 
-.logo-heart:before{
-top:-13px;
-left:0
+.logo-sub{
+  color:#8caab5;
+  font-size:10px;
+  margin-top:5px;
 }
 
-.logo-heart:after{
-top:0;
-left:13px
-}
-
-.logo-cross{
-position:absolute;
-z-index:4;
-color:var(--primary);
-background:white;
-width:16px;
-height:16px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:14px;
-font-weight:900
-}
-
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
 
 header{
-background:rgba(255,255,255,.96);
-border-bottom:1px solid var(--border);
-position:sticky;
-top:0;
-z-index:50;
-backdrop-filter:blur(15px)
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(2,9,13,.78);
+  border-bottom:1px solid rgba(78,213,255,.10);
+  backdrop-filter:blur(20px);
 }
 
 .nav{
-min-height:76px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:15px
+  min-height:78px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
 }
 
-.brand{
-display:flex;
-align-items:center;
-gap:11px
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:28px;
 }
 
-.brand-name{
-font-size:27px;
-font-weight:900;
-color:var(--dark)
+.nav-links button{
+  background:none;
+  color:#a9bec6;
+  font-size:13px;
+  font-weight:800;
+  position:relative;
+  padding:8px 0;
 }
 
-.brand-sub{
-color:var(--muted);
-font-size:11px;
-margin-top:2px
+.nav-links button.active,
+.nav-links button:hover{
+  color:white
+}
+
+.nav-links button.active:after{
+  content:"";
+  position:absolute;
+  bottom:-8px;
+  right:0;
+  left:0;
+  height:2px;
+  background:linear-gradient(90deg,var(--cyan),var(--green));
+  box-shadow:0 0 12px var(--cyan);
 }
 
 .nav-actions{
-display:flex;
-gap:8px
+  display:flex;
+  gap:8px;
 }
 
-.small-btn{
-padding:11px 15px;
-border-radius:12px;
-background:#eaf8fb;
-color:var(--primary);
-font-weight:800
+.header-btn{
+  padding:12px 18px;
+  border-radius:30px;
+  font-weight:900;
+  font-size:12px;
 }
 
-/* HERO */
+.header-outline{
+  color:#bdeefa;
+  background:transparent;
+  border:1px solid rgba(46,205,255,.35);
+}
+
+.header-main{
+  color:#001018;
+  background:linear-gradient(100deg,#11c8ff,#36e0b1);
+  box-shadow:0 0 25px rgba(19,207,255,.22);
+}
+
+/* =========================
+   HERO
+========================= */
 
 .hero{
-padding:45px 0 30px
+  padding:18px 0 25px;
 }
 
 .hero-box{
-background:
-radial-gradient(circle at 90% 20%,rgba(11,179,212,.25),transparent 35%),
-linear-gradient(135deg,#063d50,#087ea4);
-border-radius:30px;
-padding:45px;
-color:white;
-box-shadow:var(--shadow);
-position:relative;
-overflow:hidden
+  min-height:455px;
+  position:relative;
+  overflow:hidden;
+  border-radius:0 0 75px 75px;
+  border:1px solid rgba(40,210,255,.12);
+  background:
+    radial-gradient(circle at 72% 50%,rgba(17,207,255,.10),transparent 30%),
+    linear-gradient(110deg,#031016,#061922 55%,#07141b);
+  box-shadow:var(--shadow);
+}
+
+.hero-content{
+  position:relative;
+  z-index:3;
+  min-height:455px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  gap:20px;
+  padding:50px 65px;
+}
+
+.hero-copy{
+  text-align:right;
+}
+
+.hero-kicker{
+  color:var(--cyan);
+  font-size:14px;
+  font-weight:900;
+  margin-bottom:12px;
 }
 
 .hero h1{
-font-size:clamp(30px,6vw,52px);
-margin-bottom:15px
+  font-size:clamp(36px,5vw,62px);
+  line-height:1.1;
+  margin-bottom:9px;
+  letter-spacing:-1px;
+}
+
+.hero h1 span{
+  display:block;
+  color:var(--cyan);
+  font-size:1.22em;
+  text-shadow:0 0 30px rgba(19,207,255,.25);
 }
 
 .hero p{
-color:#dff7fa;
-font-size:17px;
-line-height:1.9;
-max-width:680px
+  color:#a7bcc5;
+  font-size:15px;
+  line-height:2;
+  max-width:570px;
 }
 
 .hero-buttons{
-display:flex;
-flex-wrap:wrap;
-gap:10px;
-margin-top:25px
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:25px;
 }
 
 .btn{
-padding:14px 19px;
-border-radius:14px;
-font-weight:900;
-font-size:14px
+  padding:14px 22px;
+  border-radius:30px;
+  font-weight:900;
+  font-size:13px;
+  transition:.25s;
+}
+
+.btn:hover{
+  transform:translateY(-2px)
 }
 
 .btn-primary{
-background:white;
-color:var(--primary)
+  color:#001018;
+  background:linear-gradient(100deg,#12c9ff,#42e0b1);
+  box-shadow:0 8px 30px rgba(19,207,255,.25);
 }
 
-.btn-outline{
-background:rgba(255,255,255,.12);
-color:white;
-border:1px solid rgba(255,255,255,.3)
+.btn-dark{
+  color:#c6edf6;
+  background:rgba(7,31,40,.75);
+  border:1px solid rgba(49,205,255,.22);
 }
 
-/* SECTIONS */
-
-section{padding:25px 0}
-
-.title{
-font-size:25px;
-color:var(--dark);
-margin-bottom:18px
+.hero-doctor{
+  height:430px;
+  display:flex;
+  justify-content:center;
+  align-items:end;
+  position:relative;
 }
 
-.card{
-background:white;
-border:1px solid var(--border);
-border-radius:22px;
-padding:23px;
-box-shadow:var(--shadow)
+.hero-doctor-glow{
+  position:absolute;
+  width:350px;
+  height:350px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(21,204,255,.18),transparent 65%);
+  filter:blur(4px);
 }
 
-/* DOCTOR */
-
-.doctor{
-display:flex;
-gap:20px;
-align-items:center
+.hero-doctor img{
+  position:relative;
+  z-index:2;
+  max-width:420px;
+  width:100%;
+  height:410px;
+  object-fit:contain;
+  object-position:center bottom;
+  filter:drop-shadow(0 20px 35px rgba(0,0,0,.55));
 }
 
-.doctor-img{
-width:115px;
-height:115px;
-border-radius:27px;
-object-fit:cover;
-background:#e8f7fa;
-border:4px solid #effbfc
+.hero-badge{
+  position:absolute;
+  z-index:5;
+  top:65px;
+  right:10px;
+  width:170px;
+  padding:15px;
+  border-radius:17px;
+  background:rgba(5,27,36,.85);
+  border:1px solid rgba(50,216,255,.20);
+  backdrop-filter:blur(15px);
+  box-shadow:var(--shadow);
+}
+
+.hero-badge strong{
+  display:block;
+  font-size:12px;
+  margin-bottom:5px;
+}
+
+.hero-badge span{
+  color:#8ea9b3;
+  font-size:10px;
+  line-height:1.7;
+}
+
+.hero-badge.left{
+  top:auto;
+  right:auto;
+  left:0;
+  bottom:65px;
+}
+
+/* =========================
+   WAVE
+========================= */
+
+.wave{
+  height:40px;
+  position:relative;
+  margin-top:-1px;
+  overflow:hidden;
+}
+
+.wave:before{
+  content:"";
+  position:absolute;
+  left:-5%;
+  right:-5%;
+  top:15px;
+  height:45px;
+  border-top:2px solid var(--cyan);
+  border-radius:50%;
+  box-shadow:0 -4px 20px rgba(19,207,255,.16);
+}
+
+/* =========================
+   QUICK FEATURES
+========================= */
+
+.quick-features{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  margin-top:5px;
+  background:rgba(5,22,29,.88);
+  border:1px solid rgba(70,210,255,.12);
+  border-radius:28px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+}
+
+.quick{
+  padding:24px 18px;
+  text-align:center;
+  border-left:1px solid rgba(80,210,255,.12);
+}
+
+.quick:last-child{
+  border-left:0
+}
+
+.quick-icon{
+  width:44px;
+  height:44px;
+  margin:0 auto 10px;
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:21px;
+  background:linear-gradient(145deg,#092d3a,#071922);
+  border:1px solid rgba(40,213,255,.2);
+  box-shadow:0 0 20px rgba(19,207,255,.08);
+}
+
+.quick h3{
+  font-size:14px;
+  margin-bottom:5px;
+}
+
+.quick p{
+  color:#76909a;
+  font-size:11px;
+}
+
+/* =========================
+   SECTION
+========================= */
+
+section{
+  padding:42px 0
+}
+
+.section-head{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:15px;
+  margin-bottom:20px;
+}
+
+.section-title{
+  font-size:25px;
+}
+
+.section-sub{
+  color:#738d97;
+  font-size:12px;
+  margin-top:7px;
+}
+
+.section-line{
+  width:80px;
+  height:3px;
+  margin-top:10px;
+  border-radius:5px;
+  background:linear-gradient(90deg,var(--cyan),var(--green));
+  box-shadow:0 0 15px rgba(19,207,255,.4);
+}
+
+/* =========================
+   DOCTOR
+========================= */
+
+.doctor-card{
+  display:grid;
+  grid-template-columns:240px 1fr;
+  gap:25px;
+  padding:25px;
+  background:
+    radial-gradient(circle at 15% 40%,rgba(20,207,255,.08),transparent 30%),
+    linear-gradient(145deg,#071b24,#051219);
+  border:1px solid rgba(68,211,255,.14);
+  border-radius:28px;
+  box-shadow:var(--shadow);
+}
+
+.doctor-photo-box{
+  min-height:250px;
+  border-radius:22px;
+  overflow:hidden;
+  background:#071820;
+  border:1px solid rgba(70,210,255,.14);
+}
+
+.doctor-photo-box img{
+  width:100%;
+  height:100%;
+  min-height:250px;
+  object-fit:cover;
+}
+
+.doctor-info{
+  padding:10px 0
 }
 
 .doctor-name{
-font-size:25px;
-color:var(--dark);
-margin-bottom:7px
+  font-size:28px;
+  margin-bottom:5px;
 }
 
-.info{
-color:var(--muted);
-line-height:2;
-font-size:14px
+.doctor-specialty{
+  color:var(--cyan);
+  font-size:14px;
+  font-weight:900;
+  margin-bottom:20px;
+}
+
+.doctor-details{
+  display:grid;
+  gap:13px;
+}
+
+.doctor-detail{
+  display:flex;
+  align-items:center;
+  gap:11px;
+  color:#9bb1b9;
+  font-size:13px;
+  padding-bottom:12px;
+  border-bottom:1px solid rgba(80,210,255,.08);
+}
+
+.detail-icon{
+  width:34px;
+  height:34px;
+  border-radius:11px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--cyan);
+  background:#071f29;
 }
 
 .bio{
-margin-top:20px;
-padding-top:17px;
-border-top:1px solid var(--border);
-line-height:1.9
+  margin-top:20px;
+  padding-top:17px;
+  border-top:1px solid rgba(80,210,255,.10);
 }
 
 .bio-title{
-color:var(--dark);
-font-weight:900;
-margin-bottom:7px
+  color:var(--cyan);
+  font-weight:900;
+  margin-bottom:8px;
+  font-size:14px;
 }
 
-/* FEATURES */
-
-.features{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:13px
+.bio p{
+  color:#91a8b0;
+  line-height:1.9;
+  font-size:13px;
 }
 
-.feature{
-background:white;
-border:1px solid var(--border);
-border-radius:20px;
-padding:20px;
-text-align:center
-}
-
-.feature-icon{
-font-size:30px;
-margin-bottom:9px
-}
-
-.feature h3{
-color:var(--dark);
-margin-bottom:7px
-}
-
-.feature p{
-color:var(--muted);
-font-size:13px;
-line-height:1.7
-}
-
-/* SLOTS */
+/* =========================
+   APPOINTMENTS
+========================= */
 
 .appointments{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:13px
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
 }
 
 .slot{
-border:1px solid var(--border);
-border-radius:17px;
-padding:17px;
-background:white
+  background:linear-gradient(145deg,#071c25,#051219);
+  border:1px solid rgba(70,210,255,.14);
+  border-radius:20px;
+  padding:19px;
+  transition:.25s;
 }
 
-.slot strong{
-display:block;
-color:var(--dark);
-margin-bottom:7px
+.slot:hover{
+  transform:translateY(-3px);
+  border-color:rgba(70,220,255,.35);
+  box-shadow:0 15px 40px rgba(0,0,0,.3);
 }
 
-.slot span{
-color:var(--muted);
-font-size:14px
+.slot-date{
+  color:#8ea9b3;
+  font-size:12px;
+  margin-bottom:8px;
+}
+
+.slot-time{
+  font-size:19px;
+  font-weight:900;
+  color:white;
 }
 
 .slot button{
-width:100%;
-margin-top:12px;
-padding:11px;
-border-radius:11px;
-background:var(--primary);
-color:white;
-font-weight:900
+  width:100%;
+  margin-top:15px;
+  padding:12px;
+  border-radius:13px;
+  color:#001018;
+  background:linear-gradient(100deg,#11c8ff,#35dfb0);
+  font-weight:900;
 }
 
-/* TRACK */
+.empty{
+  grid-column:1/-1;
+  padding:30px;
+  text-align:center;
+  color:#718b95;
+  border:1px dashed rgba(70,210,255,.16);
+  border-radius:18px;
+  background:#06131a;
+}
+
+/* =========================
+   TRACK
+========================= */
+
+.track-card{
+  padding:25px;
+  border-radius:25px;
+  background:linear-gradient(145deg,#071d27,#051219);
+  border:1px solid rgba(70,210,255,.14);
+}
 
 .track{
-display:flex;
-gap:10px
+  display:flex;
+  gap:10px;
+  margin-top:15px;
 }
 
-input,textarea{
-width:100%;
-padding:14px;
-border:1px solid var(--border);
-border-radius:13px;
-outline:none;
-background:#fbfeff;
-color:var(--text)
+input,
+textarea{
+  width:100%;
+  padding:14px 15px;
+  border-radius:13px;
+  border:1px solid rgba(90,210,255,.15);
+  background:#06141b;
+  color:white;
+  outline:none;
 }
 
-input:focus,textarea:focus{
-border-color:var(--primary)
+input:focus,
+textarea:focus{
+  border-color:rgba(20,207,255,.6);
+  box-shadow:0 0 0 3px rgba(20,207,255,.06);
 }
 
-.track input{max-width:400px}
+input::placeholder,
+textarea::placeholder{
+  color:#5f7882
+}
+
+.track input{
+  max-width:400px
+}
 
 .track button{
-padding:0 23px;
-border-radius:13px;
-background:var(--primary);
-color:white;
-font-weight:900
+  padding:0 25px;
+  border-radius:13px;
+  color:#001018;
+  background:linear-gradient(100deg,#12c9ff,#3fe0b1);
+  font-weight:900;
 }
 
-/* DASHBOARD */
+/* =========================
+   DASHBOARD
+========================= */
 
-#dashboard{display:none}
+#dashboard{
+  display:none
+}
+
+.dashboard-box{
+  padding:25px;
+  border-radius:28px;
+  background:#06131a;
+  border:1px solid rgba(70,210,255,.14);
+  box-shadow:var(--shadow);
+}
 
 .dashboard-tabs{
-display:grid;
-grid-template-columns:repeat(5,1fr);
-gap:8px;
-margin-bottom:18px
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:8px;
+  margin-bottom:18px;
 }
 
 .tab{
-padding:13px 8px;
-border-radius:13px;
-background:#eaf7fa;
-color:var(--primary);
-font-weight:800
+  padding:13px 7px;
+  border-radius:13px;
+  color:#86a2ac;
+  background:#081c24;
+  border:1px solid rgba(70,210,255,.08);
+  font-weight:900;
+  font-size:12px;
 }
 
 .tab.active{
-background:var(--primary);
-color:white
+  color:#001018;
+  background:linear-gradient(100deg,#12c9ff,#35dfb0);
 }
 
 .dashboard-panel{
-background:white;
-border:1px solid var(--border);
-border-radius:22px;
-padding:22px
+  padding:20px;
+  border-radius:20px;
+  background:#071922;
+  border:1px solid rgba(70,210,255,.10);
 }
 
 .stats{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:12px;
-margin-bottom:18px
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:11px;
+  margin-bottom:17px;
 }
 
 .stat{
-background:#fbfeff;
-border:1px solid var(--border);
-border-radius:18px;
-padding:18px;
-cursor:pointer
+  padding:17px;
+  border-radius:17px;
+  background:#06151d;
+  border:1px solid rgba(70,210,255,.09);
+  cursor:pointer;
 }
 
-.stat small{color:var(--muted)}
+.stat small{
+  color:#718c96
+}
 
 .stat strong{
-display:block;
-font-size:30px;
-color:var(--primary);
-margin-top:6px
+  display:block;
+  font-size:30px;
+  color:var(--cyan);
+  margin-top:5px;
 }
 
 .form-grid{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:12px
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
 }
 
-.form-group{margin-bottom:12px}
+.form-group{
+  margin-bottom:8px
+}
 
 .form-group label{
-display:block;
-margin-bottom:7px;
-font-weight:800;
-font-size:14px
+  display:block;
+  margin-bottom:7px;
+  color:#b9d0d7;
+  font-size:12px;
+  font-weight:900;
 }
 
-.full{grid-column:1/-1}
+.full{
+  grid-column:1/-1
+}
 
 .save{
-background:var(--primary);
-color:white;
-padding:14px 25px;
-border-radius:13px;
-font-weight:900
+  padding:13px 23px;
+  border-radius:13px;
+  color:#001018;
+  background:linear-gradient(100deg,#12c9ff,#35dfb0);
+  font-weight:900;
 }
 
 .logout{
-background:#ffe5e5;
-color:#bd3838;
-padding:12px 18px;
-border-radius:12px;
-font-weight:900;
-margin-bottom:18px
+  padding:11px 17px;
+  border-radius:12px;
+  color:#ff9aa2;
+  background:#281116;
+  border:1px solid rgba(255,90,110,.16);
+  font-weight:900;
+  margin-bottom:15px;
 }
 
 .booking{
-border:1px solid var(--border);
-border-radius:17px;
-padding:17px;
-margin-bottom:12px;
-background:#fbfeff
+  padding:16px;
+  border-radius:16px;
+  margin-bottom:10px;
+  background:#06151d;
+  border:1px solid rgba(70,210,255,.09);
 }
 
 .booking-top{
-display:flex;
-justify-content:space-between;
-gap:10px;
-align-items:center;
-margin-bottom:10px
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  margin-bottom:10px;
 }
 
 .number{
-background:#e5f7fa;
-color:var(--primary);
-padding:7px 11px;
-border-radius:10px;
-font-weight:900
+  padding:7px 11px;
+  border-radius:9px;
+  color:var(--cyan);
+  background:#082733;
+  font-weight:900;
+  font-size:12px;
 }
 
 .status{
-display:inline-block;
-margin-top:10px;
-padding:6px 10px;
-border-radius:9px;
-font-size:12px;
-font-weight:900
+  display:inline-block;
+  margin-top:9px;
+  padding:6px 10px;
+  border-radius:8px;
+  font-size:11px;
+  font-weight:900;
 }
 
 .pending{
-background:#fff3d9;
-color:var(--warning)
+  color:var(--warning);
+  background:#2a210e;
 }
 
 .confirmed{
-background:#def8ed;
-color:#128259
+  color:var(--success);
+  background:#09291f;
 }
 
 .rejected{
-background:#ffe6e6;
-color:#c33
+  color:#ff7c86;
+  background:#2b1015;
+}
+
+.booking-info{
+  color:#819aa4;
+  font-size:12px;
+  line-height:2;
 }
 
 .booking-actions{
-display:flex;
-gap:8px;
-margin-top:12px;
-flex-wrap:wrap
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin-top:12px;
 }
 
 .booking-actions a,
 .booking-actions button{
-padding:9px 13px;
-border-radius:10px;
-text-decoration:none;
-font-weight:800;
-font-size:13px
+  padding:8px 11px;
+  border-radius:9px;
+  text-decoration:none;
+  font-size:11px;
+  font-weight:900;
 }
 
 .whatsapp{
-background:#dcf8e9;
-color:#14804f
+  color:#5be5ac;
+  background:#09271e;
 }
 
 .call{
-background:#e4f3ff;
-color:#1670a3
+  color:#61d7ff;
+  background:#08232e;
 }
 
 .approve{
-background:#daf7eb;
-color:#087c52
+  color:#55e5ad;
+  background:#09271e;
 }
 
-.reject,.delete{
-background:#ffe5e5;
-color:#bd3838
+.reject,
+.delete{
+  color:#ff858e;
+  background:#2a1115;
 }
 
-.empty{
-padding:20px;
-text-align:center;
-color:var(--muted);
-background:#f7fcfd;
-border-radius:15px
+.slot-dashboard{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  padding:13px;
+  margin-top:9px;
+  border-radius:13px;
+  background:#06151d;
+  border:1px solid rgba(70,210,255,.08);
 }
 
-/* MODAL */
+.slot-dashboard small{
+  color:#8da6ae
+}
+
+/* =========================
+   IMAGE UPLOAD
+========================= */
+
+.upload-box{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  padding:15px;
+  border-radius:16px;
+  background:#06151d;
+  border:1px dashed rgba(60,215,255,.25);
+}
+
+.upload-preview{
+  width:75px;
+  height:75px;
+  border-radius:17px;
+  object-fit:cover;
+  border:1px solid rgba(70,210,255,.18);
+}
+
+.file-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:11px 16px;
+  border-radius:11px;
+  color:#001018;
+  background:linear-gradient(100deg,#12c9ff,#35dfb0);
+  font-weight:900;
+  font-size:12px;
+  cursor:pointer;
+}
+
+#imageFile{
+  display:none
+}
+
+/* =========================
+   SOCIAL
+========================= */
+
+.social-admin{
+  padding:18px;
+  margin-top:15px;
+  border-radius:18px;
+  background:#06151d;
+  border:1px solid rgba(70,210,255,.08);
+}
+
+.social-admin h4{
+  margin-bottom:13px;
+}
+
+.social-input{
+  display:grid;
+  grid-template-columns:120px 1fr auto;
+  gap:8px;
+  margin-bottom:8px;
+}
+
+.social-label{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:10px;
+  background:#081f29;
+  color:#9edbea;
+  font-size:11px;
+  font-weight:900;
+}
+
+.social-save{
+  margin-top:8px
+}
+
+.social-preview{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+  margin-top:15px;
+}
+
+.social-preview a{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  padding:9px 13px;
+  border-radius:12px;
+  background:#081f29;
+  color:#b9edf6;
+  text-decoration:none;
+  font-size:11px;
+  font-weight:900;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  margin-top:35px;
+  padding:45px 0 25px;
+  position:relative;
+  border-top:1px solid rgba(70,210,255,.08);
+  background:#02090d;
+}
+
+.footer-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.footer-copy{
+  color:#637d87;
+  font-size:11px;
+  margin-top:8px;
+}
+
+.socials{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.socials:empty{
+  display:none
+}
+
+.social{
+  width:42px;
+  height:42px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:13px;
+  color:#a7d8e3;
+  background:#071a22;
+  border:1px solid rgba(70,210,255,.10);
+  text-decoration:none;
+  font-weight:900;
+  transition:.2s;
+}
+
+.social:hover{
+  color:white;
+  transform:translateY(-3px);
+  border-color:rgba(70,210,255,.35);
+  box-shadow:0 0 20px rgba(20,207,255,.12);
+}
+
+.footer-wave{
+  height:30px;
+  position:absolute;
+  top:-17px;
+  left:0;
+  right:0;
+  overflow:hidden;
+}
+
+.footer-wave:before{
+  content:"";
+  position:absolute;
+  left:-5%;
+  right:-5%;
+  top:10px;
+  height:40px;
+  border-top:2px solid var(--cyan);
+  border-radius:50%;
+  box-shadow:0 0 20px rgba(19,207,255,.25);
+}
+
+/* =========================
+   MODALS
+========================= */
 
 .modal{
-position:fixed;
-inset:0;
-background:rgba(0,35,45,.6);
-display:none;
-align-items:center;
-justify-content:center;
-padding:20px;
-z-index:100
+  position:fixed;
+  inset:0;
+  z-index:500;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+  background:rgba(0,5,8,.82);
+  backdrop-filter:blur(10px);
 }
 
 .modal-box{
-width:min(540px,100%);
-background:white;
-border-radius:25px;
-padding:25px;
-max-height:90vh;
-overflow:auto
+  width:min(550px,100%);
+  max-height:92vh;
+  overflow:auto;
+  padding:25px;
+  border-radius:25px;
+  background:#071820;
+  border:1px solid rgba(70,215,255,.18);
+  box-shadow:0 25px 90px rgba(0,0,0,.65);
 }
 
 .modal-head{
-display:flex;
-align-items:center;
-justify-content:space-between;
-margin-bottom:20px
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:18px;
+}
+
+.modal-head h2{
+  font-size:21px
 }
 
 .close{
-width:38px;
-height:38px;
-border-radius:50%;
-background:#edf7f9;
-color:var(--dark);
-font-size:21px
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  color:#b7d0d8;
+  background:#0a222c;
+  font-size:22px;
 }
 
 .modal-form{
-display:grid;
-gap:12px
+  display:grid;
+  gap:11px
 }
 
-.modal-form button{
-padding:14px;
-border-radius:13px;
-background:var(--primary);
-color:white;
-font-weight:900
+.modal-form button.main{
+  padding:14px;
+  border-radius:13px;
+  color:#001018;
+  background:linear-gradient(100deg,#12c9ff,#35dfb0);
+  font-weight:900;
+}
+
+.notice,
+.error,
+.success-box{
+  padding:13px;
+  border-radius:12px;
+  font-size:12px;
+  line-height:1.8;
 }
 
 .notice{
-padding:13px;
-border-radius:12px;
-background:#eef9fb;
-color:var(--primary);
-line-height:1.7
+  color:#91ddec;
+  background:#08222c;
 }
 
 .error{
-padding:13px;
-border-radius:12px;
-background:#ffe9e9;
-color:#b93636;
-line-height:1.7
+  color:#ff9ca5;
+  background:#2b1116;
 }
 
 .success-box{
-padding:13px;
-border-radius:12px;
-background:#e2f8ed;
-color:#087c52;
-line-height:1.7
+  color:#66e7b6;
+  background:#09291f;
 }
 
-/* TOAST */
+/* =========================
+   TOAST
+========================= */
 
 .toast{
-position:fixed;
-left:50%;
-bottom:25px;
-transform:translateX(-50%) translateY(120px);
-background:#073b4c;
-color:white;
-padding:14px 20px;
-border-radius:14px;
-z-index:300;
-transition:.3s;
-max-width:90%;
-text-align:center
+  position:fixed;
+  left:50%;
+  bottom:25px;
+  z-index:900;
+  transform:translateX(-50%) translateY(130px);
+  max-width:90%;
+  padding:14px 20px;
+  border-radius:14px;
+  color:white;
+  background:#09202a;
+  border:1px solid rgba(70,215,255,.18);
+  box-shadow:var(--shadow);
+  transition:.3s;
+  text-align:center;
+  font-size:12px;
 }
 
 .toast.show{
-transform:translateX(-50%) translateY(0)
+  transform:translateX(-50%) translateY(0)
 }
 
-/* FOOTER */
+/* =========================
+   MOBILE
+========================= */
 
-footer{
-margin-top:30px;
-padding:30px 0;
-text-align:center;
-color:var(--muted);
-border-top:1px solid var(--border)
+@media(max-width:900px){
+
+.nav-links{
+  display:none
 }
 
-/* MOBILE */
+.hero-content{
+  grid-template-columns:1fr;
+  padding:40px 30px;
+}
 
-@media(max-width:800px){
+.hero-box,
+.hero-content{
+  min-height:auto
+}
 
-.features{
-grid-template-columns:1fr 1fr
+.hero-copy{
+  text-align:center
+}
+
+.hero p{
+  margin:auto
+}
+
+.hero-buttons{
+  justify-content:center
+}
+
+.hero-doctor{
+  height:330px
+}
+
+.hero-doctor img{
+  height:320px
+}
+
+.quick-features{
+  grid-template-columns:1fr 1fr;
+}
+
+.quick{
+  border-bottom:1px solid rgba(80,210,255,.10);
+}
+
+.doctor-card{
+  grid-template-columns:190px 1fr;
 }
 
 .appointments{
-grid-template-columns:1fr 1fr
+  grid-template-columns:1fr 1fr;
 }
 
 .stats{
-grid-template-columns:1fr 1fr
+  grid-template-columns:1fr 1fr;
 }
 
 .dashboard-tabs{
-grid-template-columns:1fr 1fr
+  grid-template-columns:1fr 1fr;
 }
 
 }
 
-@media(max-width:560px){
+@media(max-width:600px){
 
-.nav-actions .small-btn:first-child{
-display:none
+.container{
+  width:94%
+}
+
+.nav{
+  min-height:68px
+}
+
+.logo-svg{
+  width:47px
+}
+
+.logo-text{
+  font-size:24px
+}
+
+.header-btn{
+  padding:10px 12px;
+  font-size:10px
+}
+
+.header-btn:first-child{
+  display:none
+}
+
+.hero{
+  padding-top:10px
 }
 
 .hero-box{
-padding:28px 20px;
-border-radius:23px
+  border-radius:0 0 40px 40px;
 }
 
-.features,
-.appointments,
-.form-grid{
-grid-template-columns:1fr
+.hero-content{
+  padding:34px 20px 20px;
 }
 
-.doctor{
-align-items:flex-start
+.hero h1{
+  font-size:38px
 }
 
-.doctor-img{
-width:90px;
-height:90px
+.hero-doctor{
+  height:300px
+}
+
+.hero-doctor img{
+  height:290px
+}
+
+.hero-badge{
+  right:-5px;
+  top:20px;
+  transform:scale(.85);
+}
+
+.hero-badge.left{
+  left:-5px;
+  bottom:20px;
+}
+
+.quick-features{
+  grid-template-columns:1fr 1fr;
+  border-radius:20px;
+}
+
+.quick{
+  padding:17px 8px
+}
+
+.doctor-card{
+  grid-template-columns:1fr;
+}
+
+.doctor-photo-box,
+.doctor-photo-box img{
+  min-height:280px;
+  height:280px;
+}
+
+.appointments{
+  grid-template-columns:1fr;
 }
 
 .track{
-flex-direction:column
+  flex-direction:column
 }
 
 .track input{
-max-width:none
+  max-width:none
 }
 
 .track button{
-padding:13px
+  padding:13px
+}
+
+.stats{
+  grid-template-columns:1fr 1fr;
+}
+
+.form-grid{
+  grid-template-columns:1fr
 }
 
 .full{
-grid-column:auto
+  grid-column:auto
 }
 
-.dashboard-tabs{
-grid-template-columns:1fr 1fr
+.social-input{
+  grid-template-columns:1fr;
+}
+
+.footer-inner{
+  flex-direction:column;
+  text-align:center;
+}
+
+.socials{
+  justify-content:center
 }
 
 }
+
 </style>
 </head>
 
 <body>
 
+<!-- ========================= HEADER ========================= -->
+
 <header>
+
 <div class="container nav">
 
-<div class="brand">
+<div class="logo-wrap">
 
-<div class="logo">
-<div class="logo-heart"></div>
-<div class="logo-cross">+</div>
-</div>
+<svg class="logo-svg" viewBox="0 0 120 75" xmlns="http://www.w3.org/2000/svg">
+<path
+d="M2 42 H23 L30 42 L36 20 L45 59 L55 30 L62 42 H79"
+fill="none"
+stroke="#18d7ff"
+stroke-width="4"
+stroke-linecap="round"
+stroke-linejoin="round"/>
+<path
+d="M79 42 H91"
+fill="none"
+stroke="#31e0b3"
+stroke-width="4"
+stroke-linecap="round"/>
+<circle cx="91" cy="42" r="4" fill="#31e0b3"/>
+</svg>
 
 <div>
-<div class="brand-name">نبض</div>
-<div class="brand-sub">حجز العيادة بسهولة</div>
+<div class="logo-text">نبض</div>
+<div class="logo-sub">صحتك .. أولويتنا</div>
 </div>
+
+</div>
+
+<div class="nav-links">
+
+<button class="active" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+الرئيسية
+</button>
+
+<button onclick="scrollToDoctor()">
+عن الدكتور
+</button>
+
+<button onclick="scrollToBooking()">
+المواعيد
+</button>
+
+<button onclick="scrollToTrack()">
+متابعة الحجز
+</button>
 
 </div>
 
 <div class="nav-actions">
 
-<button class="small-btn" onclick="openLogin()">
+<button class="header-btn header-outline" onclick="openLogin()">
 لوحة الدكتور
 </button>
 
-<button class="small-btn" onclick="scrollToBooking()">
-حجز موعد
+<button class="header-btn header-main" onclick="scrollToBooking()">
+📅 حجز موعد
 </button>
 
 </div>
 
 </div>
+
 </header>
 
 
 <main>
 
+<!-- ========================= HERO ========================= -->
+
 <section class="hero">
+
 <div class="container">
+
 <div class="hero-box">
 
-<h1>احجز موعدك بسهولة</h1>
+<div class="hero-content">
+
+<div class="hero-copy">
+
+<div class="hero-kicker">
+رعايتك تبدأ بخطوة
+</div>
+
+<h1>
+احجز موعدك
+<span>نبض</span>
+</h1>
 
 <p>
-مع <b>نبض</b> يمكنك حجز موعدك، متابعة حالة الحجز،
-والتواصل مع الدكتور بسهولة من مكان واحد.
+مع نبض يمكنك حجز موعدك بسهولة،
+متابعة حالة طلبك والتواصل مع الدكتور
+من مكان واحد وبخطوات بسيطة وآمنة.
 </p>
 
 <div class="hero-buttons">
 
 <button class="btn btn-primary" onclick="scrollToBooking()">
-احجز موعدك الآن
+احجز موعدك الآن ←
 </button>
 
-<button class="btn btn-outline" onclick="scrollToTrack()">
-متابعة حجز
+<button class="btn btn-dark" onclick="scrollToTrack()">
+🔎 متابعة حجز
 </button>
 
-<button class="btn btn-outline" onclick="callDoctor()">
+<button class="btn btn-dark" onclick="callDoctor()">
 📞 اتصل بالدكتور
 </button>
 
-<button class="btn btn-outline" onclick="openWhatsApp()">
-💬 تواصل واتساب
+<button class="btn btn-dark" onclick="openWhatsApp()">
+💬 واتساب
 </button>
 
 </div>
 
 </div>
+
+
+<div class="hero-doctor">
+
+<div class="hero-doctor-glow"></div>
+
+<img
+id="heroDoctorImage"
+src=""
+alt="الدكتور">
+
+<div class="hero-badge">
+
+<strong>💙 رعاية طبية أفضل</strong>
+
+<span>
+خبرة واهتمام ومتابعة
+لراحتك في كل خطوة.
+</span>
+
 </div>
+
+<div class="hero-badge left">
+
+<strong>✓ أمان وخصوصية</strong>
+
+<span>
+بيانات حجزك محفوظة
+ومنظمة.
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="wave"></div>
+
+</div>
+
 </section>
 
 
-<section>
+<!-- ========================= QUICK FEATURES ========================= -->
+
+<section style="padding-top:5px">
 
 <div class="container">
 
-<h2 class="title">بيانات الدكتور</h2>
+<div class="quick-features">
 
-<div class="card">
+<div class="quick">
 
-<div class="doctor">
+<div class="quick-icon">💬</div>
 
-<img id="doctorImage" class="doctor-img" src="" alt="صورة الدكتور">
+<h3>تواصل مباشر</h3>
+
+<p>مع الدكتور بسهولة</p>
+
+</div>
+
+<div class="quick">
+
+<div class="quick-icon">📅</div>
+
+<h3>مواعيد مرنة</h3>
+
+<p>اختر الموعد المناسب</p>
+
+</div>
+
+<div class="quick">
+
+<div class="quick-icon">⚡</div>
+
+<h3>حجز سريع</h3>
+
+<p>خطوات بسيطة وسهلة</p>
+
+</div>
+
+<div class="quick">
+
+<div class="quick-icon">🔒</div>
+
+<h3>خصوصية</h3>
+
+<p>بياناتك منظمة ومحفوظة</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ========================= DOCTOR ========================= -->
+
+<section id="doctorSection">
+
+<div class="container">
+
+<div class="section-head">
 
 <div>
 
-<h2 id="doctorName" class="doctor-name">
+<h2 class="section-title">عن الدكتور</h2>
+
+<div class="section-line"></div>
+
+<p class="section-sub">
+تعرف على الدكتور ومعلومات العيادة
+</p>
+
+</div>
+
+</div>
+
+
+<div class="doctor-card">
+
+<div class="doctor-photo-box">
+
+<img
+id="doctorImage"
+src=""
+alt="صورة الدكتور">
+
+</div>
+
+
+<div class="doctor-info">
+
+<h2
+id="doctorName"
+class="doctor-name">
 د. إبراهيم شتا
 </h2>
 
-<div class="info">
+<div
+id="doctorSpecialty"
+class="doctor-specialty">
+طبيب
+</div>
 
-<div id="doctorSpecialty">طبيب</div>
 
-<div id="doctorAddress">
+<div class="doctor-details">
+
+<div class="doctor-detail">
+
+<div class="detail-icon">📍</div>
+
+<span id="doctorAddress">
 العنوان غير محدد
+</span>
+
 </div>
 
-<div id="doctorHours">
+<div class="doctor-detail">
+
+<div class="detail-icon">🕐</div>
+
+<span id="doctorHours">
 مواعيد العمل غير محددة
+</span>
+
 </div>
+
+<div class="doctor-detail">
+
+<div class="detail-icon">📞</div>
+
+<span id="doctorPhone">
+رقم الهاتف غير مضاف
+</span>
 
 </div>
 
 </div>
 
-</div>
 
-<div id="bioBox" class="bio" style="display:none">
+<div
+id="bioBox"
+class="bio"
+style="display:none">
 
 <div class="bio-title">
 السيرة الذاتية للدكتور
@@ -843,55 +1666,39 @@ grid-template-columns:1fr 1fr
 
 </div>
 
-</section>
-
-
-<section>
-
-<div class="container">
-
-<h2 class="title">لماذا نبض؟</h2>
-
-<div class="features">
-
-<div class="feature">
-<div class="feature-icon">🔒</div>
-<h3>خصوصية</h3>
-<p>بيانات الحجز منظمة ومحفوظة.</p>
-</div>
-
-<div class="feature">
-<div class="feature-icon">📅</div>
-<h3>مواعيد مرنة</h3>
-<p>اختر الموعد المناسب لك.</p>
-</div>
-
-<div class="feature">
-<div class="feature-icon">⚡</div>
-<h3>حجز سريع</h3>
-<p>خطوات بسيطة وسهلة.</p>
-</div>
-
-<div class="feature">
-<div class="feature-icon">💬</div>
-<h3>تواصل مباشر</h3>
-<p>تواصل سريع مع الدكتور.</p>
-</div>
-
-</div>
-
 </div>
 
 </section>
 
+
+<!-- ========================= APPOINTMENTS ========================= -->
 
 <section id="bookingSection">
 
 <div class="container">
 
-<h2 class="title">المواعيد المتاحة</h2>
+<div class="section-head">
 
-<div id="appointments" class="appointments">
+<div>
+
+<h2 class="section-title">
+المواعيد المتاحة
+</h2>
+
+<div class="section-line"></div>
+
+<p class="section-sub">
+اختر الموعد المناسب لك واحجز الآن
+</p>
+
+</div>
+
+</div>
+
+
+<div
+id="appointments"
+class="appointments">
 
 <div class="empty">
 جاري تحميل المواعيد...
@@ -904,17 +1711,32 @@ grid-template-columns:1fr 1fr
 </section>
 
 
+<!-- ========================= TRACK ========================= -->
+
 <section id="trackSection">
 
 <div class="container">
 
-<h2 class="title">متابعة الحجز</h2>
+<div class="section-head">
 
-<div class="card">
+<div>
 
-<p style="color:var(--muted);margin-bottom:14px">
-أدخل رقم الحجز اليومي لمعرفة حالة طلبك.
+<h2 class="section-title">
+متابعة الحجز
+</h2>
+
+<div class="section-line"></div>
+
+<p class="section-sub">
+أدخل رقمك اليومي لمعرفة حالة طلبك
 </p>
+
+</div>
+
+</div>
+
+
+<div class="track-card">
 
 <div class="track">
 
@@ -930,7 +1752,10 @@ placeholder="مثال: 3">
 
 </div>
 
-<div id="trackResult" style="margin-top:15px"></div>
+<div
+id="trackResult"
+style="margin-top:15px">
+</div>
 
 </div>
 
@@ -939,65 +1764,125 @@ placeholder="مثال: 3">
 </section>
 
 
+<!-- ========================= DASHBOARD ========================= -->
+
 <section id="dashboard">
 
 <div class="container">
 
-<h2 class="title">
+<div class="section-head">
+
+<div>
+
+<h2 class="section-title">
 لوحة تحكم الدكتور
 </h2>
 
-<button class="logout" onclick="logoutDoctor()">
+<div class="section-line"></div>
+
+</div>
+
+</div>
+
+
+<div class="dashboard-box">
+
+<button
+class="logout"
+onclick="logoutDoctor()">
 🚪 تسجيل الخروج
 </button>
 
+
 <div class="dashboard-tabs">
 
-<button class="tab active" onclick="showPanel('overview',this)">
+<button
+class="tab active"
+onclick="showPanel('overview',this)">
 نظرة عامة
 </button>
 
-<button class="tab" onclick="showPanel('pending',this)">
+<button
+class="tab"
+onclick="showPanel('pending',this)">
 طلبات الانتظار
 </button>
 
-<button class="tab" onclick="showPanel('confirmed',this)">
+<button
+class="tab"
+onclick="showPanel('confirmed',this)">
 المواعيد المؤكدة
 </button>
 
-<button class="tab" onclick="showPanel('available',this)">
+<button
+class="tab"
+onclick="showPanel('available',this)">
 المواعيد المتاحة
 </button>
 
-<button class="tab" onclick="showPanel('settings',this)">
+<button
+class="tab"
+onclick="showPanel('settings',this)">
 إعدادات العيادة
 </button>
 
 </div>
 
 
-<div id="overview" class="dashboard-panel">
+<!-- OVERVIEW -->
+
+<div
+id="overview"
+class="dashboard-panel">
 
 <div class="stats">
 
 <div class="stat" onclick="showPanel('pending')">
-<small>طلبات الانتظار</small>
-<strong id="pendingCount">0</strong>
+
+<small>
+طلبات الانتظار
+</small>
+
+<strong id="pendingCount">
+0
+</strong>
+
 </div>
 
 <div class="stat" onclick="showPanel('confirmed')">
-<small>المواعيد المؤكدة</small>
-<strong id="confirmedCount">0</strong>
+
+<small>
+المواعيد المؤكدة
+</small>
+
+<strong id="confirmedCount">
+0
+</strong>
+
 </div>
 
 <div class="stat" onclick="showPanel('available')">
-<small>المواعيد المتاحة</small>
-<strong id="availableCount">0</strong>
+
+<small>
+المواعيد المتاحة
+</small>
+
+<strong id="availableCount">
+0
+</strong>
+
 </div>
 
 <div class="stat">
-<small>إجمالي الحجوزات</small>
-<strong id="totalCount">0</strong>
+
+<small>
+إجمالي الحجوزات
+</small>
+
+<strong id="totalCount">
+0
+</strong>
+
 </div>
 
 </div>
@@ -1007,7 +1892,12 @@ placeholder="مثال: 3">
 </div>
 
 
-<div id="pending" class="dashboard-panel" style="display:none">
+<!-- PENDING -->
+
+<div
+id="pending"
+class="dashboard-panel"
+style="display:none">
 
 <h3 style="margin-bottom:15px">
 طلبات الانتظار
@@ -1018,7 +1908,12 @@ placeholder="مثال: 3">
 </div>
 
 
-<div id="confirmed" class="dashboard-panel" style="display:none">
+<!-- CONFIRMED -->
+
+<div
+id="confirmed"
+class="dashboard-panel"
+style="display:none">
 
 <h3 style="margin-bottom:15px">
 المواعيد المؤكدة
@@ -1029,112 +1924,309 @@ placeholder="مثال: 3">
 </div>
 
 
-<div id="available" class="dashboard-panel" style="display:none">
+<!-- AVAILABLE -->
+
+<div
+id="available"
+class="dashboard-panel"
+style="display:none">
 
 <h3 style="margin-bottom:15px">
-المواعيد المتاحة
+إضافة موعد جديد
 </h3>
 
 <div class="form-grid">
 
-<div>
+<div class="form-group">
 
-<label>اليوم والموعد</label>
+<label>
+تاريخ الموعد
+</label>
 
 <input
-id="newSlot"
-placeholder="مثال: الأحد - 10 صباحًا">
+id="newSlotDate"
+type="date">
 
 </div>
 
-<div style="display:flex;align-items:end">
 
-<button class="save" onclick="addSlot()">
-إضافة موعد
+<div class="form-group">
+
+<label>
+وقت الموعد
+</label>
+
+<input
+id="newSlotTime"
+type="time">
+
+</div>
+
+
+<div class="full">
+
+<button
+class="save"
+onclick="addSlot()">
+＋ إضافة الموعد
 </button>
 
 </div>
 
 </div>
 
-<div id="slotList" style="margin-top:20px"></div>
+
+<h3 style="margin:25px 0 12px">
+المواعيد الحالية
+</h3>
+
+<div id="slotList"></div>
 
 </div>
 
 
-<div id="settings" class="dashboard-panel" style="display:none">
+<!-- SETTINGS -->
+
+<div
+id="settings"
+class="dashboard-panel"
+style="display:none">
 
 <h3 style="margin-bottom:18px">
 إعدادات العيادة
 </h3>
 
+
 <div class="form-grid">
 
-<div class="form-group">
-<label>اسم الدكتور</label>
-<input id="setName" placeholder="اسم الدكتور">
-</div>
 
 <div class="form-group">
-<label>التخصص</label>
-<input id="setSpecialty" placeholder="التخصص">
+
+<label>
+اسم الدكتور
+</label>
+
+<input
+id="setName"
+placeholder="اسم الدكتور">
+
 </div>
 
-<div class="form-group">
-<label>رقم الهاتف</label>
-<input id="setPhone" placeholder="01xxxxxxxxx">
-</div>
 
 <div class="form-group">
-<label>رقم واتساب</label>
-<input id="setWhatsapp" placeholder="201xxxxxxxxx">
+
+<label>
+التخصص
+</label>
+
+<input
+id="setSpecialty"
+placeholder="التخصص">
+
 </div>
 
-<div class="form-group">
-<label>العنوان</label>
-<input id="setAddress" placeholder="عنوان العيادة">
-</div>
 
 <div class="form-group">
-<label>مواعيد العمل</label>
-<input id="setHours" placeholder="مثال: السبت - الخميس 9 ص إلى 2 م">
+
+<label>
+رقم الهاتف
+</label>
+
+<input
+id="setPhone"
+placeholder="01xxxxxxxxx">
+
 </div>
+
+
+<div class="form-group">
+
+<label>
+رقم واتساب
+</label>
+
+<input
+id="setWhatsapp"
+placeholder="201xxxxxxxxx">
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+العنوان
+</label>
+
+<input
+id="setAddress"
+placeholder="عنوان العيادة">
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+مواعيد العمل
+</label>
+
+<input
+id="setHours"
+placeholder="مثال: السبت - الخميس 9 ص إلى 2 م">
+
+</div>
+
 
 <div class="form-group full">
 
-<label>السيرة الذاتية للدكتور</label>
+<label>
+السيرة الذاتية للدكتور
+</label>
 
 <textarea
 id="setBio"
 rows="5"
-placeholder="اكتب السيرة الذاتية للدكتور هنا... ويمكن تركها فارغة">
-</textarea>
+placeholder="اكتب السيرة الذاتية أو اتركها فارغة"></textarea>
 
 </div>
+
 
 <div class="form-group full">
 
-<label>رابط صورة الدكتور</label>
+<label>
+صورة الدكتور
+</label>
+
+<div class="upload-box">
+
+<img
+id="imagePreview"
+class="upload-preview"
+src=""
+alt="الصورة">
+
+<div>
+
+<label
+for="imageFile"
+class="file-btn">
+📁 اختيار صورة من الملفات
+</label>
 
 <input
-id="setImage"
-placeholder="https://...">
+id="imageFile"
+type="file"
+accept="image/*"
+onchange="handleImageFile(event)">
+
+<div style="color:#718b95;font-size:10px;margin-top:7px">
+الصورة يتم حفظها مباشرة مع بيانات العيادة.
+</div>
 
 </div>
 
+</div>
+
+</div>
+
+
 <div class="full">
 
-<button class="save" onclick="saveSettings()">
-حفظ بيانات العيادة
+<button
+class="save"
+onclick="saveSettings()">
+💾 حفظ بيانات العيادة
 </button>
 
 </div>
 
+
+<!-- SOCIAL -->
+
+<div class="full social-admin">
+
+<h4>
+📱 روابط السوشيال ميديا
+</h4>
+
+<div class="social-input">
+
+<div class="social-label">
+Facebook
+</div>
+
+<input
+id="socialFacebook"
+placeholder="https://facebook.com/...">
+
+<button
+class="delete"
+onclick="clearSocial('facebook')">
+حذف
+</button>
+
+</div>
+
+
+<div class="social-input">
+
+<div class="social-label">
+Instagram
+</div>
+
+<input
+id="socialInstagram"
+placeholder="https://instagram.com/...">
+
+<button
+class="delete"
+onclick="clearSocial('instagram')">
+حذف
+</button>
+
+</div>
+
+
+<div class="social-input">
+
+<div class="social-label">
+TikTok
+</div>
+
+<input
+id="socialTikTok"
+placeholder="https://tiktok.com/@...">
+
+<button
+class="delete"
+onclick="clearSocial('tiktok')">
+حذف
+</button>
+
+</div>
+
+
+<button
+class="save social-save"
+onclick="saveSettings()">
+حفظ روابط السوشيال
+</button>
+
+<div
+id="socialAdminPreview"
+class="social-preview">
 </div>
 
 </div>
 
+
 </div>
+
+</div>
+
+</div>
+
 </div>
 
 </section>
@@ -1142,69 +2234,149 @@ placeholder="https://...">
 </main>
 
 
+<!-- ========================= FOOTER ========================= -->
+
 <footer>
-<strong>نبض</strong>
-<br>
-صحتك تهمنا
+
+<div class="footer-wave"></div>
+
+<div class="container footer-inner">
+
+<div>
+
+<div class="logo-wrap">
+
+<svg class="logo-svg" viewBox="0 0 120 75" xmlns="http://www.w3.org/2000/svg">
+
+<path
+d="M2 42 H23 L30 42 L36 20 L45 59 L55 30 L62 42 H79"
+fill="none"
+stroke="#18d7ff"
+stroke-width="4"
+stroke-linecap="round"
+stroke-linejoin="round"/>
+
+<path
+d="M79 42 H91"
+fill="none"
+stroke="#31e0b3"
+stroke-width="4"
+stroke-linecap="round"/>
+
+<circle
+cx="91"
+cy="42"
+r="4"
+fill="#31e0b3"/>
+
+</svg>
+
+<div>
+
+<div class="logo-text">
+نبض
+</div>
+
+<div class="logo-sub">
+صحتك .. أولويتنا
+</div>
+
+</div>
+
+</div>
+
+<div class="footer-copy">
+© 2026 نبض — جميع الحقوق محفوظة
+</div>
+
+</div>
+
+
+<div
+id="footerSocials"
+class="socials">
+</div>
+
+</div>
+
 </footer>
 
 
-<!-- BOOKING MODAL -->
+<!-- ========================= BOOKING MODAL ========================= -->
 
-<div id="bookingModal" class="modal">
+<div
+id="bookingModal"
+class="modal">
 
 <div class="modal-box">
 
 <div class="modal-head">
 
-<h2>حجز موعد</h2>
+<h2>
+حجز موعد
+</h2>
 
-<button class="close" onclick="closeBooking()">×</button>
+<button
+class="close"
+onclick="closeBooking()">
+×
+</button>
 
 </div>
+
 
 <div class="modal-form">
 
 <div class="notice">
+
 الموعد المختار:
 <strong id="selectedSlot"></strong>
+
 </div>
 
-<input id="patientName" placeholder="اسم المريض">
+<input
+id="patientName"
+placeholder="اسم المريض">
 
-<input id="patientPhone" placeholder="رقم الهاتف">
+<input
+id="patientPhone"
+placeholder="رقم الهاتف">
 
-<input id="patientAge" type="number" placeholder="العمر">
-
-<textarea
-id="patientNote"
-rows="4"
-placeholder="ملاحظات إضافية (اختياري)">
-</textarea>
-
-<button onclick="submitBooking()">
+<button
+class="main"
+onclick="submitBooking()">
 تأكيد طلب الحجز
 </button>
 
 </div>
 
 </div>
+
 </div>
 
 
-<!-- LOGIN -->
+<!-- ========================= LOGIN MODAL ========================= -->
 
-<div id="loginModal" class="modal">
+<div
+id="loginModal"
+class="modal">
 
 <div class="modal-box">
 
 <div class="modal-head">
 
-<h2>دخول الدكتور</h2>
+<h2>
+دخول الدكتور
+</h2>
 
-<button class="close" onclick="closeLogin()">×</button>
+<button
+class="close"
+onclick="closeLogin()">
+×
+</button>
 
 </div>
+
 
 <div class="modal-form">
 
@@ -1224,7 +2396,9 @@ type="password"
 autocomplete="current-password"
 placeholder="كلمة المرور">
 
-<button onclick="loginDoctor()">
+<button
+class="main"
+onclick="loginDoctor()">
 دخول آمن
 </button>
 
@@ -1237,7 +2411,10 @@ placeholder="كلمة المرور">
 </div>
 
 
-<div id="toast" class="toast"></div>
+<div
+id="toast"
+class="toast">
+</div>
 
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -1245,7 +2422,7 @@ placeholder="كلمة المرور">
 <script>
 
 /* =========================================================
-SUPABASE
+   SUPABASE
 ========================================================= */
 
 const SUPABASE_URL =
@@ -1265,1937 +2442,2798 @@ const DOCTOR_EMAIL =
 
 const supabaseClient =
 window.supabase.createClient(
-SUPABASE_URL,
-SUPABASE_ANON_KEY
+  SUPABASE_URL,
+  SUPABASE_ANON_KEY
 );
 
 
 /* =========================================================
-STATE
+   STATE
 ========================================================= */
 
-let doctor={
-name:'د. إبراهيم شتا',
-specialty:'طبيب',
-phone:'',
-whatsapp:'',
-address:'',
-hours:'',
-bio:'',
-image:''
+let doctor = {
+  name:'د. إبراهيم شتا',
+  specialty:'طبيب',
+  phone:'',
+  whatsapp:'',
+  address:'',
+  hours:'',
+  bio:'',
+  image:'',
+  socials:{
+    facebook:'',
+    instagram:'',
+    tiktok:''
+  }
 };
 
-let bookings=[];
-let slots=[];
-let selectedSlot='';
-let selectedSlotId=null;
+let bookings = [];
+let slots = [];
+
+let selectedSlotId = null;
+let selectedSlot = '';
+
+let pendingImage = '';
 
 
 /* =========================================================
-HELPERS
+   HELPERS
 ========================================================= */
 
 function escapeHTML(value){
 
-if(value===null||value===undefined){
-return '';
-}
+  if(value===null || value===undefined){
+    return '';
+  }
 
-return String(value)
-.replace(/&/g,'&amp;')
-.replace(/</g,'&lt;')
-.replace(/>/g,'&gt;')
-.replace(/"/g,'&quot;')
-.replace(/'/g,'&#039;');
+  return String(value)
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;')
+    .replace(/'/g,'&#039;');
 }
 
 
 function showToast(message){
 
-const toast=
-document.getElementById('toast');
+  const toast =
+    document.getElementById('toast');
 
-toast.textContent=message;
+  toast.textContent = message;
 
-toast.classList.add('show');
+  toast.classList.add('show');
 
-setTimeout(()=>{
-toast.classList.remove('show');
-},3000);
+  setTimeout(()=>{
+    toast.classList.remove('show');
+  },3000);
+}
+
+
+function defaultDoctorImage(){
+
+  const svg = `
+  <svg xmlns="http://www.w3.org/2000/svg"
+       width="700"
+       height="700"
+       viewBox="0 0 700 700">
+
+    <defs>
+      <linearGradient id="g"
+        x1="0" y1="0"
+        x2="1" y2="1">
+
+        <stop offset="0"
+          stop-color="#071c25"/>
+
+        <stop offset="1"
+          stop-color="#0b3440"/>
+
+      </linearGradient>
+    </defs>
+
+    <rect
+      width="700"
+      height="700"
+      fill="url(#g)"/>
+
+    <circle
+      cx="350"
+      cy="245"
+      r="100"
+      fill="#b8cbd1"/>
+
+    <path
+      d="M190 590
+         C205 450 280 390 350 390
+         C420 390 495 450 510 590Z"
+      fill="#f3f7f8"/>
+
+    <path
+      d="M245 440
+         L350 570
+         L455 440"
+      fill="none"
+      stroke="#16cfff"
+      stroke-width="12"/>
+
+    <text
+      x="350"
+      y="650"
+      text-anchor="middle"
+      font-family="Arial"
+      font-size="42"
+      font-weight="bold"
+      fill="#18d7ff">
+      نبض
+    </text>
+
+  </svg>
+  `;
+
+  return 'data:image/svg+xml;charset=UTF-8,'+
+    encodeURIComponent(svg);
+}
+
+
+function normalizePhone(value){
+
+  let number =
+    String(value || '')
+      .replace(/\D/g,'');
+
+  if(number.startsWith('00')){
+    number = number.substring(2);
+  }
+
+  if(number.startsWith('0')){
+    number = '20' + number.substring(1);
+  }
+
+  return number;
 }
 
 
 /* =========================================================
-NAVIGATION
+   NAV
 ========================================================= */
+
+function scrollToDoctor(){
+
+  document
+    .getElementById('doctorSection')
+    .scrollIntoView({
+      behavior:'smooth'
+    });
+}
+
 
 function scrollToBooking(){
 
-document
-.getElementById('bookingSection')
-.scrollIntoView({
-behavior:'smooth'
-});
+  document
+    .getElementById('bookingSection')
+    .scrollIntoView({
+      behavior:'smooth'
+    });
 }
 
 
 function scrollToTrack(){
 
-document
-.getElementById('trackSection')
-.scrollIntoView({
-behavior:'smooth'
-});
+  document
+    .getElementById('trackSection')
+    .scrollIntoView({
+      behavior:'smooth'
+    });
 }
 
 
 /* =========================================================
-CONTACT
+   CONTACT
 ========================================================= */
 
 function callDoctor(){
 
-if(!doctor.phone){
+  if(!doctor.phone){
 
-showToast(
-'رقم الدكتور غير مضاف حاليًا'
-);
+    showToast(
+      'رقم الدكتور غير مضاف حاليًا'
+    );
 
-return;
-}
+    return;
+  }
 
-window.location.href=
-'tel:'+doctor.phone;
+  /*
+    يفتح تطبيق الهاتف فقط
+    ولا يبدأ المكالمة تلقائيًا.
+  */
+
+  window.location.href =
+    'tel:' + doctor.phone;
 }
 
 
 function openWhatsApp(){
 
-if(!doctor.whatsapp){
+  if(!doctor.whatsapp){
 
-showToast(
-'رقم واتساب الدكتور غير مضاف حاليًا'
-);
+    showToast(
+      'رقم واتساب الدكتور غير مضاف حاليًا'
+    );
 
-return;
-}
+    return;
+  }
 
-let number=
-String(doctor.whatsapp)
-.replace(/\D/g,'');
+  const number =
+    normalizePhone(
+      doctor.whatsapp
+    );
 
-if(number.startsWith('0')){
-
-number=
-'20'+number.substring(1);
-}
-
-window.open(
-'https://wa.me/'+number,
-'_blank'
-);
+  window.open(
+    'https://wa.me/' + number,
+    '_blank'
+  );
 }
 
 
 /* =========================================================
-DEFAULT IMAGE
+   SOCIAL DATA
+   بدون أعمدة جديدة في Supabase:
+   يتم تخزينها داخل biography بعلامة خاصة
 ========================================================= */
 
-function createLogoImage(){
+const SOCIAL_MARKER =
+'<!--NABD_SOCIALS:';
 
-const svg=`
 
-<svg xmlns="http://www.w3.org/2000/svg"
-width="300"
-height="300"
-viewBox="0 0 300 300">
+function parseBio(raw){
 
-<rect
-width="300"
-height="300"
-rx="55"
-fill="#087ea4"/>
+  const text =
+    String(raw || '');
 
-<text
-x="150"
-y="180"
-text-anchor="middle"
-font-size="80"
-font-family="Arial"
-font-weight="bold"
-fill="white">
-نبض
-</text>
+  const start =
+    text.indexOf(SOCIAL_MARKER);
 
-</svg>
-`;
+  if(start === -1){
 
-return 'data:image/svg+xml;charset=UTF-8,'+
-encodeURIComponent(svg);
+    return {
+      bio:text,
+      socials:{
+        facebook:'',
+        instagram:'',
+        tiktok:''
+      }
+    };
+  }
+
+  const jsonStart =
+    start + SOCIAL_MARKER.length;
+
+  const end =
+    text.indexOf('-->',jsonStart);
+
+  if(end === -1){
+
+    return {
+      bio:text,
+      socials:{
+        facebook:'',
+        instagram:'',
+        tiktok:''
+      }
+    };
+  }
+
+  const bio =
+    text.substring(0,start).trim();
+
+  let socials = {
+    facebook:'',
+    instagram:'',
+    tiktok:''
+  };
+
+  try{
+
+    socials =
+      JSON.parse(
+        text.substring(
+          jsonStart,
+          end
+        )
+      );
+
+  }catch(e){
+
+    console.error(
+      'Social parse error',
+      e
+    );
+  }
+
+  return {
+    bio,
+    socials
+  };
+}
+
+
+function buildBiography(){
+
+  const bio =
+    document
+      .getElementById('setBio')
+      .value
+      .trim();
+
+  const socials = {
+    facebook:
+      document
+        .getElementById('socialFacebook')
+        .value
+        .trim(),
+
+    instagram:
+      document
+        .getElementById('socialInstagram')
+        .value
+        .trim(),
+
+    tiktok:
+      document
+        .getElementById('socialTikTok')
+        .value
+        .trim()
+  };
+
+  return {
+    value:
+      bio +
+      SOCIAL_MARKER +
+      JSON.stringify(socials) +
+      '-->',
+
+    bio,
+    socials
+  };
 }
 
 
 /* =========================================================
-LOAD SETTINGS
+   SOCIAL UI
+========================================================= */
+
+function socialIcon(type){
+
+  if(type==='facebook') return 'f';
+  if(type==='instagram') return '◎';
+  if(type==='tiktok') return '♪';
+
+  return '•';
+}
+
+
+function socialName(type){
+
+  if(type==='facebook') return 'Facebook';
+  if(type==='instagram') return 'Instagram';
+  if(type==='tiktok') return 'TikTok';
+
+  return '';
+}
+
+
+function validSocial(url){
+
+  if(!url) return false;
+
+  return /^https?:\/\//i.test(url);
+}
+
+
+function renderFooterSocials(){
+
+  const box =
+    document.getElementById(
+      'footerSocials'
+    );
+
+  if(!box) return;
+
+  const items = [
+    ['facebook',doctor.socials.facebook],
+    ['instagram',doctor.socials.instagram],
+    ['tiktok',doctor.socials.tiktok]
+  ];
+
+  box.innerHTML =
+    items
+      .filter(item=>validSocial(item[1]))
+      .map(item=>`
+
+        <a
+          class="social"
+          href="${escapeHTML(item[1])}"
+          target="_blank"
+          rel="noopener"
+          title="${socialName(item[0])}">
+
+          ${socialIcon(item[0])}
+
+        </a>
+
+      `)
+      .join('');
+}
+
+
+function renderSocialAdmin(){
+
+  const preview =
+    document.getElementById(
+      'socialAdminPreview'
+    );
+
+  if(!preview) return;
+
+  const items = [
+    ['facebook',doctor.socials.facebook],
+    ['instagram',doctor.socials.instagram],
+    ['tiktok',doctor.socials.tiktok]
+  ];
+
+  preview.innerHTML =
+    items
+      .filter(item=>validSocial(item[1]))
+      .map(item=>`
+
+        <a
+          href="${escapeHTML(item[1])}"
+          target="_blank"
+          rel="noopener">
+
+          ${socialIcon(item[0])}
+          ${socialName(item[0])}
+
+        </a>
+
+      `)
+      .join('');
+
+  renderFooterSocials();
+}
+
+
+function clearSocial(type){
+
+  if(type==='facebook'){
+    document.getElementById(
+      'socialFacebook'
+    ).value='';
+  }
+
+  if(type==='instagram'){
+    document.getElementById(
+      'socialInstagram'
+    ).value='';
+  }
+
+  if(type==='tiktok'){
+    document.getElementById(
+      'socialTikTok'
+    ).value='';
+  }
+
+  showToast(
+    'تم حذف الرابط من الخانة، اضغط حفظ لتأكيد الحذف'
+  );
+}
+
+
+/* =========================================================
+   LOAD SETTINGS
 ========================================================= */
 
 async function loadSettings(){
 
-const {
-data,
-error
-}=
-await supabaseClient
-.from('clinic_settings')
-.select('*')
-.eq('clinic_id',CLINIC_ID)
-.maybeSingle();
+  const {
+    data,
+    error
+  } =
+    await supabaseClient
+      .from('clinic_settings')
+      .select('*')
+      .eq('clinic_id',CLINIC_ID)
+      .maybeSingle();
 
-if(error){
+  if(error){
 
-console.error(
-'loadSettings:',
-error
-);
+    console.error(
+      'loadSettings:',
+      error
+    );
 
-return;
-}
+    updateDoctorUI();
+    return;
+  }
 
-if(!data){
-return;
-}
+  if(!data){
 
-doctor.name=
-data.doctor_name||
-'د. إبراهيم شتا';
+    updateDoctorUI();
+    fillSettings();
+    return;
+  }
 
-doctor.specialty=
-data.specialty||
-'طبيب';
+  const parsed =
+    parseBio(
+      data.biography || ''
+    );
 
-doctor.phone=
-data.phone||'';
+  doctor.name =
+    data.doctor_name ||
+    'د. إبراهيم شتا';
 
-doctor.whatsapp=
-data.whatsapp||'';
+  doctor.specialty =
+    data.specialty ||
+    'طبيب';
 
-doctor.address=
-data.address||'';
+  doctor.phone =
+    data.phone || '';
 
-doctor.hours=
-data.working_hours||
-data.hours||
-'';
+  doctor.whatsapp =
+    data.whatsapp || '';
 
-doctor.bio=
-data.biography||
-data.description||
-'';
+  doctor.address =
+    data.address || '';
 
-doctor.image=
-data.doctor_image||
-data.image_url||
-'';
+  doctor.hours =
+    data.hours || '';
 
-updateDoctorUI();
+  doctor.bio =
+    parsed.bio;
 
-fillSettings();
+  doctor.socials =
+    parsed.socials;
+
+  /*
+    image_url هو العمود الموجود
+    بالفعل في قاعدة البيانات.
+  */
+
+  doctor.image =
+    data.image_url || '';
+
+  updateDoctorUI();
+  fillSettings();
 }
 
 
 /* =========================================================
-UPDATE PUBLIC DOCTOR UI
+   UPDATE PUBLIC UI
 ========================================================= */
 
 function updateDoctorUI(){
 
-document.getElementById(
-'doctorName'
-).textContent=doctor.name;
+  document.getElementById(
+    'doctorName'
+  ).textContent =
+    doctor.name;
 
-document.getElementById(
-'doctorSpecialty'
-).textContent=doctor.specialty;
+  document.getElementById(
+    'doctorSpecialty'
+  ).textContent =
+    doctor.specialty;
 
-document.getElementById(
-'doctorAddress'
-).textContent=
-doctor.address||
-'العنوان غير محدد';
+  document.getElementById(
+    'doctorAddress'
+  ).textContent =
+    doctor.address ||
+    'العنوان غير محدد';
 
-document.getElementById(
-'doctorHours'
-).textContent=
-doctor.hours||
-'مواعيد العمل غير محددة';
+  document.getElementById(
+    'doctorHours'
+  ).textContent =
+    doctor.hours ||
+    'مواعيد العمل غير محددة';
 
-const image=
-document.getElementById(
-'doctorImage'
-);
+  document.getElementById(
+    'doctorPhone'
+  ).textContent =
+    doctor.phone ||
+    'رقم الهاتف غير مضاف';
 
-image.src=
-doctor.image||
-createLogoImage();
+  const image =
+    doctor.image ||
+    defaultDoctorImage();
 
-const bioBox=
-document.getElementById(
-'bioBox'
-);
+  document.getElementById(
+    'doctorImage'
+  ).src = image;
 
-const bio=
-document.getElementById(
-'doctorBio'
-);
+  document.getElementById(
+    'heroDoctorImage'
+  ).src = image;
 
-if(doctor.bio){
+  const bioBox =
+    document.getElementById(
+      'bioBox'
+    );
 
-bioBox.style.display='block';
+  if(doctor.bio){
 
-bio.textContent=doctor.bio;
+    bioBox.style.display =
+      'block';
 
-}else{
+    document.getElementById(
+      'doctorBio'
+    ).textContent =
+      doctor.bio;
 
-bioBox.style.display='none';
-}
+  }else{
+
+    bioBox.style.display =
+      'none';
+  }
+
+  renderFooterSocials();
 }
 
 
 /* =========================================================
-SETTINGS FORM
+   FILL SETTINGS
 ========================================================= */
 
 function fillSettings(){
 
-document.getElementById('setName').value=
-doctor.name||'';
+  const fields = {
 
-document.getElementById('setSpecialty').value=
-doctor.specialty||'';
+    setName:
+      doctor.name || '',
 
-document.getElementById('setPhone').value=
-doctor.phone||'';
+    setSpecialty:
+      doctor.specialty || '',
 
-document.getElementById('setWhatsapp').value=
-doctor.whatsapp||'';
+    setPhone:
+      doctor.phone || '',
 
-document.getElementById('setAddress').value=
-doctor.address||'';
+    setWhatsapp:
+      doctor.whatsapp || '',
 
-document.getElementById('setHours').value=
-doctor.hours||'';
+    setAddress:
+      doctor.address || '',
 
-document.getElementById('setBio').value=
-doctor.bio||'';
+    setHours:
+      doctor.hours || '',
 
-document.getElementById('setImage').value=
-doctor.image||'';
+    setBio:
+      doctor.bio || '',
+
+    socialFacebook:
+      doctor.socials.facebook || '',
+
+    socialInstagram:
+      doctor.socials.instagram || '',
+
+    socialTikTok:
+      doctor.socials.tiktok || ''
+  };
+
+  Object.keys(fields).forEach(id=>{
+
+    const el =
+      document.getElementById(id);
+
+    if(el){
+      el.value =
+        fields[id];
+    }
+
+  });
+
+  document.getElementById(
+    'imagePreview'
+  ).src =
+    doctor.image ||
+    defaultDoctorImage();
+
+  pendingImage =
+    doctor.image || '';
+
+  renderSocialAdmin();
 }
 
 
 /* =========================================================
-SAVE SETTINGS
+   IMAGE FILE
+========================================================= */
+
+function handleImageFile(event){
+
+  const file =
+    event.target.files &&
+    event.target.files[0];
+
+  if(!file) return;
+
+  if(!file.type.startsWith('image/')){
+
+    showToast(
+      'اختر ملف صورة فقط'
+    );
+
+    return;
+  }
+
+  const reader =
+    new FileReader();
+
+  reader.onload = function(e){
+
+    const img =
+      new Image();
+
+    img.onload = function(){
+
+      const max =
+        900;
+
+      let width =
+        img.width;
+
+      let height =
+        img.height;
+
+      if(width > height){
+
+        if(width > max){
+
+          height =
+            Math.round(
+              height * max / width
+            );
+
+          width = max;
+        }
+
+      }else{
+
+        if(height > max){
+
+          width =
+            Math.round(
+              width * max / height
+            );
+
+          height = max;
+        }
+      }
+
+      const canvas =
+        document.createElement(
+          'canvas'
+        );
+
+      canvas.width =
+        width;
+
+      canvas.height =
+        height;
+
+      const ctx =
+        canvas.getContext(
+          '2d'
+        );
+
+      ctx.drawImage(
+        img,
+        0,
+        0,
+        width,
+        height
+      );
+
+      /*
+        ضغط الصورة إلى JPEG
+        حتى تكون مناسبة للحفظ
+        داخل image_url.
+      */
+
+      pendingImage =
+        canvas.toDataURL(
+          'image/jpeg',
+          .78
+        );
+
+      document.getElementById(
+        'imagePreview'
+      ).src =
+        pendingImage;
+
+      showToast(
+        'تم تجهيز الصورة، اضغط حفظ البيانات'
+      );
+    };
+
+    img.src =
+      e.target.result;
+  };
+
+  reader.readAsDataURL(file);
+}
+
+
+/* =========================================================
+   SAVE SETTINGS
 ========================================================= */
 
 async function saveSettings(){
 
-const {
-data
-}=
-await supabaseClient.auth.getUser();
+  const {
+    data:userData
+  } =
+    await supabaseClient
+      .auth
+      .getUser();
 
-const user=data?.user;
+  const user =
+    userData?.user;
 
-if(!user){
+  if(
+    !user ||
+    user.id !== DOCTOR_USER_ID
+  ){
 
-showToast(
-'يجب تسجيل الدخول أولًا'
-);
+    showToast(
+      'يجب تسجيل الدخول كدكتور'
+    );
 
-return;
-}
+    return;
+  }
 
-if(user.id!==DOCTOR_USER_ID){
 
-showToast(
-'هذا الحساب غير مصرح له'
-);
+  const bioData =
+    buildBiography();
 
-await supabaseClient.auth.signOut();
 
-return;
-}
+  const payload = {
 
-const image=
-document.getElementById(
-'setImage'
-).value.trim();
+    clinic_id:
+      CLINIC_ID,
 
-const payload={
+    owner_id:
+      DOCTOR_USER_ID,
 
-clinic_id:CLINIC_ID,
+    doctor_name:
+      document
+        .getElementById('setName')
+        .value
+        .trim(),
 
-owner_id:DOCTOR_USER_ID,
+    specialty:
+      document
+        .getElementById('setSpecialty')
+        .value
+        .trim(),
 
-doctor_name:
-document.getElementById(
-'setName'
-).value.trim(),
+    phone:
+      document
+        .getElementById('setPhone')
+        .value
+        .trim(),
 
-specialty:
-document.getElementById(
-'setSpecialty'
-).value.trim(),
+    whatsapp:
+      document
+        .getElementById('setWhatsapp')
+        .value
+        .trim(),
 
-phone:
-document.getElementById(
-'setPhone'
-).value.trim(),
+    address:
+      document
+        .getElementById('setAddress')
+        .value
+        .trim(),
 
-whatsapp:
-document.getElementById(
-'setWhatsapp'
-).value.trim(),
+    hours:
+      document
+        .getElementById('setHours')
+        .value
+        .trim(),
 
-address:
-document.getElementById(
-'setAddress'
-).value.trim(),
+    biography:
+      bioData.value,
 
-working_hours:
-document.getElementById(
-'setHours'
-).value.trim(),
+    image_url:
+      pendingImage || '',
 
-biography:
-document.getElementById(
-'setBio'
-).value.trim(),
+    updated_at:
+      new Date().toISOString()
+  };
 
-doctor_image:image,
 
-updated_at:
-new Date().toISOString()
-};
+  const {
+    error
+  } =
+    await supabaseClient
+      .from('clinic_settings')
+      .upsert(
+        payload,
+        {
+          onConflict:'clinic_id'
+        }
+      );
 
-const {
-error
-}=
-await supabaseClient
-.from('clinic_settings')
-.upsert(
-payload,
-{onConflict:'clinic_id'}
-);
 
-if(error){
+  if(error){
 
-console.error(error);
+    console.error(
+      'saveSettings:',
+      error
+    );
 
-showToast(
-'حدث خطأ أثناء حفظ البيانات'
-);
+    showToast(
+      'تعذر حفظ البيانات'
+    );
 
-return;
-}
+    return;
+  }
 
-doctor.name=
-payload.doctor_name||
-'د. إبراهيم شتا';
 
-doctor.specialty=
-payload.specialty||
-'طبيب';
+  doctor.name =
+    payload.doctor_name ||
+    'د. إبراهيم شتا';
 
-doctor.phone=
-payload.phone;
+  doctor.specialty =
+    payload.specialty ||
+    'طبيب';
 
-doctor.whatsapp=
-payload.whatsapp;
+  doctor.phone =
+    payload.phone;
 
-doctor.address=
-payload.address;
+  doctor.whatsapp =
+    payload.whatsapp;
 
-doctor.hours=
-payload.working_hours;
+  doctor.address =
+    payload.address;
 
-doctor.bio=
-payload.biography;
+  doctor.hours =
+    payload.hours;
 
-doctor.image=
-image;
+  doctor.bio =
+    bioData.bio;
 
-updateDoctorUI();
+  doctor.socials =
+    bioData.socials;
 
-showToast(
-'تم حفظ بيانات العيادة بنجاح'
-);
+  doctor.image =
+    payload.image_url;
+
+
+  updateDoctorUI();
+  fillSettings();
+
+  showToast(
+    'تم حفظ البيانات بنجاح'
+  );
 }
 
 
 /* =========================================================
-LOAD SLOTS
+   LOAD SLOTS
 ========================================================= */
 
 async function loadSlots(){
 
-const {
-data,
-error
-}=
-await supabaseClient
-.from('appointments')
-.select('*')
-.eq('clinic_id',CLINIC_ID)
-.eq('is_booked',false)
-.order(
-'created_at',
-{ascending:true}
-);
+  const {
+    data,
+    error
+  } =
+    await supabaseClient
+      .from('appointments')
+      .select('*')
+      .eq('clinic_id',CLINIC_ID)
+      .eq('is_booked',false)
+      .order(
+        'appointment_date',
+        {ascending:true}
+      )
+      .order(
+        'appointment_time',
+        {ascending:true}
+      );
 
-if(error){
+  if(error){
 
-console.error(
-'loadSlots:',
-error
-);
+    console.error(
+      'loadSlots:',
+      error
+    );
 
-slots=[];
+    slots = [];
 
-renderPublicSlots();
-renderDashboardSlots();
+    renderPublicSlots();
+    renderDashboardSlots();
 
-return;
-}
+    return;
+  }
 
-slots=data||[];
+  slots =
+    data || [];
 
-renderPublicSlots();
-renderDashboardSlots();
+  renderPublicSlots();
+  renderDashboardSlots();
 
-if(
-document.getElementById('availableCount')
-){
-document.getElementById(
-'availableCount'
-).textContent=slots.length;
-}
+  const count =
+    document.getElementById(
+      'availableCount'
+    );
+
+  if(count){
+    count.textContent =
+      slots.length;
+  }
 }
 
 
 /* =========================================================
-FORMAT SLOT
+   FORMAT DATE
 ========================================================= */
 
-function formatSlot(slot){
+function formatDate(date){
 
-if(
-slot.appointment_date&&
-slot.appointment_time
-){
+  if(!date) return '';
 
-return '📅 '+
-slot.appointment_date+
-' — '+
-slot.appointment_time;
+  try{
+
+    return new Date(
+      date + 'T00:00:00'
+    ).toLocaleDateString(
+      'ar-EG',
+      {
+        weekday:'long',
+        year:'numeric',
+        month:'long',
+        day:'numeric'
+      }
+    );
+
+  }catch(e){
+
+    return date;
+  }
 }
 
-if(slot.appointment_time){
 
-return '🕐 '+
-slot.appointment_time;
-}
+function formatTime(time){
 
-if(slot.appointment_date){
+  if(!time) return '';
 
-return '📅 '+
-slot.appointment_date;
-}
+  const parts =
+    String(time).split(':');
 
-return 'موعد متاح';
+  if(parts.length < 2){
+    return time;
+  }
+
+  let hour =
+    Number(parts[0]);
+
+  const minute =
+    parts[1];
+
+  const suffix =
+    hour >= 12
+      ? 'م'
+      : 'ص';
+
+  hour =
+    hour % 12 || 12;
+
+  return hour +
+    ':' +
+    minute +
+    ' ' +
+    suffix;
 }
 
 
 /* =========================================================
-PUBLIC SLOTS
+   PUBLIC SLOT
 ========================================================= */
 
 function renderPublicSlots(){
 
-const box=
-document.getElementById(
-'appointments'
-);
+  const box =
+    document.getElementById(
+      'appointments'
+    );
 
-if(!box)return;
+  if(!box) return;
 
-if(!slots.length){
+  if(!slots.length){
 
-box.innerHTML=`
-<div class="empty">
-لا توجد مواعيد متاحة حاليًا.
-</div>
-`;
+    box.innerHTML = `
+      <div class="empty">
+        لا توجد مواعيد متاحة حاليًا.
+      </div>
+    `;
 
-return;
-}
+    return;
+  }
 
-box.innerHTML=
-slots.map(slot=>`
 
-<div class="slot">
+  box.innerHTML =
+    slots.map(slot=>`
 
-<strong>موعد متاح</strong>
+      <div class="slot">
 
-<span>
-${escapeHTML(formatSlot(slot))}
-</span>
+        <div class="slot-date">
+          📅 ${escapeHTML(
+            formatDate(
+              slot.appointment_date
+            )
+          )}
+        </div>
 
-<button onclick="openBooking(${slot.id})">
-احجز هذا الموعد
-</button>
+        <div class="slot-time">
+          🕐 ${escapeHTML(
+            formatTime(
+              slot.appointment_time
+            )
+          )}
+        </div>
 
-</div>
+        <button
+          onclick="openBooking(${slot.id})">
+          احجز هذا الموعد
+        </button>
 
-`).join('');
+      </div>
+
+    `).join('');
 }
 
 
 /* =========================================================
-BOOKING MODAL
+   BOOKING MODAL
 ========================================================= */
 
 function openBooking(slotId){
 
-const slot=
-slots.find(
-item=>Number(item.id)===Number(slotId)
-);
+  const slot =
+    slots.find(
+      item =>
+        Number(item.id) ===
+        Number(slotId)
+    );
 
-if(!slot){
+  if(!slot){
 
-showToast(
-'هذا الموعد لم يعد متاحًا'
-);
+    showToast(
+      'هذا الموعد لم يعد متاحًا'
+    );
 
-return;
-}
+    return;
+  }
 
-selectedSlotId=slot.id;
+  selectedSlotId =
+    slot.id;
 
-selectedSlot=formatSlot(slot);
+  selectedSlot =
+    formatDate(
+      slot.appointment_date
+    ) +
+    ' — ' +
+    formatTime(
+      slot.appointment_time
+    );
 
-document.getElementById(
-'selectedSlot'
-).textContent=selectedSlot;
+  document.getElementById(
+    'selectedSlot'
+  ).textContent =
+    selectedSlot;
 
-document.getElementById(
-'bookingModal'
-).style.display='flex';
+  document.getElementById(
+    'bookingModal'
+  ).style.display =
+    'flex';
 }
 
 
 function closeBooking(){
 
-document.getElementById(
-'bookingModal'
-).style.display='none';
+  document.getElementById(
+    'bookingModal'
+  ).style.display =
+    'none';
 
-selectedSlotId=null;
-selectedSlot='';
+  selectedSlotId = null;
+  selectedSlot = '';
 }
 
 
 /* =========================================================
-SUBMIT BOOKING
+   SUBMIT BOOKING
 ========================================================= */
 
 async function submitBooking(){
 
-const name=
-document.getElementById(
-'patientName'
-).value.trim();
+  const name =
+    document
+      .getElementById('patientName')
+      .value
+      .trim();
 
-const phone=
-document.getElementById(
-'patientPhone'
-).value.trim();
+  const phone =
+    document
+      .getElementById('patientPhone')
+      .value
+      .trim();
 
-if(!name||!phone){
 
-showToast(
-'اكتب اسم المريض ورقم الهاتف'
-);
+  if(!name || !phone){
 
-return;
-}
+    showToast(
+      'اكتب اسم المريض ورقم الهاتف'
+    );
 
-if(!selectedSlotId){
+    return;
+  }
 
-showToast(
-'اختر موعدًا أولًا'
-);
 
-return;
-}
+  if(!selectedSlotId){
 
-const {
-data:slotCheck,
-error:slotError
-}=
-await supabaseClient
-.from('appointments')
-.select('*')
-.eq('id',selectedSlotId)
-.eq('clinic_id',CLINIC_ID)
-.eq('is_booked',false)
-.maybeSingle();
+    showToast(
+      'اختر موعدًا أولًا'
+    );
 
-if(slotError){
+    return;
+  }
 
-console.error(slotError);
 
-showToast(
-'تعذر التحقق من الموعد'
-);
+  /*
+    نتحقق أن الموعد ما زال متاحًا.
+  */
 
-return;
-}
+  const {
+    data:slotCheck,
+    error:slotError
+  } =
+    await supabaseClient
+      .from('appointments')
+      .select('*')
+      .eq('id',selectedSlotId)
+      .eq('clinic_id',CLINIC_ID)
+      .eq('is_booked',false)
+      .maybeSingle();
 
-if(!slotCheck){
 
-showToast(
-'عذرًا، هذا الموعد لم يعد متاحًا'
-);
+  if(slotError){
 
-await loadSlots();
+    console.error(
+      slotError
+    );
 
-closeBooking();
+    showToast(
+      'تعذر التحقق من الموعد'
+    );
 
-return;
-}
+    return;
+  }
 
-const today=
-new Date()
-.toISOString()
-.slice(0,10);
 
-const {
-data:todayBookings,
-error:countError
-}=
-await supabaseClient
-.from('bookings')
-.select('daily_number')
-.eq('clinic_id',CLINIC_ID)
-.eq('appointment_date',today)
-.order(
-'daily_number',
-{ascending:false}
-)
-.limit(1);
+  if(!slotCheck){
 
-if(countError){
+    showToast(
+      'هذا الموعد لم يعد متاحًا'
+    );
 
-console.error(countError);
+    await loadSlots();
 
-showToast(
-'تعذر إنشاء رقم الحجز حاليًا'
-);
+    closeBooking();
 
-return;
-}
+    return;
+  }
 
-let dailyNumber=1;
 
-if(
-todayBookings&&
-todayBookings.length
-){
+  const today =
+    new Date()
+      .toISOString()
+      .slice(0,10);
 
-dailyNumber=
-Number(
-todayBookings[0].daily_number||0
-)+1;
-}
 
-const bookingPayload={
+  const {
+    data:todayBookings,
+    error:countError
+  } =
+    await supabaseClient
+      .from('bookings')
+      .select('daily_number')
+      .eq('clinic_id',CLINIC_ID)
+      .eq('appointment_date',today)
+      .order(
+        'daily_number',
+        {ascending:false}
+      )
+      .limit(1);
 
-clinic_id:CLINIC_ID,
 
-daily_number:dailyNumber,
+  if(countError){
 
-patient_name:name,
+    console.error(
+      countError
+    );
 
-patient_phone:phone,
+    showToast(
+      'تعذر إنشاء رقم الحجز'
+    );
 
-appointment_id:selectedSlotId,
+    return;
+  }
 
-appointment_date:today,
 
-appointment_time:
-slotCheck.appointment_time||'',
+  let dailyNumber = 1;
 
-status:'pending'
-};
+  if(
+    todayBookings &&
+    todayBookings.length
+  ){
 
-const {
-data,
-error
-}=
-await supabaseClient
-.from('bookings')
-.insert(bookingPayload)
-.select()
-.single();
+    dailyNumber =
+      Number(
+        todayBookings[0].daily_number || 0
+      ) + 1;
+  }
 
-if(error){
 
-console.error(
-'submitBooking:',
-error
-);
+  const payload = {
 
-showToast(
-'حدث خطأ أثناء إرسال الحجز'
-);
+    clinic_id:
+      CLINIC_ID,
 
-return;
-}
+    daily_number:
+      dailyNumber,
 
-const {
-error:slotUpdateError
-}=
-await supabaseClient
-.from('appointments')
-.update({
-is_booked:true
-})
-.eq(
-'id',
-selectedSlotId
-);
+    patient_name:
+      name,
 
-if(slotUpdateError){
+    patient_phone:
+      phone,
 
-console.error(
-'slot update:',
-slotUpdateError
-);
-}
+    appointment_id:
+      selectedSlotId,
 
-closeBooking();
+    appointment_date:
+      slotCheck.appointment_date,
 
-document.getElementById(
-'patientName'
-).value='';
+    appointment_time:
+      slotCheck.appointment_time,
 
-document.getElementById(
-'patientPhone'
-).value='';
+    status:
+      'pending'
+  };
 
-document.getElementById(
-'patientAge'
-).value='';
 
-document.getElementById(
-'patientNote'
-).value='';
+  const {
+    data,
+    error
+  } =
+    await supabaseClient
+      .from('bookings')
+      .insert(payload)
+      .select()
+      .single();
 
-showToast(
-'تم إرسال طلب الحجز بنجاح'
-);
 
-alert(
-'تم إرسال طلب الحجز بنجاح.\n\n'+
-'رقمك اليومي هو: '+
-data.daily_number+
-'\n\n'+
-'احتفظ بهذا الرقم لمتابعة الحجز.'
-);
+  if(error){
 
-await loadSlots();
+    console.error(
+      'submitBooking:',
+      error
+    );
+
+    showToast(
+      'حدث خطأ أثناء إرسال الحجز'
+    );
+
+    return;
+  }
+
+
+  /*
+    إغلاق الموعد بعد نجاح الحجز.
+  */
+
+  const {
+    error:slotUpdateError
+  } =
+    await supabaseClient
+      .from('appointments')
+      .update({
+        is_booked:true
+      })
+      .eq(
+        'id',
+        selectedSlotId
+      );
+
+
+  if(slotUpdateError){
+
+    console.error(
+      slotUpdateError
+    );
+  }
+
+
+  closeBooking();
+
+  document.getElementById(
+    'patientName'
+  ).value = '';
+
+  document.getElementById(
+    'patientPhone'
+  ).value = '';
+
+
+  showToast(
+    'تم إرسال طلب الحجز بنجاح'
+  );
+
+
+  setTimeout(()=>{
+
+    alert(
+      'تم إرسال طلب الحجز بنجاح.\n\n' +
+      'رقمك اليومي هو: ' +
+      data.daily_number +
+      '\n\n' +
+      'احتفظ بالرقم لمتابعة الحجز.'
+    );
+
+  },200);
+
+
+  await loadSlots();
 }
 
 
 /* =========================================================
-TRACK BOOKING
+   TRACK
 ========================================================= */
 
 async function trackBooking(){
 
-const number=
-Number(
-document.getElementById(
-'trackNumber'
-).value
-);
+  const number =
+    Number(
+      document
+        .getElementById('trackNumber')
+        .value
+    );
 
-const result=
-document.getElementById(
-'trackResult'
-);
+  const result =
+    document.getElementById(
+      'trackResult'
+    );
 
-if(!number){
 
-result.innerHTML=`
-<div class="notice">
-اكتب رقم الحجز أولًا.
-</div>
-`;
+  if(!number){
 
-return;
-}
+    result.innerHTML = `
+      <div class="notice">
+        اكتب رقم الحجز أولًا.
+      </div>
+    `;
 
-const today=
-new Date()
-.toISOString()
-.slice(0,10);
+    return;
+  }
 
-const {
-data,
-error
-}=
-await supabaseClient
-.from('bookings')
-.select('*')
-.eq('clinic_id',CLINIC_ID)
-.eq('daily_number',number)
-.eq('appointment_date',today)
-.order(
-'created_at',
-{ascending:false}
-)
-.limit(1)
-.maybeSingle();
 
-if(error){
+  const today =
+    new Date()
+      .toISOString()
+      .slice(0,10);
 
-console.error(error);
 
-result.innerHTML=`
-<div class="error">
-حدث خطأ أثناء البحث.
-</div>
-`;
+  const {
+    data,
+    error
+  } =
+    await supabaseClient
+      .from('bookings')
+      .select('*')
+      .eq('clinic_id',CLINIC_ID)
+      .eq('daily_number',number)
+      .eq('appointment_date',today)
+      .order(
+        'created_at',
+        {ascending:false}
+      )
+      .limit(1)
+      .maybeSingle();
 
-return;
-}
 
-if(!data){
+  if(error){
 
-result.innerHTML=`
-<div class="notice">
-لم يتم العثور على حجز بهذا الرقم اليوم.
-</div>
-`;
+    console.error(error);
 
-return;
-}
+    result.innerHTML = `
+      <div class="error">
+        حدث خطأ أثناء البحث.
+      </div>
+    `;
 
-let statusText=
-data.status==='pending'
-?'طلبك قيد الانتظار'
-:data.status==='confirmed'
-?'تم تأكيد موعدك'
-:data.status==='rejected'
-?'تم رفض الحجز'
-:data.status;
+    return;
+  }
 
-let statusClass=
-data.status==='pending'
-?'pending'
-:data.status==='confirmed'
-?'confirmed'
-:'rejected';
 
-result.innerHTML=`
+  if(!data){
 
-<div class="booking">
+    result.innerHTML = `
+      <div class="notice">
+        لم يتم العثور على حجز بهذا الرقم اليوم.
+      </div>
+    `;
 
-<div class="booking-top">
+    return;
+  }
 
-<strong>
-حجز رقم ${data.daily_number}
-</strong>
 
-<span class="number">
-ID ${data.daily_number}
-</span>
+  let statusText =
+    'طلبك قيد الانتظار';
 
-</div>
+  let statusClass =
+    'pending';
 
-<div class="info">
 
-📅 الموعد:
-${escapeHTML(data.appointment_date||'')}
+  if(data.status === 'confirmed'){
 
-<br>
+    statusText =
+      'تم تأكيد موعدك';
 
-🕐 الوقت:
-${escapeHTML(data.appointment_time||'غير محدد')}
+    statusClass =
+      'confirmed';
 
-</div>
+  }else if(
+    data.status === 'rejected'
+  ){
 
-<span class="status ${statusClass}">
-${statusText}
-</span>
+    statusText =
+      'تم رفض الحجز';
 
-</div>
+    statusClass =
+      'rejected';
+  }
 
-`;
+
+  result.innerHTML = `
+
+    <div class="booking">
+
+      <div class="booking-top">
+
+        <strong>
+          حجز رقم ${escapeHTML(
+            data.daily_number
+          )}
+        </strong>
+
+        <span class="number">
+          ID ${escapeHTML(
+            data.daily_number
+          )}
+        </span>
+
+      </div>
+
+      <div class="booking-info">
+
+        📅 التاريخ:
+        ${escapeHTML(
+          formatDate(
+            data.appointment_date
+          )
+        )}
+
+        <br>
+
+        🕐 الوقت:
+        ${escapeHTML(
+          formatTime(
+            data.appointment_time
+          )
+        )}
+
+      </div>
+
+      <span
+        class="status ${statusClass}">
+        ${statusText}
+      </span>
+
+    </div>
+
+  `;
 }
 
 
 /* =========================================================
-LOGIN
+   LOGIN
 ========================================================= */
 
 function openLogin(){
 
-document.getElementById(
-'loginEmail'
-).value='';
+  document.getElementById(
+    'loginEmail'
+  ).value = '';
 
-document.getElementById(
-'loginPassword'
-).value='';
+  document.getElementById(
+    'loginPassword'
+  ).value = '';
 
-document.getElementById(
-'loginMessage'
-).innerHTML='';
+  document.getElementById(
+    'loginMessage'
+  ).innerHTML = '';
 
-document.getElementById(
-'loginModal'
-).style.display='flex';
+  document.getElementById(
+    'loginModal'
+  ).style.display =
+    'flex';
 }
 
 
 function closeLogin(){
 
-document.getElementById(
-'loginModal'
-).style.display='none';
+  document.getElementById(
+    'loginModal'
+  ).style.display =
+    'none';
 }
 
-
-/*
-===========================================================
-دخول الدكتور
-
-لا يوجد باسورد داخل الموقع.
-
-Supabase هو الذي يتحقق من كلمة المرور.
-
-ويتم السماح فقط:
-1- بالإيميل المحدد.
-2- بكلمة المرور الصحيحة في Supabase.
-3- بالـ User ID الخاص بالدكتور.
-===========================================================
-*/
 
 async function loginDoctor(){
 
-const email=
-document.getElementById(
-'loginEmail'
-).value
-.trim()
-.toLowerCase();
+  const email =
+    document
+      .getElementById('loginEmail')
+      .value
+      .trim()
+      .toLowerCase();
 
-const password=
-document.getElementById(
-'loginPassword'
-).value;
+  const password =
+    document
+      .getElementById('loginPassword')
+      .value;
 
-const message=
-document.getElementById(
-'loginMessage'
-);
-
-if(!email||!password){
-
-message.innerHTML=`
-<div class="error">
-اكتب البريد الإلكتروني وكلمة المرور.
-</div>
-`;
-
-return;
-}
+  const message =
+    document.getElementById(
+      'loginMessage'
+    );
 
 
-/* الإيميل المسموح فقط */
+  if(!email || !password){
 
-if(email!==DOCTOR_EMAIL){
+    message.innerHTML = `
+      <div class="error">
+        اكتب البريد الإلكتروني وكلمة المرور.
+      </div>
+    `;
 
-message.innerHTML=`
-<div class="error">
-هذا البريد غير مصرح له بالدخول.
-</div>
-`;
-
-return;
-}
+    return;
+  }
 
 
-/* إزالة أي جلسة سابقة */
+  if(email !== DOCTOR_EMAIL){
 
-await supabaseClient.auth.signOut();
+    message.innerHTML = `
+      <div class="error">
+        هذا البريد غير مصرح له بالدخول.
+      </div>
+    `;
 
-
-message.innerHTML=`
-<div class="notice">
-جاري التحقق من بيانات الدخول...
-</div>
-`;
-
-
-/* التحقق الحقيقي من Supabase */
-
-const {
-data,
-error
-}=
-await supabaseClient.auth.signInWithPassword({
-
-email:DOCTOR_EMAIL,
-
-password:password
-
-});
+    return;
+  }
 
 
-/* كلمة المرور خاطئة */
-
-if(
-error||
-!data||
-!data.user
-){
-
-console.error(
-'Supabase Login Error:',
-error
-);
-
-message.innerHTML=`
-<div class="error">
-❌ البريد الإلكتروني أو كلمة المرور غير صحيحة.
-</div>
-`;
-
-return;
-}
+  await supabaseClient
+    .auth
+    .signOut();
 
 
-/* التأكد أن User ID هو الدكتور */
-
-if(
-data.user.id!==DOCTOR_USER_ID
-){
-
-await supabaseClient.auth.signOut();
-
-message.innerHTML=`
-<div class="error">
-❌ هذا الحساب ليس حساب الدكتور المصرح له.
-</div>
-`;
-
-return;
-}
+  message.innerHTML = `
+    <div class="notice">
+      جاري التحقق من بيانات الدخول...
+    </div>
+  `;
 
 
-/* نجاح الدخول */
+  const {
+    data,
+    error
+  } =
+    await supabaseClient
+      .auth
+      .signInWithPassword({
 
-closeLogin();
+        email:DOCTOR_EMAIL,
 
-document.getElementById(
-'dashboard'
-).style.display='block';
+        password:password
 
-document.getElementById(
-'dashboard'
-).scrollIntoView({
-behavior:'smooth'
-});
+      });
 
-await loadBookings();
-await loadSettings();
-await loadSlots();
 
-showToast(
-'تم تسجيل الدخول بنجاح'
-);
+  if(
+    error ||
+    !data ||
+    !data.user
+  ){
+
+    console.error(
+      'Login:',
+      error
+    );
+
+    message.innerHTML = `
+      <div class="error">
+        ❌ البريد الإلكتروني أو كلمة المرور غير صحيحة.
+      </div>
+    `;
+
+    return;
+  }
+
+
+  if(
+    data.user.id !==
+    DOCTOR_USER_ID
+  ){
+
+    await supabaseClient
+      .auth
+      .signOut();
+
+    message.innerHTML = `
+      <div class="error">
+        ❌ هذا الحساب ليس حساب الدكتور المصرح له.
+      </div>
+    `;
+
+    return;
+  }
+
+
+  closeLogin();
+
+
+  document.getElementById(
+    'dashboard'
+  ).style.display =
+    'block';
+
+
+  document.getElementById(
+    'dashboard'
+  ).scrollIntoView({
+    behavior:'smooth'
+  });
+
+
+  await loadSettings();
+  await loadSlots();
+  await loadBookings();
+
+
+  showToast(
+    'تم تسجيل الدخول بنجاح'
+  );
 }
 
 
 /* =========================================================
-LOGOUT
+   LOGOUT
 ========================================================= */
 
 async function logoutDoctor(){
 
-await supabaseClient.auth.signOut();
+  await supabaseClient
+    .auth
+    .signOut();
 
-bookings=[];
+  bookings = [];
 
-document.getElementById(
-'dashboard'
-).style.display='none';
+  document.getElementById(
+    'dashboard'
+  ).style.display =
+    'none';
 
-window.scrollTo({
-top:0,
-behavior:'smooth'
-});
+  window.scrollTo({
+    top:0,
+    behavior:'smooth'
+  });
 
-showToast(
-'تم تسجيل الخروج'
-);
+  showToast(
+    'تم تسجيل الخروج'
+  );
 }
 
 
 /* =========================================================
-LOAD BOOKINGS
+   LOAD BOOKINGS
 ========================================================= */
 
 async function loadBookings(){
 
-const {
-data:userData
-}=
-await supabaseClient.auth.getUser();
+  const {
+    data:userData
+  } =
+    await supabaseClient
+      .auth
+      .getUser();
 
-const user=
-userData?.user;
+  const user =
+    userData?.user;
 
-if(
-!user||
-user.id!==DOCTOR_USER_ID
-){
 
-return;
-}
+  if(
+    !user ||
+    user.id !== DOCTOR_USER_ID
+  ){
 
-const {
-data,
-error
-}=
-await supabaseClient
-.from('bookings')
-.select('*')
-.eq('clinic_id',CLINIC_ID)
-.order(
-'created_at',
-{ascending:false}
-);
+    return;
+  }
 
-if(error){
 
-console.error(
-'loadBookings:',
-error
-);
+  const {
+    data,
+    error
+  } =
+    await supabaseClient
+      .from('bookings')
+      .select('*')
+      .eq('clinic_id',CLINIC_ID)
+      .order(
+        'created_at',
+        {ascending:false}
+      );
 
-return;
-}
 
-bookings=data||[];
+  if(error){
 
-renderDashboard();
+    console.error(
+      'loadBookings:',
+      error
+    );
+
+    return;
+  }
+
+
+  bookings =
+    data || [];
+
+
+  renderDashboard();
 }
 
 
 /* =========================================================
-PANELS
+   PANELS
 ========================================================= */
 
 function showPanel(id,button){
 
-const panels=[
-'overview',
-'pending',
-'confirmed',
-'available',
-'settings'
-];
+  const panels = [
+    'overview',
+    'pending',
+    'confirmed',
+    'available',
+    'settings'
+  ];
 
-panels.forEach(panel=>{
 
-const el=
-document.getElementById(panel);
+  panels.forEach(panel=>{
 
-if(el){
+    const el =
+      document.getElementById(panel);
 
-el.style.display=
-panel===id
-?'block'
-:'none';
-}
+    if(el){
 
-});
+      el.style.display =
+        panel === id
+          ? 'block'
+          : 'none';
+    }
 
-document
-.querySelectorAll('.tab')
-.forEach(tab=>{
-tab.classList.remove('active');
-});
+  });
 
-if(button){
 
-button.classList.add('active');
-}
+  document
+    .querySelectorAll('.tab')
+    .forEach(tab=>{
+      tab.classList.remove(
+        'active'
+      );
+    });
 
-if(id==='pending'){
-loadBookings();
-}
 
-if(id==='confirmed'){
-loadBookings();
-}
+  if(button){
 
-if(id==='available'){
-loadSlots();
-}
+    button.classList.add(
+      'active'
+    );
 
-if(id==='settings'){
-loadSettings();
-}
+  }else{
+
+    const tabs =
+      document.querySelectorAll(
+        '.tab'
+      );
+
+    const names = [
+      'overview',
+      'pending',
+      'confirmed',
+      'available',
+      'settings'
+    ];
+
+    const index =
+      names.indexOf(id);
+
+    if(
+      index >= 0 &&
+      tabs[index]
+    ){
+
+      tabs[index]
+        .classList.add('active');
+    }
+  }
+
+
+  if(id === 'pending'){
+    loadBookings();
+  }
+
+  if(id === 'confirmed'){
+    loadBookings();
+  }
+
+  if(id === 'available'){
+    loadSlots();
+  }
+
+  if(id === 'settings'){
+    loadSettings();
+  }
 }
 
 
 /* =========================================================
-RENDER DASHBOARD
+   DASHBOARD
 ========================================================= */
 
 function renderDashboard(){
 
-const pending=
-bookings.filter(
-b=>b.status==='pending'
-);
+  const pending =
+    bookings.filter(
+      b=>b.status === 'pending'
+    );
 
-const confirmed=
-bookings.filter(
-b=>b.status==='confirmed'
-);
+  const confirmed =
+    bookings.filter(
+      b=>b.status === 'confirmed'
+    );
 
-document.getElementById(
-'pendingCount'
-).textContent=
-pending.length;
 
-document.getElementById(
-'confirmedCount'
-).textContent=
-confirmed.length;
+  document.getElementById(
+    'pendingCount'
+  ).textContent =
+    pending.length;
 
-document.getElementById(
-'availableCount'
-).textContent=
-slots.length;
 
-document.getElementById(
-'totalCount'
-).textContent=
-bookings.length;
+  document.getElementById(
+    'confirmedCount'
+  ).textContent =
+    confirmed.length;
 
-renderBookings(
-'pendingList',
-pending,
-true
-);
 
-renderBookings(
-'confirmedList',
-confirmed,
-false
-);
+  document.getElementById(
+    'availableCount'
+  ).textContent =
+    slots.length;
 
-renderBookings(
-'overviewList',
-bookings.slice(0,5),
-true
-);
 
-renderDashboardSlots();
+  document.getElementById(
+    'totalCount'
+  ).textContent =
+    bookings.length;
+
+
+  renderBookings(
+    'pendingList',
+    pending,
+    true
+  );
+
+
+  renderBookings(
+    'confirmedList',
+    confirmed,
+    false
+  );
+
+
+  renderBookings(
+    'overviewList',
+    bookings.slice(0,5),
+    true
+  );
+
+
+  renderDashboardSlots();
 }
 
 
 /* =========================================================
-RENDER BOOKINGS
+   RENDER BOOKINGS
 ========================================================= */
 
 function renderBookings(
-elementId,
-list,
-showApprove
+  elementId,
+  list,
+  showApprove
 ){
 
-const el=
-document.getElementById(elementId);
+  const el =
+    document.getElementById(
+      elementId
+    );
 
-if(!el)return;
+  if(!el) return;
 
-if(!list.length){
 
-el.innerHTML=`
-<div class="empty">
-لا توجد حجوزات حاليًا.
-</div>
-`;
+  if(!list.length){
 
-return;
-}
+    el.innerHTML = `
+      <div class="empty">
+        لا توجد حجوزات حاليًا.
+      </div>
+    `;
 
-el.innerHTML=
-list.map(booking=>{
+    return;
+  }
 
-const phone=
-String(
-booking.patient_phone||''
-)
-.replace(/\s/g,'');
 
-let wa=phone;
+  el.innerHTML =
+    list.map(booking=>{
 
-if(wa.startsWith('0')){
+      const phone =
+        String(
+          booking.patient_phone || ''
+        ).replace(/\s/g,'');
 
-wa=
-'20'+
-wa.substring(1);
-}
+      const wa =
+        normalizePhone(phone);
 
-const statusClass=
-booking.status==='pending'
-?'pending'
-:booking.status==='confirmed'
-?'confirmed'
-:'rejected';
 
-const statusText=
-booking.status==='pending'
-?'انتظار'
-:booking.status==='confirmed'
-?'مؤكد'
-:'مرفوض';
+      const statusClass =
+        booking.status === 'pending'
+          ? 'pending'
+          : booking.status === 'confirmed'
+            ? 'confirmed'
+            : 'rejected';
 
-return `
 
-<div class="booking">
+      const statusText =
+        booking.status === 'pending'
+          ? 'انتظار'
+          : booking.status === 'confirmed'
+            ? 'مؤكد'
+            : 'مرفوض';
 
-<div class="booking-top">
 
-<strong>
-${escapeHTML(
-booking.patient_name
-)}
-</strong>
+      return `
 
-<span class="number">
-ID ${booking.daily_number}
-</span>
+        <div class="booking">
 
-</div>
+          <div class="booking-top">
 
-<div class="info">
+            <strong>
+              ${escapeHTML(
+                booking.patient_name
+              )}
+            </strong>
 
-📅 التاريخ:
-${escapeHTML(
-booking.appointment_date||''
-)}
+            <span class="number">
+              رقم ${escapeHTML(
+                booking.daily_number
+              )}
+            </span>
 
-<br>
+          </div>
 
-🕐 الوقت:
-${escapeHTML(
-booking.appointment_time||
-'غير محدد'
-)}
 
-<br>
+          <div class="booking-info">
 
-📞
-${escapeHTML(
-booking.patient_phone||''
-)}
+            📅
+            ${escapeHTML(
+              formatDate(
+                booking.appointment_date
+              )
+            )}
 
-</div>
+            <br>
 
-<span class="status ${statusClass}">
-${statusText}
-</span>
+            🕐
+            ${escapeHTML(
+              formatTime(
+                booking.appointment_time
+              )
+            )}
 
-<div class="booking-actions">
+            <br>
 
-<a
-class="whatsapp"
-href="https://wa.me/${wa}"
-target="_blank">
-💬 واتساب
-</a>
+            📞
+            ${escapeHTML(
+              booking.patient_phone
+            )}
 
-<a
-class="call"
-href="tel:${phone}">
-📞 اتصال
-</a>
+          </div>
 
-${
-showApprove&&
-booking.status==='pending'
-?`
 
-<button
-class="approve"
-onclick="approveBooking(${booking.id})">
-✓ تأكيد
-</button>
+          <span
+            class="status ${statusClass}">
+            ${statusText}
+          </span>
 
-<button
-class="reject"
-onclick="rejectBooking(${booking.id})">
-رفض
-</button>
 
-`
-:''
-}
+          <div class="booking-actions">
 
-<button
-class="delete"
-onclick="deleteBooking(${booking.id})">
-🗑 حذف
-</button>
+            ${
+              wa
+              ?
+              `
+              <a
+                class="whatsapp"
+                href="https://wa.me/${wa}"
+                target="_blank"
+                rel="noopener">
+                💬 واتساب
+              </a>
+              `
+              :
+              ''
+            }
 
-</div>
 
-</div>
+            <a
+              class="call"
+              href="tel:${escapeHTML(phone)}">
+              📞 اتصال
+            </a>
 
-`;
 
-}).join('');
+            ${
+              showApprove &&
+              booking.status === 'pending'
+              ?
+              `
+
+              <button
+                class="approve"
+                onclick="approveBooking(${booking.id})">
+                ✓ تأكيد
+              </button>
+
+              <button
+                class="reject"
+                onclick="rejectBooking(${booking.id})">
+                رفض
+              </button>
+
+              `
+              :
+              ''
+            }
+
+
+            <button
+              class="delete"
+              onclick="deleteBooking(${booking.id})">
+              🗑 حذف
+            </button>
+
+          </div>
+
+        </div>
+
+      `;
+
+    }).join('');
 }
 
 
 /* =========================================================
-APPROVE
+   APPROVE
 ========================================================= */
 
 async function approveBooking(id){
 
-const {
-error
-}=
-await supabaseClient
-.from('bookings')
-.update({
-status:'confirmed'
-})
-.eq('id',id);
+  const {
+    error
+  } =
+    await supabaseClient
+      .from('bookings')
+      .update({
+        status:'confirmed'
+      })
+      .eq('id',id);
 
-if(error){
 
-console.error(error);
+  if(error){
 
-showToast(
-'تعذر تأكيد الحجز'
-);
+    console.error(error);
 
-return;
-}
+    showToast(
+      'تعذر تأكيد الحجز'
+    );
 
-showToast(
-'تم تأكيد الحجز'
-);
+    return;
+  }
 
-await loadBookings();
+
+  showToast(
+    'تم تأكيد الحجز'
+  );
+
+  await loadBookings();
 }
 
 
 /* =========================================================
-REJECT
+   REJECT
 ========================================================= */
 
 async function rejectBooking(id){
 
-const {
-error
-}=
-await supabaseClient
-.from('bookings')
-.update({
-status:'rejected'
-})
-.eq('id',id);
+  const {
+    error
+  } =
+    await supabaseClient
+      .from('bookings')
+      .update({
+        status:'rejected'
+      })
+      .eq('id',id);
 
-if(error){
 
-console.error(error);
+  if(error){
 
-showToast(
-'تعذر رفض الحجز'
-);
+    console.error(error);
 
-return;
-}
+    showToast(
+      'تعذر رفض الحجز'
+    );
 
-showToast(
-'تم رفض الحجز'
-);
+    return;
+  }
 
-await loadBookings();
+
+  showToast(
+    'تم رفض الحجز'
+  );
+
+  await loadBookings();
 }
 
 
 /* =========================================================
-DELETE BOOKING
+   DELETE BOOKING
+   + إعادة الموعد متاحًا
 ========================================================= */
 
 async function deleteBooking(id){
 
-if(!confirm(
-'هل تريد حذف هذا الحجز؟'
-)){
+  if(!confirm(
+    'هل تريد حذف هذا الحجز؟'
+  )){
+    return;
+  }
 
-return;
-}
 
-const {
-error
-}=
-await supabaseClient
-.from('bookings')
-.delete()
-.eq('id',id);
+  /*
+    نجيب appointment_id
+    قبل الحذف حتى نعيد الموعد
+    إلى قائمة المواعيد المتاحة.
+  */
 
-if(error){
+  const {
+    data:booking,
+    error:findError
+  } =
+    await supabaseClient
+      .from('bookings')
+      .select('appointment_id')
+      .eq('id',id)
+      .maybeSingle();
 
-console.error(error);
 
-showToast(
-'تعذر حذف الحجز'
-);
+  if(findError){
 
-return;
-}
+    console.error(
+      findError
+    );
 
-showToast(
-'تم حذف الحجز'
-);
+    showToast(
+      'تعذر الوصول إلى الحجز'
+    );
 
-await loadBookings();
+    return;
+  }
+
+
+  const {
+    error
+  } =
+    await supabaseClient
+      .from('bookings')
+      .delete()
+      .eq('id',id);
+
+
+  if(error){
+
+    console.error(
+      'deleteBooking:',
+      error
+    );
+
+    showToast(
+      'تعذر حذف الحجز'
+    );
+
+    return;
+  }
+
+
+  /*
+    لو كان الحجز مرتبطًا بموعد
+    يتم إعادة الموعد متاحًا.
+  */
+
+  if(
+    booking &&
+    booking.appointment_id
+  ){
+
+    const {
+      error:restoreError
+    } =
+      await supabaseClient
+        .from('appointments')
+        .update({
+          is_booked:false
+        })
+        .eq(
+          'id',
+          booking.appointment_id
+        );
+
+
+    if(restoreError){
+
+      console.error(
+        restoreError
+      );
+    }
+  }
+
+
+  showToast(
+    'تم حذف الحجز وإعادة الموعد متاحًا'
+  );
+
+
+  await loadBookings();
+  await loadSlots();
 }
 
 
 /* =========================================================
-ADD SLOT
+   ADD SLOT
 ========================================================= */
 
 async function addSlot(){
 
-const {
-data:userData
-}=
-await supabaseClient.auth.getUser();
+  const {
+    data:userData
+  } =
+    await supabaseClient
+      .auth
+      .getUser();
 
-const user=
-userData?.user;
+  const user =
+    userData?.user;
 
-if(
-!user||
-user.id!==DOCTOR_USER_ID
-){
 
-showToast(
-'يجب تسجيل الدخول كدكتور'
-);
+  if(
+    !user ||
+    user.id !== DOCTOR_USER_ID
+  ){
 
-return;
-}
+    showToast(
+      'يجب تسجيل الدخول كدكتور'
+    );
 
-const input=
-document.getElementById(
-'newSlot'
-);
+    return;
+  }
 
-const value=
-input.value.trim();
 
-if(!value){
+  const date =
+    document
+      .getElementById('newSlotDate')
+      .value;
 
-showToast(
-'اكتب الموعد أولًا'
-);
 
-return;
-}
+  const time =
+    document
+      .getElementById('newSlotTime')
+      .value;
 
-const {
-error
-}=
-await supabaseClient
-.from('appointments')
-.insert({
 
-clinic_id:
-CLINIC_ID,
+  if(!date || !time){
 
-appointment_time:
-value,
+    showToast(
+      'اختر تاريخ ووقت الموعد'
+    );
 
-appointment_date:
-new Date()
-.toISOString()
-.slice(0,10),
+    return;
+  }
 
-is_booked:false
 
-});
+  const {
+    data:existing
+  } =
+    await supabaseClient
+      .from('appointments')
+      .select('id')
+      .eq('clinic_id',CLINIC_ID)
+      .eq('appointment_date',date)
+      .eq('appointment_time',time)
+      .maybeSingle();
 
-if(error){
 
-console.error(error);
+  if(existing){
 
-showToast(
-'تعذر إضافة الموعد'
-);
+    showToast(
+      'هذا الموعد موجود بالفعل'
+    );
 
-return;
-}
+    return;
+  }
 
-input.value='';
 
-showToast(
-'تمت إضافة الموعد'
-);
+  const {
+    error
+  } =
+    await supabaseClient
+      .from('appointments')
+      .insert({
 
-await loadSlots();
+        clinic_id:
+          CLINIC_ID,
+
+        appointment_date:
+          date,
+
+        appointment_time:
+          time,
+
+        is_booked:
+          false
+
+      });
+
+
+  if(error){
+
+    console.error(
+      'addSlot:',
+      error
+    );
+
+    showToast(
+      'تعذر إضافة الموعد'
+    );
+
+    return;
+  }
+
+
+  document.getElementById(
+    'newSlotDate'
+  ).value = '';
+
+  document.getElementById(
+    'newSlotTime'
+  ).value = '';
+
+
+  showToast(
+    'تمت إضافة الموعد بنجاح'
+  );
+
+
+  await loadSlots();
 }
 
 
 /* =========================================================
-DASHBOARD SLOTS
+   DASHBOARD SLOTS
 ========================================================= */
 
 function renderDashboardSlots(){
 
-const el=
-document.getElementById(
-'slotList'
-);
+  const el =
+    document.getElementById(
+      'slotList'
+    );
 
-if(!el)return;
+  if(!el) return;
 
-if(!slots.length){
 
-el.innerHTML=`
-<div class="empty">
-لا توجد مواعيد متاحة.
-</div>
-`;
+  if(!slots.length){
 
-return;
-}
+    el.innerHTML = `
+      <div class="empty">
+        لا توجد مواعيد متاحة حاليًا.
+      </div>
+    `;
 
-el.innerHTML=
-slots.map(slot=>`
+    return;
+  }
 
-<div class="booking">
 
-<div class="booking-top">
+  el.innerHTML =
+    slots.map(slot=>`
 
-<strong>
-${escapeHTML(
-formatSlot(slot)
-)}
-</strong>
+      <div class="slot-dashboard">
 
-<button
-class="delete"
-onclick="deleteSlot(${slot.id})">
-🗑 حذف
-</button>
+        <div>
 
-</div>
+          <strong>
+            ${escapeHTML(
+              formatDate(
+                slot.appointment_date
+              )
+            )}
+          </strong>
 
-</div>
+          <br>
 
-`).join('');
+          <small>
+            🕐 ${escapeHTML(
+              formatTime(
+                slot.appointment_time
+              )
+            )}
+          </small>
+
+        </div>
+
+
+        <button
+          class="delete"
+          onclick="deleteSlot(${slot.id})">
+          🗑 حذف
+        </button>
+
+      </div>
+
+    `).join('');
 }
 
 
 /* =========================================================
-DELETE SLOT
+   DELETE SLOT
 ========================================================= */
 
 async function deleteSlot(id){
 
-if(!confirm(
-'هل تريد حذف هذا الموعد؟'
-)){
+  if(!confirm(
+    'هل تريد حذف هذا الموعد؟'
+  )){
+    return;
+  }
 
-return;
-}
 
-const {
-error
-}=
-await supabaseClient
-.from('appointments')
-.delete()
-.eq('id',id);
+  const {
+    error
+  } =
+    await supabaseClient
+      .from('appointments')
+      .delete()
+      .eq('id',id);
 
-if(error){
 
-console.error(error);
+  if(error){
 
-showToast(
-'تعذر حذف الموعد'
-);
+    console.error(
+      'deleteSlot:',
+      error
+    );
 
-return;
-}
+    showToast(
+      'تعذر حذف الموعد'
+    );
 
-showToast(
-'تم حذف الموعد'
-);
+    return;
+  }
 
-await loadSlots();
+
+  showToast(
+    'تم حذف الموعد'
+  );
+
+
+  await loadSlots();
 }
 
 
 /* =========================================================
-INIT
+   INIT
 ========================================================= */
 
 async function init(){
 
-document.getElementById(
-'doctorImage'
-).src=
-createLogoImage();
+  const image =
+    defaultDoctorImage();
 
-document.getElementById(
-'dashboard'
-).style.display='none';
+  document.getElementById(
+    'doctorImage'
+  ).src = image;
 
-/*
-لا يتم فتح لوحة الدكتور تلقائيًا.
-*/
+  document.getElementById(
+    'heroDoctorImage'
+  ).src = image;
 
-await loadSettings();
+  document.getElementById(
+    'imagePreview'
+  ).src = image;
 
-await loadSlots();
+
+  document.getElementById(
+    'dashboard'
+  ).style.display =
+    'none';
+
+
+  await loadSettings();
+  await loadSlots();
 }
+
 
 init();
 
 
 /* =========================================================
-REALTIME
+   REALTIME
 ========================================================= */
 
 try{
 
-supabaseClient
-.channel('nabd-live')
+  supabaseClient
+    .channel('nabd-live')
 
-.on(
-'postgres_changes',
-{
-event:'*',
-schema:'public',
-table:'bookings'
-},
-async()=>{
+    .on(
+      'postgres_changes',
+      {
+        event:'*',
+        schema:'public',
+        table:'bookings'
+      },
+      async()=>{
 
-const {
-data:userData
-}=
-await supabaseClient.auth.getUser();
+        const {
+          data:userData
+        } =
+          await supabaseClient
+            .auth
+            .getUser();
 
-const user=
-userData?.user;
+        const user =
+          userData?.user;
 
-if(
-user&&
-user.id===DOCTOR_USER_ID
-){
+        if(
+          user &&
+          user.id === DOCTOR_USER_ID
+        ){
 
-await loadBookings();
-}
+          await loadBookings();
+        }
 
-})
+      }
+    )
 
-.on(
-'postgres_changes',
-{
-event:'*',
-schema:'public',
-table:'appointments'
-},
-async()=>{
+    .on(
+      'postgres_changes',
+      {
+        event:'*',
+        schema:'public',
+        table:'appointments'
+      },
+      async()=>{
 
-await loadSlots();
+        await loadSlots();
 
-})
+      }
+    )
 
-.on(
-'postgres_changes',
-{
-event:'*',
-schema:'public',
-table:'clinic_settings'
-},
-async()=>{
+    .on(
+      'postgres_changes',
+      {
+        event:'*',
+        schema:'public',
+        table:'clinic_settings'
+      },
+      async()=>{
 
-await loadSettings();
+        await loadSettings();
 
-})
+      }
+    )
 
-.subscribe();
+    .subscribe();
 
 }catch(error){
 
-console.error(
-'Realtime:',
-error
-);
+  console.error(
+    'Realtime:',
+    error
+  );
 }
 
 
 /* =========================================================
-CLOSE MODALS OUTSIDE
+   CLOSE MODALS
 ========================================================= */
 
 document.addEventListener(
-'click',
-function(event){
+  'click',
+  function(event){
 
-const bookingModal=
-document.getElementById(
-'bookingModal'
+    const bookingModal =
+      document.getElementById(
+        'bookingModal'
+      );
+
+    const loginModal =
+      document.getElementById(
+        'loginModal'
+      );
+
+
+    if(
+      event.target ===
+      bookingModal
+    ){
+
+      closeBooking();
+    }
+
+
+    if(
+      event.target ===
+      loginModal
+    ){
+
+      closeLogin();
+    }
+
+  }
 );
 
-const loginModal=
-document.getElementById(
-'loginModal'
-);
-
-if(event.target===bookingModal){
-
-closeBooking();
-}
-
-if(event.target===loginModal){
-
-closeLogin();
-}
-
-});
 </script>
 
 </body>
