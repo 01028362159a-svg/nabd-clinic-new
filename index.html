@@ -30,14 +30,8 @@ body{
   min-height:100vh;
 }
 
-button,input,textarea{
-  font-family:inherit;
-}
-
-button{
-  border:0;
-  cursor:pointer;
-}
+button,input,textarea{font-family:inherit}
+button{border:0;cursor:pointer}
 
 .container{
   width:min(1100px,92%);
@@ -210,9 +204,7 @@ header{
 
 /* SECTIONS */
 
-section{
-  padding:25px 0;
-}
+section{padding:25px 0}
 
 .title{
   font-size:25px;
@@ -359,9 +351,7 @@ input:focus,textarea:focus{
   border-color:var(--primary);
 }
 
-.track input{
-  max-width:400px;
-}
+.track input{max-width:400px}
 
 .track button{
   padding:0 23px;
@@ -373,9 +363,7 @@ input:focus,textarea:focus{
 
 /* DASHBOARD */
 
-#dashboard{
-  display:none;
-}
+#dashboard{display:none}
 
 .dashboard-tabs{
   display:grid;
@@ -419,9 +407,7 @@ input:focus,textarea:focus{
   cursor:pointer;
 }
 
-.stat small{
-  color:var(--muted);
-}
+.stat small{color:var(--muted)}
 
 .stat strong{
   display:block;
@@ -436,9 +422,7 @@ input:focus,textarea:focus{
   gap:12px;
 }
 
-.form-group{
-  margin-bottom:12px;
-}
+.form-group{margin-bottom:12px}
 
 .form-group label{
   display:block;
@@ -447,9 +431,7 @@ input:focus,textarea:focus{
   font-size:14px;
 }
 
-.full{
-  grid-column:1/-1;
-}
+.full{grid-column:1/-1}
 
 .save{
   background:var(--primary);
@@ -645,29 +627,14 @@ footer{
 /* MOBILE */
 
 @media(max-width:800px){
-
-  .features{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .appointments{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .stats{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .dashboard-tabs{
-    grid-template-columns:1fr 1fr;
-  }
+  .features{grid-template-columns:1fr 1fr}
+  .appointments{grid-template-columns:1fr 1fr}
+  .stats{grid-template-columns:1fr 1fr}
+  .dashboard-tabs{grid-template-columns:1fr 1fr}
 }
 
 @media(max-width:560px){
-
-  .nav-actions .small-btn:first-child{
-    display:none;
-  }
+  .nav-actions .small-btn:first-child{display:none}
 
   .hero-box{
     padding:28px 20px;
@@ -680,30 +647,20 @@ footer{
     grid-template-columns:1fr;
   }
 
-  .doctor{
-    align-items:flex-start;
-  }
+  .doctor{align-items:flex-start}
 
   .doctor-img{
     width:90px;
     height:90px;
   }
 
-  .track{
-    flex-direction:column;
-  }
+  .track{flex-direction:column}
 
-  .track input{
-    max-width:none;
-  }
+  .track input{max-width:none}
 
-  .track button{
-    padding:13px;
-  }
+  .track button{padding:13px}
 
-  .full{
-    grid-column:auto;
-  }
+  .full{grid-column:auto}
 
   .dashboard-tabs{
     grid-template-columns:1fr 1fr;
@@ -732,6 +689,7 @@ footer{
   </div>
 
   <div class="nav-actions">
+
     <button class="small-btn" onclick="openLogin()">
       لوحة الدكتور
     </button>
@@ -739,6 +697,7 @@ footer{
     <button class="small-btn" onclick="scrollToBooking()">
       حجز موعد
     </button>
+
   </div>
 
 </div>
@@ -747,12 +706,8 @@ footer{
 
 <main>
 
-<!-- HERO -->
-
 <section class="hero">
-
 <div class="container">
-
 <div class="hero-box">
 
 <h1>احجز موعدك بسهولة</h1>
@@ -787,13 +742,9 @@ onclick="openWhatsApp()">
 </div>
 
 </div>
-
 </div>
-
 </section>
 
-
-<!-- DOCTOR -->
 
 <section>
 
@@ -815,9 +766,7 @@ alt="صورة الدكتور">
 
 <div>
 
-<h2
-id="doctorName"
-class="doctor-name">
+<h2 id="doctorName" class="doctor-name">
 د. إبراهيم شتا
 </h2>
 
@@ -841,11 +790,7 @@ class="doctor-name">
 
 </div>
 
-
-<div
-id="bioBox"
-class="bio"
-style="display:none">
+<div id="bioBox" class="bio" style="display:none">
 
 <div class="bio-title">
 السيرة الذاتية للدكتور
@@ -861,8 +806,6 @@ style="display:none">
 
 </section>
 
-
-<!-- FEATURES -->
 
 <section>
 
@@ -905,8 +848,6 @@ style="display:none">
 </section>
 
 
-<!-- AVAILABLE -->
-
 <section id="bookingSection">
 
 <div class="container">
@@ -915,9 +856,7 @@ style="display:none">
 المواعيد المتاحة
 </h2>
 
-<div
-id="appointments"
-class="appointments">
+<div id="appointments" class="appointments">
 
 <div class="empty">
 جاري تحميل المواعيد...
@@ -929,8 +868,6 @@ class="appointments">
 
 </section>
 
-
-<!-- TRACK -->
 
 <section id="trackSection">
 
@@ -960,10 +897,7 @@ placeholder="مثال: 3">
 
 </div>
 
-<div
-id="trackResult"
-style="margin-top:15px">
-</div>
+<div id="trackResult" style="margin-top:15px"></div>
 
 </div>
 
@@ -971,8 +905,6 @@ style="margin-top:15px">
 
 </section>
 
-
-<!-- DASHBOARD -->
 
 <section id="dashboard">
 
@@ -982,35 +914,29 @@ style="margin-top:15px">
 لوحة تحكم الدكتور
 </h2>
 
-
 <div class="dashboard-tabs">
 
-<button
-class="tab active"
+<button class="tab active"
 onclick="showPanel('overview',this)">
 نظرة عامة
 </button>
 
-<button
-class="tab"
+<button class="tab"
 onclick="showPanel('pending',this)">
 طلبات الانتظار
 </button>
 
-<button
-class="tab"
+<button class="tab"
 onclick="showPanel('confirmed',this)">
 المواعيد المؤكدة
 </button>
 
-<button
-class="tab"
+<button class="tab"
 onclick="showPanel('available',this)">
 المواعيد المتاحة
 </button>
 
-<button
-class="tab"
+<button class="tab"
 onclick="showPanel('settings',this)">
 إعدادات العيادة
 </button>
@@ -1018,69 +944,28 @@ onclick="showPanel('settings',this)">
 </div>
 
 
-<!-- OVERVIEW -->
-
-<div
-id="overview"
-class="dashboard-panel">
+<div id="overview" class="dashboard-panel">
 
 <div class="stats">
 
-<div
-class="stat"
-onclick="showPanel('pending')">
-
-<small>
-طلبات الانتظار
-</small>
-
-<strong id="pendingCount">
-0
-</strong>
-
+<div class="stat" onclick="showPanel('pending')">
+<small>طلبات الانتظار</small>
+<strong id="pendingCount">0</strong>
 </div>
 
-
-<div
-class="stat"
-onclick="showPanel('confirmed')">
-
-<small>
-المواعيد المؤكدة
-</small>
-
-<strong id="confirmedCount">
-0
-</strong>
-
+<div class="stat" onclick="showPanel('confirmed')">
+<small>المواعيد المؤكدة</small>
+<strong id="confirmedCount">0</strong>
 </div>
 
-
-<div
-class="stat"
-onclick="showPanel('available')">
-
-<small>
-المواعيد المتاحة
-</small>
-
-<strong id="availableCount">
-0
-</strong>
-
+<div class="stat" onclick="showPanel('available')">
+<small>المواعيد المتاحة</small>
+<strong id="availableCount">0</strong>
 </div>
-
 
 <div class="stat">
-
-<small>
-إجمالي الحجوزات
-</small>
-
-<strong id="totalCount">
-0
-</strong>
-
+<small>إجمالي الحجوزات</small>
+<strong id="totalCount">0</strong>
 </div>
 
 </div>
@@ -1090,12 +975,7 @@ onclick="showPanel('available')">
 </div>
 
 
-<!-- PENDING -->
-
-<div
-id="pending"
-class="dashboard-panel"
-style="display:none">
+<div id="pending" class="dashboard-panel" style="display:none">
 
 <h3 style="margin-bottom:15px">
 طلبات الانتظار
@@ -1106,12 +986,7 @@ style="display:none">
 </div>
 
 
-<!-- CONFIRMED -->
-
-<div
-id="confirmed"
-class="dashboard-panel"
-style="display:none">
+<div id="confirmed" class="dashboard-panel" style="display:none">
 
 <h3 style="margin-bottom:15px">
 المواعيد المؤكدة
@@ -1122,17 +997,11 @@ style="display:none">
 </div>
 
 
-<!-- AVAILABLE -->
-
-<div
-id="available"
-class="dashboard-panel"
-style="display:none">
+<div id="available" class="dashboard-panel" style="display:none">
 
 <h3 style="margin-bottom:15px">
 المواعيد المتاحة
 </h3>
-
 
 <div class="form-grid">
 
@@ -1148,12 +1017,9 @@ placeholder="مثال: الأحد - 10 صباحًا">
 
 </div>
 
-
 <div style="display:flex;align-items:end">
 
-<button
-class="save"
-onclick="addSlot()">
+<button class="save" onclick="addSlot()">
 إضافة موعد
 </button>
 
@@ -1161,107 +1027,48 @@ onclick="addSlot()">
 
 </div>
 
-
-<div
-id="slotList"
-style="margin-top:20px">
-</div>
+<div id="slotList" style="margin-top:20px"></div>
 
 </div>
 
 
-<!-- SETTINGS -->
-
-<div
-id="settings"
-class="dashboard-panel"
-style="display:none">
+<div id="settings" class="dashboard-panel" style="display:none">
 
 <h3 style="margin-bottom:18px">
 إعدادات العيادة
 </h3>
 
-
 <div class="form-grid">
 
-
 <div class="form-group">
-
-<label>
-اسم الدكتور
-</label>
-
-<input
-id="setName"
-placeholder="اسم الدكتور">
-
+<label>اسم الدكتور</label>
+<input id="setName" placeholder="اسم الدكتور">
 </div>
 
-
 <div class="form-group">
-
-<label>
-التخصص
-</label>
-
-<input
-id="setSpecialty"
-placeholder="التخصص">
-
+<label>التخصص</label>
+<input id="setSpecialty" placeholder="التخصص">
 </div>
 
-
 <div class="form-group">
-
-<label>
-رقم الهاتف
-</label>
-
-<input
-id="setPhone"
-placeholder="01xxxxxxxxx">
-
+<label>رقم الهاتف</label>
+<input id="setPhone" placeholder="01xxxxxxxxx">
 </div>
 
-
 <div class="form-group">
-
-<label>
-رقم واتساب
-</label>
-
-<input
-id="setWhatsapp"
-placeholder="201xxxxxxxxx">
-
+<label>رقم واتساب</label>
+<input id="setWhatsapp" placeholder="201xxxxxxxxx">
 </div>
 
-
 <div class="form-group">
-
-<label>
-العنوان
-</label>
-
-<input
-id="setAddress"
-placeholder="عنوان العيادة">
-
+<label>العنوان</label>
+<input id="setAddress" placeholder="عنوان العيادة">
 </div>
 
-
 <div class="form-group">
-
-<label>
-مواعيد العمل
-</label>
-
-<input
-id="setHours"
-placeholder="مثال: السبت - الخميس 9 ص إلى 2 م">
-
+<label>مواعيد العمل</label>
+<input id="setHours" placeholder="مثال: السبت - الخميس 9 ص إلى 2 م">
 </div>
-
 
 <div class="form-group full">
 
@@ -1277,7 +1084,6 @@ placeholder="اكتب السيرة الذاتية للدكتور هنا... وي�
 
 </div>
 
-
 <div class="form-group full">
 
 <label>
@@ -1290,12 +1096,9 @@ placeholder="https://...">
 
 </div>
 
-
 <div class="full">
 
-<button
-class="save"
-onclick="saveSettings()">
+<button class="save" onclick="saveSettings()">
 حفظ بيانات العيادة
 </button>
 
@@ -1306,7 +1109,6 @@ onclick="saveSettings()">
 </div>
 
 </div>
-
 </div>
 
 </section>
@@ -1323,59 +1125,38 @@ onclick="saveSettings()">
 
 <!-- BOOKING MODAL -->
 
-<div
-id="bookingModal"
-class="modal">
+<div id="bookingModal" class="modal">
 
 <div class="modal-box">
 
 <div class="modal-head">
 
-<h2>
-حجز موعد
-</h2>
+<h2>حجز موعد</h2>
 
-<button
-class="close"
-onclick="closeBooking()">
+<button class="close" onclick="closeBooking()">
 ×
 </button>
 
 </div>
 
-
 <div class="modal-form">
 
 <div class="notice">
-
 الموعد المختار:
 <strong id="selectedSlot"></strong>
-
 </div>
 
+<input id="patientName" placeholder="اسم المريض">
 
-<input
-id="patientName"
-placeholder="اسم المريض">
+<input id="patientPhone" placeholder="رقم الهاتف">
 
-
-<input
-id="patientPhone"
-placeholder="رقم الهاتف">
-
-
-<input
-id="patientAge"
-type="number"
-placeholder="العمر">
-
+<input id="patientAge" type="number" placeholder="العمر">
 
 <textarea
 id="patientNote"
 rows="4"
 placeholder="ملاحظات إضافية (اختياري)">
 </textarea>
-
 
 <button onclick="submitBooking()">
 تأكيد طلب الحجز
@@ -1384,15 +1165,12 @@ placeholder="ملاحظات إضافية (اختياري)">
 </div>
 
 </div>
-
 </div>
 
 
 <!-- LOGIN -->
 
-<div
-id="loginModal"
-class="modal">
+<div id="loginModal" class="modal">
 
 <div class="modal-box">
 
@@ -1402,33 +1180,33 @@ class="modal">
 دخول الدكتور
 </h2>
 
-<button
-class="close"
-onclick="closeLogin()">
+<button class="close" onclick="closeLogin()">
 ×
 </button>
 
 </div>
 
-
 <div class="modal-form">
+
+<div class="notice">
+الدخول مخصص لحساب الدكتور فقط.
+</div>
 
 <input
 id="loginEmail"
 type="email"
+autocomplete="username"
 placeholder="البريد الإلكتروني">
-
 
 <input
 id="loginPassword"
 type="password"
+autocomplete="current-password"
 placeholder="كلمة المرور">
 
-
 <button onclick="loginDoctor()">
-دخول
+دخول آمن
 </button>
-
 
 <div id="loginMessage"></div>
 
@@ -1446,9 +1224,9 @@ placeholder="كلمة المرور">
 
 <script>
 
-/* ==========================================
+/* =========================================================
    SUPABASE
-========================================== */
+========================================================= */
 
 const SUPABASE_URL =
 'https://rgoamjtvynjhmpjnbhdz.supabase.co';
@@ -1459,6 +1237,13 @@ const SUPABASE_ANON_KEY =
 const CLINIC_ID =
 'clinic-001';
 
+/*
+  هذا هو User ID لحساب الدكتور الذي وجدناه
+  داخل Authentication > Users.
+*/
+const DOCTOR_USER_ID =
+'a666ebff-a485-42e0-92af-e2fbde8539bf';
+
 const supabaseClient =
 window.supabase.createClient(
   SUPABASE_URL,
@@ -1466,9 +1251,9 @@ window.supabase.createClient(
 );
 
 
-/* ==========================================
+/* =========================================================
    STATE
-========================================== */
+========================================================= */
 
 let doctor = {
   name:'د. إبراهيم شتا',
@@ -1484,16 +1269,18 @@ let doctor = {
 let bookings = [];
 let slots = [];
 let selectedSlot = '';
+let selectedSlotId = null;
 
 
-/* ==========================================
+/* =========================================================
    HELPERS
-========================================== */
+========================================================= */
 
 function escapeHTML(value){
 
-  if(value === null || value === undefined)
+  if(value === null || value === undefined){
     return '';
+  }
 
   return String(value)
     .replace(/&/g,'&amp;')
@@ -1509,7 +1296,8 @@ function showToast(message){
   const toast =
     document.getElementById('toast');
 
-  toast.textContent = message;
+  toast.textContent =
+    message;
 
   toast.classList.add('show');
 
@@ -1519,9 +1307,9 @@ function showToast(message){
 }
 
 
-/* ==========================================
+/* =========================================================
    NAVIGATION
-========================================== */
+========================================================= */
 
 function scrollToBooking(){
 
@@ -1543,9 +1331,9 @@ function scrollToTrack(){
 }
 
 
-/* ==========================================
+/* =========================================================
    DOCTOR CONTACT
-========================================== */
+========================================================= */
 
 function callDoctor(){
 
@@ -1559,8 +1347,8 @@ function callDoctor(){
   }
 
   /*
-    tel: يفتح تطبيق الهاتف
-    والرقم يكون جاهزًا دون بدء المكالمة تلقائيًا.
+    يفتح تطبيق الهاتف والرقم جاهز
+    بدون بدء المكالمة تلقائيًا.
   */
 
   window.location.href =
@@ -1580,12 +1368,13 @@ function openWhatsApp(){
   }
 
   let number =
-    doctor.whatsapp
+    String(doctor.whatsapp)
       .replace(/\D/g,'');
 
   if(number.startsWith('0')){
     number =
-      '20' + number.substring(1);
+      '20' +
+      number.substring(1);
   }
 
   window.open(
@@ -1595,30 +1384,38 @@ function openWhatsApp(){
 }
 
 
-/* ==========================================
+/* =========================================================
    LOAD SETTINGS
-========================================== */
+========================================================= */
 
 async function loadSettings(){
 
   const {
     data,
     error
-  } = await supabaseClient
-    .from('clinic_settings')
-    .select('*')
-    .eq('clinic_id',CLINIC_ID)
-    .maybeSingle();
+  } =
+    await supabaseClient
+      .from('clinic_settings')
+      .select('*')
+      .eq(
+        'clinic_id',
+        CLINIC_ID
+      )
+      .maybeSingle();
 
   if(error){
 
-    console.error(error);
+    console.error(
+      'loadSettings:',
+      error
+    );
 
     return;
   }
 
-  if(!data)
+  if(!data){
     return;
+  }
 
   doctor.name =
     data.doctor_name ||
@@ -1638,7 +1435,9 @@ async function loadSettings(){
     data.address || '';
 
   doctor.hours =
-    data.working_hours || '';
+    data.working_hours ||
+    data.hours ||
+    '';
 
   doctor.bio =
     data.biography ||
@@ -1646,16 +1445,18 @@ async function loadSettings(){
     '';
 
   doctor.image =
-    data.doctor_image || '';
+    data.doctor_image ||
+    data.image_url ||
+    '';
 
   updateDoctorUI();
   fillSettings();
 }
 
 
-/* ==========================================
-   UPDATE PUBLIC DOCTOR UI
-========================================== */
+/* =========================================================
+   UPDATE DOCTOR UI
+========================================================= */
 
 function updateDoctorUI(){
 
@@ -1696,7 +1497,6 @@ function updateDoctorUI(){
 
     image.src =
       createLogoImage();
-
   }
 
 
@@ -1722,16 +1522,13 @@ function updateDoctorUI(){
 
     bioBox.style.display =
       'none';
-
   }
 }
 
 
-/*
-  صورة SVG بسيطة داخل الصفحة
-  حتى لا تظهر صورة مكسورة إذا لم
-  يضع الدكتور صورة.
-*/
+/* =========================================================
+   DEFAULT DOCTOR IMAGE
+========================================================= */
 
 function createLogoImage(){
 
@@ -1741,10 +1538,11 @@ function createLogoImage(){
        height="300"
        viewBox="0 0 300 300">
 
-    <rect width="300"
-          height="300"
-          rx="55"
-          fill="#087ea4"/>
+    <rect
+      width="300"
+      height="300"
+      rx="55"
+      fill="#087ea4"/>
 
     <text
       x="150"
@@ -1765,9 +1563,9 @@ function createLogoImage(){
 }
 
 
-/* ==========================================
+/* =========================================================
    SETTINGS FORM
-========================================== */
+========================================================= */
 
 function fillSettings(){
 
@@ -1813,15 +1611,52 @@ function fillSettings(){
 }
 
 
-/* ==========================================
+/* =========================================================
    SAVE SETTINGS
-========================================== */
+========================================================= */
 
 async function saveSettings(){
 
+  /*
+    التأكد أن الدكتور مسجل دخول
+  */
+
+  const {
+    data:sessionData
+  } =
+    await supabaseClient.auth.getUser();
+
+  const user =
+    sessionData?.user;
+
+  if(!user){
+
+    showToast(
+      'يجب تسجيل الدخول أولًا'
+    );
+
+    return;
+  }
+
+  if(user.id !== DOCTOR_USER_ID){
+
+    showToast(
+      'هذا الحساب غير مصرح له'
+    );
+
+    await supabaseClient.auth.signOut();
+
+    return;
+  }
+
+
   const payload = {
 
-    clinic_id:CLINIC_ID,
+    clinic_id:
+      CLINIC_ID,
+
+    owner_id:
+      DOCTOR_USER_ID,
 
     doctor_name:
       document.getElementById(
@@ -1858,16 +1693,6 @@ async function saveSettings(){
         'setBio'
       ).value.trim(),
 
-    description:
-      document.getElementById(
-        'setBio'
-      ).value.trim(),
-
-    doctor_image:
-      document.getElementById(
-        'setImage'
-      ).value.trim(),
-
     updated_at:
       new Date().toISOString()
   };
@@ -1875,19 +1700,23 @@ async function saveSettings(){
 
   const {
     error
-  } = await supabaseClient
-    .from('clinic_settings')
-    .upsert(
-      payload,
-      {
-        onConflict:'clinic_id'
-      }
-    );
+  } =
+    await supabaseClient
+      .from('clinic_settings')
+      .upsert(
+        payload,
+        {
+          onConflict:'clinic_id'
+        }
+      );
 
 
   if(error){
 
-    console.error(error);
+    console.error(
+      'saveSettings:',
+      error
+    );
 
     showToast(
       'حدث خطأ أثناء حفظ البيانات'
@@ -1920,8 +1749,11 @@ async function saveSettings(){
   doctor.bio =
     payload.biography;
 
+
   doctor.image =
-    payload.doctor_image;
+    document.getElementById(
+      'setImage'
+    ).value.trim();
 
 
   updateDoctorUI();
@@ -1932,30 +1764,46 @@ async function saveSettings(){
 }
 
 
-/* ==========================================
-   LOAD SLOTS
-========================================== */
+/* =========================================================
+   LOAD AVAILABLE APPOINTMENTS
+========================================================= */
 
 async function loadSlots(){
 
   const {
     data,
     error
-  } = await supabaseClient
-    .from('appointments')
-    .select('*')
-    .eq('clinic_id',CLINIC_ID)
-    .eq('status','available')
-    .order('created_at',{
-      ascending:true
-    });
+  } =
+    await supabaseClient
+      .from('appointments')
+      .select('*')
+      .eq(
+        'clinic_id',
+        CLINIC_ID
+      )
+      .eq(
+        'is_booked',
+        false
+      )
+      .order(
+        'created_at',
+        {
+          ascending:true
+        }
+      );
 
 
   if(error){
 
-    console.error(error);
+    console.error(
+      'loadSlots:',
+      error
+    );
 
-    renderSlots();
+    slots = [];
+
+    renderPublicSlots();
+    renderDashboardSlots();
 
     return;
   }
@@ -1969,9 +1817,44 @@ async function loadSlots(){
 }
 
 
-/* ==========================================
+/* =========================================================
+   FORMAT APPOINTMENT
+========================================================= */
+
+function formatSlot(slot){
+
+  if(
+    slot.appointment_time &&
+    slot.appointment_date
+  ){
+
+    return (
+      '📅 ' +
+      slot.appointment_date +
+      ' — ' +
+      slot.appointment_time
+    );
+  }
+
+  if(slot.appointment_time){
+
+    return '🕐 ' +
+      slot.appointment_time;
+  }
+
+  if(slot.appointment_date){
+
+    return '📅 ' +
+      slot.appointment_date;
+  }
+
+  return 'موعد متاح';
+}
+
+
+/* =========================================================
    PUBLIC SLOTS
-========================================== */
+========================================================= */
 
 function renderPublicSlots(){
 
@@ -1979,6 +1862,11 @@ function renderPublicSlots(){
     document.getElementById(
       'appointments'
     );
+
+
+  if(!box){
+    return;
+  }
 
 
   if(!slots.length){
@@ -1998,20 +1886,17 @@ function renderPublicSlots(){
       <div class="slot">
 
         <strong>
-          📅 موعد متاح
+          موعد متاح
         </strong>
 
         <span>
           ${escapeHTML(
-            slot.appointment_text
+            formatSlot(slot)
           )}
         </span>
 
         <button
           onclick="openBooking(
-            '${String(
-              slot.appointment_text
-            ).replace(/'/g,"\\'")}',
             ${slot.id}
           )">
 
@@ -2025,28 +1910,41 @@ function renderPublicSlots(){
 }
 
 
-/* ==========================================
-   BOOKING
-========================================== */
+/* =========================================================
+   OPEN BOOKING
+========================================================= */
 
-let selectedSlotId = null;
+function openBooking(slotId){
+
+  const slot =
+    slots.find(
+      item =>
+        Number(item.id) ===
+        Number(slotId)
+    );
 
 
-function openBooking(
-  slotText,
-  slotId
-){
+  if(!slot){
 
-  selectedSlot =
-    slotText;
+    showToast(
+      'هذا الموعد لم يعد متاحًا'
+    );
+
+    return;
+  }
+
 
   selectedSlotId =
-    slotId;
+    slot.id;
+
+  selectedSlot =
+    formatSlot(slot);
+
 
   document.getElementById(
     'selectedSlot'
   ).textContent =
-    slotText;
+    selectedSlot;
 
   document.getElementById(
     'bookingModal'
@@ -2061,8 +1959,18 @@ function closeBooking(){
     'bookingModal'
   ).style.display =
     'none';
+
+  selectedSlotId =
+    null;
+
+  selectedSlot =
+    '';
 }
 
+
+/* =========================================================
+   SUBMIT BOOKING
+========================================================= */
 
 async function submitBooking(){
 
@@ -2076,16 +1984,6 @@ async function submitBooking(){
       'patientPhone'
     ).value.trim();
 
-  const ageValue =
-    document.getElementById(
-      'patientAge'
-    ).value.trim();
-
-  const note =
-    document.getElementById(
-      'patientNote'
-    ).value.trim();
-
 
   if(!name || !phone){
 
@@ -2097,53 +1995,103 @@ async function submitBooking(){
   }
 
 
-  let age =
-    ageValue
-      ? Number(ageValue)
-      : null;
+  if(!selectedSlotId){
+
+    showToast(
+      'اختر موعدًا أولًا'
+    );
+
+    return;
+  }
 
 
   /*
-    حساب الرقم اليومي.
-    الرقم التالي يتم حسابه من حجوزات اليوم
-    الموجودة في قاعدة البيانات.
+    نتأكد مرة ثانية أن الموعد ما زال متاحًا
   */
 
-  const todayStart =
-    new Date();
+  const {
+    data:slotCheck,
+    error:slotError
+  } =
+    await supabaseClient
+      .from('appointments')
+      .select('*')
+      .eq(
+        'id',
+        selectedSlotId
+      )
+      .eq(
+        'clinic_id',
+        CLINIC_ID
+      )
+      .eq(
+        'is_booked',
+        false
+      )
+      .maybeSingle();
 
-  todayStart.setHours(
-    0,0,0,0
-  );
 
-  const todayEnd =
-    new Date();
+  if(slotError){
 
-  todayEnd.setHours(
-    23,59,59,999
-  );
+    console.error(slotError);
+
+    showToast(
+      'تعذر التحقق من الموعد'
+    );
+
+    return;
+  }
+
+
+  if(!slotCheck){
+
+    showToast(
+      'عذرًا، هذا الموعد لم يعد متاحًا'
+    );
+
+    await loadSlots();
+
+    closeBooking();
+
+    return;
+  }
+
+
+  /*
+    الحصول على حجوزات اليوم
+    لتحديد الرقم اليومي.
+  */
+
+  const today =
+    new Date()
+      .toISOString()
+      .slice(0,10);
 
 
   const {
     data:todayBookings,
     error:countError
-  } = await supabaseClient
-    .from('bookings')
-    .select('daily_number')
-    .eq('clinic_id',CLINIC_ID)
-    .gte(
-      'created_at',
-      todayStart.toISOString()
-    )
-    .lte(
-      'created_at',
-      todayEnd.toISOString()
-    )
-    .order(
-      'daily_number',
-      {ascending:false}
-    )
-    .limit(1);
+  } =
+    await supabaseClient
+      .from('bookings')
+      .select(
+        'daily_number'
+      )
+      .eq(
+        'clinic_id',
+        CLINIC_ID
+      )
+      .eq(
+        'appointment_date',
+        today
+      )
+      .order(
+        'daily_number',
+        {
+          ascending:false
+        }
+      )
+      .limit(1);
 
 
   if(countError){
@@ -2158,55 +2106,77 @@ async function submitBooking(){
   }
 
 
-  let dailyNumber =
+  let dailyNumber = 1;
+
+
+  if(
     todayBookings &&
     todayBookings.length
-      ? Number(
-          todayBookings[0]
-            .daily_number
-        ) + 1
-      : 1;
+  ){
+
+    dailyNumber =
+      Number(
+        todayBookings[0]
+          .daily_number || 0
+      ) + 1;
+  }
+
+
+  /*
+    تجهيز بيانات الحجز.
+    العمر والملاحظات لا يتم إرسالها
+    إلى قاعدة البيانات الحالية لأنها
+    لا تحتوي على أعمدة لهما.
+  */
+
+  const bookingPayload = {
+
+    clinic_id:
+      CLINIC_ID,
+
+    daily_number:
+      dailyNumber,
+
+    patient_name:
+      name,
+
+    patient_phone:
+      phone,
+
+    appointment_id:
+      selectedSlotId,
+
+    appointment_date:
+      today,
+
+    appointment_time:
+      slotCheck.appointment_time ||
+      '',
+
+    status:
+      'pending'
+  };
 
 
   const {
     data,
     error
-  } = await supabaseClient
-    .from('bookings')
-    .insert({
-
-      clinic_id:
-        CLINIC_ID,
-
-      daily_number:
-        dailyNumber,
-
-      patient_name:
-        name,
-
-      patient_phone:
-        phone,
-
-      patient_age:
-        age,
-
-      patient_note:
-        note,
-
-      appointment_text:
-        selectedSlot,
-
-      status:
-        'pending'
-
-    })
-    .select()
-    .single();
+  } =
+    await supabaseClient
+      .from('bookings')
+      .insert(
+        bookingPayload
+      )
+      .select()
+      .single();
 
 
   if(error){
 
-    console.error(error);
+    console.error(
+      'submitBooking:',
+      error
+    );
 
     showToast(
       'حدث خطأ أثناء إرسال الحجز'
@@ -2216,9 +2186,32 @@ async function submitBooking(){
   }
 
 
-  showToast(
-    'تم إرسال طلب الحجز بنجاح'
-  );
+  /*
+    حجز الموعد حتى لا يظهر للمريض
+    مرة أخرى.
+  */
+
+  const {
+    error:slotUpdateError
+  } =
+    await supabaseClient
+      .from('appointments')
+      .update({
+        is_booked:true
+      })
+      .eq(
+        'id',
+        selectedSlotId
+      );
+
+
+  if(slotUpdateError){
+
+    console.error(
+      'slot update:',
+      slotUpdateError
+    );
+  }
 
 
   closeBooking();
@@ -2241,21 +2234,27 @@ async function submitBooking(){
   ).value = '';
 
 
+  showToast(
+    'تم إرسال طلب الحجز بنجاح'
+  );
+
+
   alert(
     'تم إرسال طلب الحجز بنجاح.\n\n' +
     'رقمك اليومي هو: ' +
     data.daily_number +
-    '\n\nاحتفظ بهذا الرقم لمتابعة الحجز.'
+    '\n\n' +
+    'احتفظ بهذا الرقم لمتابعة الحجز.'
   );
 
 
-  await loadBookings();
+  await loadSlots();
 }
 
 
-/* ==========================================
+/* =========================================================
    TRACK BOOKING
-========================================== */
+========================================================= */
 
 async function trackBooking(){
 
@@ -2283,26 +2282,39 @@ async function trackBooking(){
   }
 
 
+  const today =
+    new Date()
+      .toISOString()
+      .slice(0,10);
+
+
   const {
     data,
     error
-  } = await supabaseClient
-    .from('bookings')
-    .select('*')
-    .eq(
-      'clinic_id',
-      CLINIC_ID
-    )
-    .eq(
-      'daily_number',
-      number
-    )
-    .order(
-      'created_at',
-      {ascending:false}
-    )
-    .limit(1)
-    .maybeSingle();
+  } =
+    await supabaseClient
+      .from('bookings')
+      .select('*')
+      .eq(
+        'clinic_id',
+        CLINIC_ID
+      )
+      .eq(
+        'daily_number',
+        number
+      )
+      .eq(
+        'appointment_date',
+        today
+      )
+      .order(
+        'created_at',
+        {
+          ascending:false
+        }
+      )
+      .limit(1)
+      .maybeSingle();
 
 
   if(error){
@@ -2322,7 +2334,7 @@ async function trackBooking(){
 
     result.innerHTML =
       `<div class="notice">
-        لم يتم العثور على حجز بهذا الرقم.
+        لم يتم العثور على حجز بهذا الرقم اليوم.
       </div>`;
 
     return;
@@ -2365,20 +2377,25 @@ async function trackBooking(){
 
       </div>
 
-
       <div class="info">
 
-        📅
+        📅 الموعد:
         ${escapeHTML(
-          data.appointment_text ||
+          data.appointment_date ||
+          ''
+        )}
+
+        <br>
+
+        🕐 الوقت:
+        ${escapeHTML(
+          data.appointment_time ||
           'غير محدد'
         )}
 
       </div>
 
-
-      <span
-        class="status ${statusClass}">
+      <span class="status ${statusClass}">
         ${statusText}
       </span>
 
@@ -2388,11 +2405,15 @@ async function trackBooking(){
 }
 
 
-/* ==========================================
+/* =========================================================
    LOGIN
-========================================== */
+========================================================= */
 
 function openLogin(){
+
+  document.getElementById(
+    'loginMessage'
+  ).innerHTML = '';
 
   document.getElementById(
     'loginModal'
@@ -2410,6 +2431,13 @@ function closeLogin(){
 }
 
 
+/*
+  تسجيل دخول آمن:
+  1. Supabase يتحقق من الإيميل والباسورد.
+  2. بعد النجاح نتحقق أن User ID هو حساب الدكتور.
+  3. أي حساب آخر يتم تسجيل خروجه فورًا.
+*/
+
 async function loginDoctor(){
 
   const email =
@@ -2423,11 +2451,15 @@ async function loginDoctor(){
     ).value;
 
 
-  if(!email || !password){
-
+  const message =
     document.getElementById(
       'loginMessage'
-    ).innerHTML =
+    );
+
+
+  if(!email || !password){
+
+    message.innerHTML =
       `<div class="notice">
         اكتب البريد الإلكتروني وكلمة المرور.
       </div>`;
@@ -2436,26 +2468,61 @@ async function loginDoctor(){
   }
 
 
+  /*
+    إزالة أي جلسة قديمة أولًا.
+    هذا يمنع الاعتماد على جلسة سابقة.
+  */
+
+  await supabaseClient.auth.signOut();
+
+
+  message.innerHTML =
+    `<div class="notice">
+      جاري التحقق من بيانات الدخول...
+    </div>`;
+
+
   const {
     data,
     error
   } =
     await supabaseClient.auth
       .signInWithPassword({
-        email,
-        password
+        email:email,
+        password:password
       });
 
 
-  if(error){
+  if(error || !data?.user){
 
-    console.error(error);
+    console.error(
+      'login:',
+      error
+    );
 
-    document.getElementById(
-      'loginMessage'
-    ).innerHTML =
+    message.innerHTML =
       `<div class="notice">
-        بيانات الدخول غير صحيحة أو الحساب غير مفعل.
+        البريد الإلكتروني أو كلمة المرور غير صحيحة.
+      </div>`;
+
+    return;
+  }
+
+
+  /*
+    التأكد أن المستخدم هو الدكتور فعلًا.
+  */
+
+  if(
+    data.user.id !==
+    DOCTOR_USER_ID
+  ){
+
+    await supabaseClient.auth.signOut();
+
+    message.innerHTML =
+      `<div class="notice">
+        هذا الحساب ليس حساب الدكتور المصرح له.
       </div>`;
 
     return;
@@ -2464,10 +2531,12 @@ async function loginDoctor(){
 
   closeLogin();
 
+
   document.getElementById(
     'dashboard'
   ).style.display =
     'block';
+
 
   document.getElementById(
     'dashboard'
@@ -2480,37 +2549,90 @@ async function loginDoctor(){
   await loadSettings();
   await loadSlots();
 
+
   showToast(
     'تم تسجيل الدخول بنجاح'
   );
 }
 
 
-/* ==========================================
+/* =========================================================
+   LOGOUT
+========================================================= */
+
+async function logoutDoctor(){
+
+  await supabaseClient.auth.signOut();
+
+  document.getElementById(
+    'dashboard'
+  ).style.display =
+    'none';
+
+  window.scrollTo({
+    top:0,
+    behavior:'smooth'
+  });
+
+  showToast(
+    'تم تسجيل الخروج'
+  );
+}
+
+
+/* =========================================================
    BOOKINGS FOR DASHBOARD
-========================================== */
+========================================================= */
 
 async function loadBookings(){
+
+  /*
+    نتأكد من الجلسة
+  */
+
+  const {
+    data:userData
+  } =
+    await supabaseClient.auth.getUser();
+
+  const user =
+    userData?.user;
+
+
+  if(
+    !user ||
+    user.id !== DOCTOR_USER_ID
+  ){
+
+    return;
+  }
+
 
   const {
     data,
     error
-  } = await supabaseClient
-    .from('bookings')
-    .select('*')
-    .eq(
-      'clinic_id',
-      CLINIC_ID
-    )
-    .order(
-      'created_at',
-      {ascending:false}
-    );
+  } =
+    await supabaseClient
+      .from('bookings')
+      .select('*')
+      .eq(
+        'clinic_id',
+        CLINIC_ID
+      )
+      .order(
+        'created_at',
+        {
+          ascending:false
+        }
+      );
 
 
   if(error){
 
-    console.error(error);
+    console.error(
+      'loadBookings:',
+      error
+    );
 
     return;
   }
@@ -2523,9 +2645,9 @@ async function loadBookings(){
 }
 
 
-/* ==========================================
-   DASHBOARD
-========================================== */
+/* =========================================================
+   DASHBOARD PANELS
+========================================================= */
 
 function showPanel(
   id,
@@ -2543,6 +2665,7 @@ function showPanel(
 
   panels.forEach(
     panel=>{
+
       const el =
         document.getElementById(
           panel
@@ -2579,45 +2702,39 @@ function showPanel(
 
 
   if(id === 'pending'){
-
     loadBookings();
-
   }
 
   if(id === 'confirmed'){
-
     loadBookings();
-
   }
 
   if(id === 'available'){
-
     loadSlots();
-
   }
 
   if(id === 'settings'){
-
     loadSettings();
-
   }
 }
 
 
-/* ==========================================
-   RENDER DASHBOARD
-========================================== */
+/* =========================================================
+   DASHBOARD RENDER
+========================================================= */
 
 function renderDashboard(){
 
   const pending =
     bookings.filter(
-      b=>b.status === 'pending'
+      b =>
+        b.status === 'pending'
     );
 
   const confirmed =
     bookings.filter(
-      b=>b.status === 'confirmed'
+      b =>
+        b.status === 'confirmed'
     );
 
 
@@ -2670,9 +2787,9 @@ function renderDashboard(){
 }
 
 
-/* ==========================================
+/* =========================================================
    RENDER BOOKINGS
-========================================== */
+========================================================= */
 
 function renderBookings(
   elementId,
@@ -2686,8 +2803,9 @@ function renderBookings(
     );
 
 
-  if(!el)
+  if(!el){
     return;
+  }
 
 
   if(!list.length){
@@ -2709,14 +2827,19 @@ function renderBookings(
           String(
             booking.patient_phone ||
             ''
-          ).replace(/\s/g,'');
+          ).replace(
+            /\s/g,
+            ''
+          );
 
 
         let wa =
           phone;
 
 
-        if(wa.startsWith('0')){
+        if(
+          wa.startsWith('0')
+        ){
 
           wa =
             '20' +
@@ -2761,9 +2884,17 @@ function renderBookings(
 
           <div class="info">
 
-            📅
+            📅 التاريخ:
             ${escapeHTML(
-              booking.appointment_text ||
+              booking.appointment_date ||
+              ''
+            )}
+
+            <br>
+
+            🕐 الوقت:
+            ${escapeHTML(
+              booking.appointment_time ||
               'غير محدد'
             )}
 
@@ -2775,29 +2906,10 @@ function renderBookings(
               ''
             )}
 
-            ${
-              booking.patient_age
-              ? `<br>العمر:
-                 ${escapeHTML(
-                   booking.patient_age
-                 )}`
-              : ''
-            }
-
-            ${
-              booking.patient_note
-              ? `<br>ملاحظات:
-                 ${escapeHTML(
-                   booking.patient_note
-                 )}`
-              : ''
-            }
-
           </div>
 
 
-          <span
-            class="status ${statusClass}">
+          <span class="status ${statusClass}">
             ${statusText}
           </span>
 
@@ -2825,17 +2937,13 @@ function renderBookings(
               ? `
                 <button
                   class="approve"
-                  onclick="approveBooking(
-                    ${booking.id}
-                  )">
+                  onclick="approveBooking(${booking.id})">
                   ✓ تأكيد
                 </button>
 
                 <button
                   class="reject"
-                  onclick="rejectBooking(
-                    ${booking.id}
-                  )">
+                  onclick="rejectBooking(${booking.id})">
                   رفض
                 </button>
               `
@@ -2845,9 +2953,7 @@ function renderBookings(
 
             <button
               class="delete"
-              onclick="deleteBooking(
-                ${booking.id}
-              )">
+              onclick="deleteBooking(${booking.id})">
               🗑 حذف
             </button>
 
@@ -2861,9 +2967,9 @@ function renderBookings(
 }
 
 
-/* ==========================================
+/* =========================================================
    APPROVE
-========================================== */
+========================================================= */
 
 async function approveBooking(id){
 
@@ -2902,9 +3008,9 @@ async function approveBooking(id){
 }
 
 
-/* ==========================================
+/* =========================================================
    REJECT
-========================================== */
+========================================================= */
 
 async function rejectBooking(id){
 
@@ -2943,9 +3049,9 @@ async function rejectBooking(id){
 }
 
 
-/* ==========================================
+/* =========================================================
    DELETE BOOKING
-========================================== */
+========================================================= */
 
 async function deleteBooking(id){
 
@@ -2992,11 +3098,33 @@ async function deleteBooking(id){
 }
 
 
-/* ==========================================
-   ADD SLOT
-========================================== */
+/* =========================================================
+   ADD APPOINTMENT
+========================================================= */
 
 async function addSlot(){
+
+  const {
+    data:userData
+  } =
+    await supabaseClient.auth.getUser();
+
+  const user =
+    userData?.user;
+
+
+  if(
+    !user ||
+    user.id !== DOCTOR_USER_ID
+  ){
+
+    showToast(
+      'يجب تسجيل الدخول كدكتور'
+    );
+
+    return;
+  }
+
 
   const input =
     document.getElementById(
@@ -3017,6 +3145,13 @@ async function addSlot(){
   }
 
 
+  /*
+    نحفظ الموعد كنص:
+    في appointment_time.
+    ويمكن لاحقًا فصل التاريخ والوقت
+    إذا أردنا نظام تقويم كامل.
+  */
+
   const {
     error
   } =
@@ -3027,12 +3162,16 @@ async function addSlot(){
         clinic_id:
           CLINIC_ID,
 
-        appointment_text:
+        appointment_time:
           value,
 
-        status:
-          'available'
+        appointment_date:
+          new Date()
+            .toISOString()
+            .slice(0,10),
 
+        is_booked:
+          false
       });
 
 
@@ -3059,9 +3198,9 @@ async function addSlot(){
 }
 
 
-/* ==========================================
+/* =========================================================
    DASHBOARD SLOTS
-========================================== */
+========================================================= */
 
 function renderDashboardSlots(){
 
@@ -3071,8 +3210,9 @@ function renderDashboardSlots(){
     );
 
 
-  if(!el)
+  if(!el){
     return;
+  }
 
 
   if(!slots.length){
@@ -3095,17 +3235,14 @@ function renderDashboardSlots(){
         <div class="booking-top">
 
           <strong>
-            📅
             ${escapeHTML(
-              slot.appointment_text
+              formatSlot(slot)
             )}
           </strong>
 
           <button
             class="delete"
-            onclick="deleteSlot(
-              ${slot.id}
-            )">
+            onclick="deleteSlot(${slot.id})">
             🗑 حذف
           </button>
 
@@ -3118,9 +3255,9 @@ function renderDashboardSlots(){
 }
 
 
-/* ==========================================
+/* =========================================================
    DELETE SLOT
-========================================== */
+========================================================= */
 
 async function deleteSlot(id){
 
@@ -3167,15 +3304,11 @@ async function deleteSlot(id){
 }
 
 
-/* ==========================================
+/* =========================================================
    INIT
-========================================== */
+========================================================= */
 
 async function init(){
-
-  /*
-    الصورة الافتراضية
-  */
 
   document.getElementById(
     'doctorImage'
@@ -3184,40 +3317,35 @@ async function init(){
 
 
   /*
-    تحميل بيانات العيادة
+    مهم:
+    لا نفتح لوحة الدكتور تلقائيًا
+    حتى لو كان هناك Session قديمة.
   */
+
+  document.getElementById(
+    'dashboard'
+  ).style.display =
+    'none';
+
 
   await loadSettings();
 
-
-  /*
-    تحميل المواعيد
-  */
-
   await loadSlots();
-
-
-  /*
-    الحجوزات للوحة الدكتور
-    سيتم تحميلها بعد تسجيل الدخول.
-  */
-
 }
 
 
 init();
 
 
-/* ==========================================
+/* =========================================================
    REALTIME
-========================================== */
+========================================================= */
 
 try{
 
   supabaseClient
-    .channel(
-      'nabd-live'
-    )
+    .channel('nabd-live')
+
     .on(
       'postgres_changes',
       {
@@ -3226,9 +3354,32 @@ try{
         table:'bookings'
       },
       async ()=>{
-        await loadBookings();
+
+        /*
+          التحديثات العامة للحجوزات
+          لا تعرض بيانات للزائر،
+          لكن تحدث لوحة الدكتور إذا كان
+          مسجلًا.
+        */
+
+        const {
+          data:userData
+        } =
+          await supabaseClient.auth.getUser();
+
+        const user =
+          userData?.user;
+
+        if(
+          user &&
+          user.id === DOCTOR_USER_ID
+        ){
+
+          await loadBookings();
+        }
       }
     )
+
     .on(
       'postgres_changes',
       {
@@ -3237,9 +3388,11 @@ try{
         table:'appointments'
       },
       async ()=>{
+
         await loadSlots();
       }
     )
+
     .on(
       'postgres_changes',
       {
@@ -3248,16 +3401,60 @@ try{
         table:'clinic_settings'
       },
       async ()=>{
+
         await loadSettings();
       }
     )
+
     .subscribe();
 
-}catch(e){
+}catch(error){
 
-  console.error(e);
-
+  console.error(
+    'Realtime:',
+    error
+  );
 }
+
+
+/* =========================================================
+   CLOSE MODALS BY CLICKING OUTSIDE
+========================================================= */
+
+document.addEventListener(
+  'click',
+  function(event){
+
+    const bookingModal =
+      document.getElementById(
+        'bookingModal'
+      );
+
+    const loginModal =
+      document.getElementById(
+        'loginModal'
+      );
+
+
+    if(
+      event.target ===
+      bookingModal
+    ){
+
+      closeBooking();
+    }
+
+
+    if(
+      event.target ===
+      loginModal
+    ){
+
+      closeLogin();
+    }
+
+  }
+);
 
 </script>
 
